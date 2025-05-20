@@ -5,13 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>श्री सार्वजनिक माध्यमिक विद्यालय</title>
 
-    <!-- FAVICON LINK - START -->
-    <!-- Ensure 'favicon.png' is in the correct location relative to this HTML file. -->
-    <!-- If 'favicon.png' is in the SAME directory as this HTML file, 'href="favicon.png"' is correct. -->
-    <!-- If 'favicon.png' is in a sub-directory, e.g., 'Docs/images/', change to 'href="Docs/images/favicon.png"'. -->
-    <!-- If still not showing, a HARD REFRESH (Ctrl+F5 or Cmd+Shift+R) or clearing browser cache is essential. -->
     <link rel="icon" href="favicon.png" type="image/png">
-    <!-- FAVICON LINK - END -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,16 +19,16 @@
             --primary-color: #0057A8;
             --secondary-color: #007bff;
             --accent-color: #ffc107;
-            --light-bg-panel: rgba(255, 255, 255, 0.92); /* Semi-transparent light for panels */
-            --dark-bg-panel: rgba(30, 40, 50, 0.85);   /* Semi-transparent dark for panels (alternative) */
-            --text-color: #343a40; /* Dark text for inside panels */
-            --light-text-color: #f8f9fa; /* Light text for general page, headings */
-            --global-overlay-color: rgba(10, 20, 30, 0.75); /* Darker overlay for body background */
+            --light-bg-panel: rgba(255, 255, 255, 0.92); 
+            --dark-bg-panel: rgba(30, 40, 50, 0.85);   
+            --text-color: #343a40; 
+            --light-text-color: #f8f9fa; 
+            --global-overlay-color: rgba(10, 20, 30, 0.75); 
             --heading-font-weight: 700;
             --body-font-weight: 400;
             --base-font-size: 17px;
             --line-height: 1.7;
-            --border-radius: 8px; /* Slightly increased border radius */
+            --border-radius: 8px; 
             --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
@@ -53,29 +47,27 @@
             font-family: 'Mukta', sans-serif;
             font-weight: var(--body-font-weight);
             line-height: var(--line-height);
-            color: var(--light-text-color); /* Default text is light for global background */
+            color: var(--light-text-color); 
             font-size: var(--base-font-size);
             
-            /* GLOBAL HERO BACKGROUND */
             background-image: url('Docs/images/hero.jpg');
             background-size: cover;
             background-position: center center;
-            background-attachment: fixed; /* Keeps background fixed during scroll */
+            background-attachment: fixed; /* This is fixed by default */
             background-repeat: no-repeat;
-            position: relative; /* For the overlay */
+            position: relative; 
             min-height: 100vh;
         }
 
-        /* GLOBAL OVERLAY for body background image */
         body::before {
             content: '';
-            position: fixed; /* Fixed to cover viewport */
+            position: fixed; 
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             background-color: var(--global-overlay-color);
-            z-index: -1; /* Place it behind all content */
+            z-index: -1; 
         }
 
 
@@ -83,20 +75,19 @@
             width: 90%;
             max-width: 1140px;
             margin: auto;
-            overflow: visible; /* Allow shadows from panels to be visible */
+            overflow: visible; 
             padding: 0 1rem;
         }
 
-        /* Header Styling - Remains largely the same, sits on top */
         header {
-            background: rgba(0, 87, 168, 0.9); /* Header slightly transparent */
+            background: rgba(0, 87, 168, 0.9); 
             color: var(--light-text-color);
-            padding: 0.8rem 0; /* Slightly reduced padding */
+            padding: 0.8rem 0; 
             box-shadow: var(--header-shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(5px); /* Optional: Frosted glass effect */
+            backdrop-filter: blur(5px); 
             -webkit-backdrop-filter: blur(5px);
         }
         
@@ -149,7 +140,7 @@
             font-weight: 600; 
             font-size: 1rem; 
             transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-            padding: 8px 14px; /* Adjusted padding */
+            padding: 8px 14px; 
             border-radius: var(--border-radius);
             display: block;
         }
@@ -178,7 +169,7 @@
             nav { width: 100%; text-align: center; }
             nav ul {
                 flex-direction: column; display: none; width: 100%;
-                background: rgba(0, 74, 147, 0.95); /* Mobile menu bg slightly more opaque */
+                background: rgba(0, 74, 147, 0.95); 
                 backdrop-filter: blur(5px);
                 -webkit-backdrop-filter: blur(5px);
                 margin-top: 0.5rem; padding: 10px 0; border-radius: var(--border-radius);
@@ -188,29 +179,27 @@
             nav ul li a { padding: 12px; width: 90%; margin: auto; }
             nav ul li a:hover, nav ul li a:focus {
                 background-color: var(--accent-color);
-                color: var(--text-color); /* Dark text on accent bg */
+                color: var(--text-color); 
             }
-            .hamburger { display: block; position: absolute; top: 1rem; right: 1rem; } /* Adjusted top */
+            .hamburger { display: block; position: absolute; top: 1rem; right: 1rem; } 
         }
 
-        /* Section Base Styling */
         section {
-            padding: 60px 0; /* Reduced padding as panels will add visual space */
+            padding: 60px 0; 
             text-align: center;
-            background-color: transparent !important; /* Ensure no other background colors interfere */
-            position: relative; /* For z-indexing if needed, but usually not required for panels */
+            background-color: transparent !important; 
+            position: relative; 
         }
 
-        /* Section Titles are now light, directly on global background */
         section h2 {
             font-size: 2.6rem;
             font-weight: var(--heading-font-weight);
             margin-bottom: 40px;
-            color: var(--light-text-color); /* Light color for headings */
+            color: var(--light-text-color); 
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Subtle shadow for readability */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3); 
         }
         section h2::after {
             content: ''; position: absolute; bottom: 0; left: 50%;
@@ -218,41 +207,38 @@
             background-color: var(--accent-color); border-radius: 2px;
         }
         
-        /* General paragraph style for text NOT in a panel (rarely used now) */
         section > .container > p:not(.content-panel p) {
              margin-bottom: 20px;
              font-size: 1.15rem;
              max-width: 750px;
              margin-left: auto; margin-right: auto;
-             color: var(--light-text-color); /* Light color */
+             color: var(--light-text-color); 
              text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
-
-        /* NEW: Content Panel Styling */
         .content-panel {
             background: var(--light-bg-panel);
-            color: var(--text-color); /* Dark text inside panels */
+            color: var(--text-color); 
             padding: 30px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
-            margin-bottom: 30px; /* Space between panels if multiple in a section */
-            text-align: left; /* Default text alignment for panels */
+            margin-bottom: 30px; 
+            text-align: left; 
         }
-        .content-panel-centered { /* For panels that should have centered text */
+        .content-panel-centered { 
             text-align: center;
         }
         .content-panel h3 {
             font-size: 1.8rem;
             font-weight: 600;
-            margin-top: 0; /* Reset margin if first element */
+            margin-top: 0; 
             margin-bottom: 15px;
-            color: var(--primary-color); /* Use primary color for h3 inside panels */
+            color: var(--primary-color); 
         }
         .content-panel p, .content-panel ul {
-            font-size: 1.05rem; /* Adjusted for panel context */
+            font-size: 1.05rem; 
             margin-bottom: 15px;
-            color: var(--text-color); /* Ensure dark text */
+            color: var(--text-color); 
         }
         .content-panel ul {
             list-style: none; padding-left: 0;
@@ -262,11 +248,11 @@
             padding-left: 25px;
             position: relative;
         }
-        .content-panel ul li::before { /* Custom bullet for lists inside panels */
+        .content-panel ul li::before { 
             content: "\f00c"; 
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
-            color: var(--primary-color); /* Bullets match h3 color */
+            color: var(--primary-color); 
             position: absolute; left: 0; top: 4px; font-size: 0.9em;
         }
         .content-panel a {
@@ -278,19 +264,17 @@
             text-decoration: underline;
         }
 
-
-        /* Hero Section (#home) - Now text sits on global background */
-        .hero { /* This section is primarily text now */
-             padding: 120px 0 80px 0; /* Adjust padding as needed */
+        .hero { 
+             padding: 120px 0 80px 0; 
         }
-        .hero h2 { /* This is the main page heading now, directly on global bg */
+        .hero h2 { 
             color: var(--light-text-color);
             font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 25px;
             text-shadow: 0 2px 5px rgba(0,0,0,0.4);
         }
-        .hero h2::after { display: none; } /* No underline for hero h2 */
+        .hero h2::after { display: none; } 
         .hero p {
             font-size: 1.4rem;
             margin-bottom: 45px;
@@ -299,10 +283,9 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.3);
             max-width: 750px; margin-left: auto; margin-right: auto;
         }
-        /* Hero button remains the same */
         .btn {
             display: inline-block; background: var(--accent-color);
-            color: var(--text-color) !important; /* Ensure dark text on yellow button */
+            color: var(--text-color) !important; 
             padding: 14px 30px; text-decoration: none; border-radius: var(--border-radius);
             font-weight: 600; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
             font-size: 1.15rem; border: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -312,8 +295,6 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         
-        /* Specific Sections adapt to use .content-panel */
-
         #about .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
         #about .content-panel ul li::before { color: var(--secondary-color); } 
 
@@ -393,7 +374,6 @@
         .map-embed iframe { display: block; border-radius: var(--border-radius); }
 
 
-        /* Footer Styling */
         footer {
             background: rgba(44, 62, 80, 0.9); 
             backdrop-filter: blur(5px); 
@@ -419,6 +399,13 @@
         .developer-tag a { color: #95a5a6; text-decoration: none; font-weight: 500; }
         .developer-tag a:hover { color: var(--accent-color); text-decoration: underline; }
 
+        /* MOBILE SPECIFIC FIX FOR FIXED BACKGROUND */
+        @media (max-width: 768px) { 
+            body {
+                background-attachment: scroll; /* Change to scroll for mobile */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -429,7 +416,7 @@
                 <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="logo">
                  <div>
                     <h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1>
-                    <p>केराबारी ७, डाँगी, मोरङ</p>
+                    <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p>
                 </div>
             </div>
             <nav>
@@ -491,7 +478,9 @@
                         <li>
                             <strong>उच्च माध्यमिक तह (कक्षा ११-१२):</strong>
                             <ul>
-                               <li>व्यवस्थापन संकाय (लेखा, अर्थशास्त्र, व्यापार अध्ययन)</li> 
+                               <li>विज्ञान संकाय (भौतिक, रसायन, जीवविज्ञान, गणित, कम्प्युटर)</li>
+                               <li>व्यवस्थापन संकाय (लेखा, अर्थशास्त्र, व्यापार अध्ययन)</li>
+                               <li>शिक्षा संकाय (ऐच्छिक विषय सहित - यदि लागू हुन्छ भने)</li>
                             </ul>
                         </li>
                         <li><strong>प्राविधिक तथा व्यावसायिक धार (यदि छ भने):</strong> [जस्तै, सिभिल इन्जिनियरिङ, बाली विज्ञान आदि]</li>
@@ -547,15 +536,10 @@
                 <div class="gallery-grid">
                     <div class="gallery-item"><img src="Docs/images/bg.jpg" alt="विद्यालयको वार्षिकोत्सव"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery1.jpg" alt="कक्षाकोठा गतिविधि"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery_library.jpg" alt="पुस्तकालय अध्ययन"></div> <!-- Changed from gallery2.jpg to match previous structure -->
-                    <div class="gallery-item"><img src="Docs/images/gallery_lab.jpg" alt="विज्ञान प्रयोगशाला"></div> <!-- Changed from gallery3.jpg -->
-                    <div class="gallery-item"><img src="Docs/images/gallery_sports.jpg" alt="खेलकुद दिवस"></div> <!-- Changed from gallery4.jpg -->
-                    <div class="gallery-item"><img src="Docs/images/gallery_building.jpg" alt="विद्यालय भवन परिसर"></div> <!-- Changed from gallery5.jpg -->
-                    <!-- You can add more gallery items here if needed -->
-                    <!-- Example:
-                    <div class="gallery-item"><img src="Docs/images/gallery6.jpg" alt="Additional Image 1"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery7.jpg" alt="Additional Image 2"></div>
-                     -->
+                    <div class="gallery-item"><img src="Docs/images/gallery_library.jpg" alt="पुस्तकालय अध्ययन"></div> 
+                    <div class="gallery-item"><img src="Docs/images/gallery_lab.jpg" alt="विज्ञान प्रयोगशाला"></div> 
+                    <div class="gallery-item"><img src="Docs/images/gallery_sports.jpg" alt="खेलकुद दिवस"></div> 
+                    <div class="gallery-item"><img src="Docs/images/gallery_building.jpg" alt="विद्यालय भवन परिसर"></div> 
                 </div>
             </div>
         </section>
@@ -566,11 +550,11 @@
                 <p class="intro-text">हामी तपाईंको प्रश्न, प्रतिक्रिया, र सुझावहरू सुन्न सधैं तयार छौं।</p>
                 
                 <div class="contact-details">
-                    <p><i class="fas fa-map-marker-alt"></i><strong>ठेगाना:</strong> डाँगी, वडा नं ७, केराबारी गाउँपालिका, मोरङ, कोशी प्रदेश, नेपाल</p>
-                    <p><i class="fas fa-phone-alt"></i><strong>फोन:</strong> +९७७-9800000000</p>
+                    <p><i class="fas fa-map-marker-alt"></i><strong>ठेगाना:</strong> केराबारी ७ डाँगी, मोरङ, कोशी प्रदेश, नेपाल</p>
+                    <p><i class="fas fa-phone-alt"></i><strong>फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p>
                     <p><i class="fas fa-envelope"></i><strong>इमेल:</strong> <a href="mailto:[विद्यालयको इमेल]">sarwajanikschool1@gmail.com</a></p>
-                    <p><i class="fas fa-globe"></i><strong>वेबसाइट:</strong> <a href="https://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
-                    <p class="social-contact"><i class="fab fa-facebook"></i><strong>फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
+                    <p><i class="fas fa-globe"></i><strong>वेबसाइट:</strong> <a href="http://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
+                    <p class="social-contact"><i class="fab fa-facebook"></i><strong>फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
                 </div>
                 
                 <div class="captcha-container">
@@ -661,7 +645,7 @@
 
                 const sections = document.querySelectorAll('main section');
                 const headerHeight = document.querySelector('header').offsetHeight; 
-                const footer = document.querySelector('footer'); // Define footer
+                const footer = document.querySelector('footer'); 
 
                 function setActiveLink() {
                     let currentId = '';
