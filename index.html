@@ -1,197 +1,328 @@
-<!DOCTYPE html>
-<html lang="ne">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>श्री सार्वजनिक माध्यमिक विद्यालय - चाँडै आउँदैछ</title>
-    <meta name="description" content="श्री सार्वजनिक माध्यमिक विद्यालय, केराबारी–७, डाँगी, मोरङको आधिकारिक वेबसाइट (sarwajanikschool.edu.np) चाँडै आउँदैछ। रमन भण्डारीद्वारा निर्माणाधीन।">
-    <meta name="author" content="रमन भण्डारी">
-    <meta name="developer" content="रमन भण्डारी, digitalhubonline2025@gmail.com">
-    <meta name="keywords" content="Shree Sarwajanik Secondary School, Kerabari, Morang, School Website, Launching Soon, Nepal School, सार्वजनिक माध्यमिक विद्यालय, केराबारी, मोरङ, विद्यालय वेबसाइट">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Noto Sans Devanagari', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.8;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #e0e0e0;
-            margin-bottom: 20px;
-        }
-        .logo-img { /* Changed from .logo to .logo-img for clarity */
-            width: 50px; /* Adjust as needed */
-            height: 50px; /* Adjust as needed */
-            margin-right: 20px;
-            object-fit: contain; /* Ensures the logo fits well without distortion */
-        }
-        .school-name {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #0056b3;
-        }
-        .hero {
-            /* Updated background image path */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Docs/images/hero.jpg'); 
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        .hero h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 1.2em;
-            margin-bottom: 0;
-        }
-        .content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .content h2 {
-            color: #0056b3;
-            font-size: 1.8em;
-            margin-top: 0;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .content p {
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-        .highlight {
-            color: #d9534f; /* A highlight color */
-            font-weight: 500;
-        }
-        .contact-info {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-        .contact-info h3 {
-            font-size: 1.4em;
-            color: #0056b3;
-            margin-bottom: 15px;
-        }
-        .contact-info p {
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-        .contact-info a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        .developer-tag {
-            font-weight: bold;
-        }
-        .footer {
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 30px;
-            color: #777;
-            font-size: 0.9em;
-            border-top: 1px solid #e0e0e0;
-        }
-        .footer a {
-            color: #0056b3;
-            text-decoration: none;
-        }
+/* नेपाली font को लागि */
+/* @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap'); */
 
-        @media (max-width: 768px) {
-            .school-name {
-                font-size: 1.5em;
-            }
-            .hero h1 {
-                font-size: 2em;
-            }
-            .hero p {
-                font-size: 1em;
-            }
-            .content h2 {
-                font-size: 1.5em;
-            }
-             .content p, .contact-info p {
-                font-size: 1em;
-            }
-        }
-    </style>
-</head>
-<body>
+/* Basic Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <div class="container">
-        <header class="header">
-            <!-- Updated logo to use an img tag -->
-            <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="logo-img">
-            <div class="school-name">श्री सार्वजनिक माध्यमिक विद्यालय</div>
-        </header>
+body {
+    font-family: 'Mukta', sans-serif; /* यहाँ तपाईंले प्रयोग गर्ने नेपाली font राख्नुहोस् */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
 
-        <section class="hero">
-            <h1>हाम्रो आधिकारिक वेबसाइट चाँडै आउँदैछ!</h1>
-            <p>श्री सार्वजनिक माध्यमिक विद्यालय, केराबारी–७, डाँगी, मोरङ</p>
-            <p style="font-size: 1em; margin-top: 10px;">
-                🌐 <a href="http://sarwajanikschool.edu.np" target="_blank" style="color: #fff;">sarwajanikschool.edu.np</a> (हाल निर्माणाधीन)
-            </p>
-        </section>
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 1rem; /* किनारामा स्पेस थपियो */
+}
 
-        <main class="content">
-            <h2>सबैमा नमस्कार!</h2>
-            <p>
-                हामी श्री सार्वजनिक माध्यमिक विद्यालय, केराबारी–७, डाँगी, मोरङको आधिकारिक वेबसाइट निर्माण गरिरहेका छौं। यो प्रयास हाम्रा पूर्व विद्यार्थी, <span class="developer-tag">रमन भण्डारी</span> (वेबसाइट डिजाइन तथा दर्ता संयोजक) को नेतृत्वमा अघि बढिरहेको छ।
-            </p>
-            <p>
-                हाल वेबसाइट निर्माणको प्रारम्भिक चरणमा छ र डोमेन (sarwajanikschool.edu.np) दर्ता भइसकेको छ। यो हाम्रो विद्यालयलाई डिजिटल युगमा जोड्ने एक महत्वपूर्ण कदम हो, र यस कार्यमा तपाईं सबैको साथ, सहयोग र सुझावको अपेक्षा गर्दछौं।
-            </p>
-            <p>
-                यदि वेबसाइटमा समावेश गरिने कुनै पनि जानकारी, तस्बिर वा अन्य सामग्रीहरूका सम्बन्धमा तपाईंलाई कुनै चासो, असजिलो महसुस वा गोपनीयताको चिन्ता छ भने, कृपया निडर रूपमा तल दिइएको सम्पर्क मार्फत <span class="developer-tag">रमन भण्डारी</span>लाई जानकारी गराउनुहोला। तपाईंको प्रतिक्रिया र सुझावलाई उच्च प्राथमिकता दिइनेछ।
-            </p>
-            <p class="highlight">
-                यो हाम्रो विद्यालयको डिजिटल पहिचान बनाउने अभियान हो, सबैको साथले मात्र सफल हुन्छ।
-            </p>
+/* Header */
+header {
+    background: #0056b3; /* गाढा नीलो रङ */
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
-            <div class="contact-info">
-                <h3>सम्पर्क तथा सुझावका लागि:</h3>
-                <p><span class="developer-tag">रमन भण्डारी</span></p>
-                <p>पूर्व विद्यार्थी | वेबसाइट डिजाइन तथा दर्ता संयोजक</p>
-                <p>
-                    📩 ईमेल: <a href="mailto:digitalhubonline2025@gmail.com">digitalhubonline2025@gmail.com</a>
-                </p>
-                <p>
-                    📱 WhatsApp: <a href="https://wa.me/9779810430546" target="_blank">+९७७ ९८१०४३०५४६</a>
-                </p>
-            </div>
-        </main>
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* साानो स्क्रिनमा item हरू wrap हुनका लागि */
+}
 
-        <footer class="footer">
-            <p>शुभकामनासहित,</p>
-            <p><strong>रमन भण्डारी</strong> र विद्यालय वेबसाइट निर्माण टोली</p>
-            <p>© २०२५ <a href="http://sarwajanikschool.edu.np" target="_blank">श्री सार्वजनिक माध्यमिक विद्यालय</a>. सबै अधिकार सुरक्षित।</p>
-        </footer>
-    </div>
+.school-title {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* शीर्षकलाई ठाउँ दिनका लागि */
+}
 
-</body>
-</html>
+/* लोगोको स्टाइल */
+.school-title .logo {
+    height: 70px; /* लोगोको उचाई, आवश्यकता अनुसार मिलाउनुहोस् */
+    width: auto; /* चौडाई आफैँ मिलाउन */
+    margin-right: 1rem;
+}
+
+.school-title h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.school-title p {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* navigation items हरूलाई छेउछाउमा राख्न */
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    padding: 5px 0; /* Touch area बढायो */
+    display: block;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* ठूलो स्क्रिनमा hide गर्ने */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    line-height: 1;
+}
+
+/* === Responsive Design (मोबाइलका लागि) === */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column; /* Mobile मा stack गर्ने */
+        align-items: flex-start;
+    }
+
+    .school-title {
+        width: 100%;
+        justify-content: center; /* Center content when stacked */
+        margin-bottom: 1rem;
+        flex-direction: column; /* Logo and text vertically */
+        text-align: center;
+    }
+
+    .school-title .logo {
+        margin: 0 0 0.5rem 0; /* लोगोलाई Center गरेर तल Space */
+        height: 60px; /* Mobile मा लोगोको सानो आकार */
+    }
+
+     .school-title h1 {
+        font-size: 1.6rem; /* Mobile मा शीर्षकको सानो आकार */
+    }
+     .school-title p {
+        font-size: 0.8rem; /* Mobile मा subtitle को सानो आकार */
+    }
+
+
+    nav {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column; /* Navigation links लाई तल-माथि राख्ने */
+        display: none; /* Hamburger नथिचेसम्म navigation hide गर्ने */
+        width: 100%;
+        background: #004080; /* Dropdown menu को background */
+        margin-top: 0.5rem;
+        padding: 10px 0;
+    }
+
+    nav ul.show {
+        display: flex; /* Hamburger click गर्दा navigation देखाउने (JS ले गर्छ) */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Navigation link हरू बीच ठाउँ */
+    }
+     nav ul li a {
+         padding: 10px; /* Touch area बढाउने */
+     }
+
+    .hamburger {
+        display: block; /* Mobile मा hamburger देखाउने */
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+}
+
+
+/* Sections Styling */
+section {
+    padding: 60px 0; /* Section हरूको माथि र तल स्पेस */
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.2rem; /* शीर्षकको आकार */
+    margin-bottom: 30px;
+    color: #0056b3; /* शीर्षकको रङ */
+}
+
+section p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+section h3 {
+     font-size: 1.5rem;
+     margin-top: 25px;
+     margin-bottom: 15px;
+     color: #007bff; /* Secondary blue */
+}
+
+/* Alternate background for sections */
+.alt-background {
+    background-color: #e9e9e9;
+}
+
+/* Hero Section (मुख्य पृष्ठको ठूलो ब्यानर) */
+.hero {
+    /* हिरो इमेजको पथ अपडेट गरिएको छ */
+    background: url('Docs/imges/hero.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 120px 0; /* माथि र तल ठूलो स्पेस */
+    position: relative;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7); /* Text पढ्न सजिलो बनाउन Shadow */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* इमेजमाथि कालो opacity Overlay */
+}
+
+.hero .container {
+    position: relative; /* सुनिश्चित गर्नुहोस् कि सामग्री overlay को माथि छ */
+    z-index: 1;
+}
+
+.hero h2 {
+    color: #fff; /* हिरो सेक्सनको शीर्षकको रङ */
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    background: #ffc107; /* सुनौलो/पहेँलो रङ */
+    color: #333;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.btn:hover {
+    background: #e0a800; /* गाढा सुनौलो रङ */
+}
+
+/* About Section Specifics */
+#about ul {
+    list-style: disc;
+    text-align: left; /* list लाई बाँया तिर मिलाउन */
+    margin-left: 20px;
+    display: inline-block; /* list को block लाई बीचमा ल्याउन */
+    margin-top: 20px;
+}
+
+#about ul li {
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+}
+
+
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive Grid */
+    gap: 20px; /* Grid item हरू बीच Space */
+    margin-top: 30px;
+}
+
+.gallery-grid img {
+    display: block;
+    width: 100%;
+    height: 200px; /* वा एउटै निश्चित उचाई */
+    object-fit: cover; /* Image को proportion नमिलाइकन grid space भर्न */
+    border-radius: 5px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover गर्दा एनिमेसन */
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03); /* Hover गर्दा सानो जुम */
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+}
+
+
+/* Contact Section */
+.contact-details {
+    margin-top: 25px;
+    text-align: left; /* विवरणलाई बाँया तिर मिलाउन */
+    display: inline-block; /* विवरणको block लाई बीचमा ल्याउन */
+    font-size: 1.1rem;
+    line-height: 2; /* Line हरू बीच Space */
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+}
+
+/* Map Embed Styling (यदि प्रयोग गर्नुहुन्छ भने) */
+.map-embed {
+    margin-top: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+    background: #222; /* गाढा रङ */
+    color: #ddd; /* हल्का सेतो रङ */
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 40px; /* Section र footer बीच स्पेस */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 10px; /* copyright र link हरू बीच स्पेस */
+}
+
+footer a {
+    color: #ddd;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
