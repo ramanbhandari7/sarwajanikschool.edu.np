@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>श्री सार्वजनिक माध्यमिक विद्यालय</title>
 
+    <!-- FAVICON LINK - START -->
+    <!-- Ensure 'favicon.png' is in the correct location relative to this HTML file. -->
+    <!-- If 'favicon.png' is in the SAME directory as this HTML file, 'href="favicon.png"' is correct. -->
+    <!-- If 'favicon.png' is in a sub-directory, e.g., 'Docs/images/', change to 'href="Docs/images/favicon.png"'. -->
+    <!-- If still not showing, a HARD REFRESH (Ctrl+F5 or Cmd+Shift+R) or clearing browser cache is essential. -->
     <link rel="icon" href="favicon.png" type="image/png">
+    <!-- FAVICON LINK - END -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +99,7 @@
             backdrop-filter: blur(5px); /* Optional: Frosted glass effect */
             -webkit-backdrop-filter: blur(5px);
         }
-        /* ... (rest of header, nav, hamburger styles from previous version, may need minor tweaks if contrast issues arise with new header bg) ... */
+        
         header .container {
             display: flex;
             justify-content: space-between;
@@ -306,24 +312,18 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         
-        /* .alt-background class is no longer needed for distinct bg color */
         /* Specific Sections adapt to use .content-panel */
 
-        /* About Section (#about) */
-        /* General description might be a centered panel */
         #about .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
-        #about .content-panel ul li::before { color: var(--secondary-color); } /* Example: different bullet color */
+        #about .content-panel ul li::before { color: var(--secondary-color); } 
 
-        /* Academics Section (#academics) */
         #academics .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
         #academics .content-panel strong { color: var(--primary-color); display: block; margin-bottom: 8px; font-size: 1.1em;}
         #academics .content-panel ul ul { margin-left: 20px; margin-top: 10px; padding-left: 0; }
         #academics .content-panel ul ul li::before { content: "\f105"; color: var(--secondary-color); }
 
-        /* News Section (#news) */
-        /* The <article> elements become the panels */
         #news .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
-        #news article { /* Article itself is a panel */
+        #news article { 
             background: var(--light-bg-panel);
             color: var(--text-color);
             padding: 25px; margin-bottom: 25px;
@@ -342,18 +342,16 @@
         #news article a { color: var(--secondary-color); text-decoration: none; font-weight: 600; }
         #news article a:hover { text-decoration: underline; }
 
-        /* Admissions Section (#admissions) */
         #admissions .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
 
-        /* Gallery Section (#gallery) */
         #gallery .intro-text { margin-bottom: 40px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
         .gallery-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px; margin-top: 0; /* No margin-top if intro-text handles it */
+            gap: 25px; margin-top: 0; 
         }
-        .gallery-grid .gallery-item { /* Items have their own slight shadow */
+        .gallery-grid .gallery-item { 
             border-radius: var(--border-radius); overflow: hidden;
-            background: rgba(255,255,255,0.1); /* Slight background for items if image isn't full bleed */
+            background: rgba(255,255,255,0.1); 
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
@@ -368,12 +366,11 @@
         }
         .gallery-grid .gallery-item:hover img { transform: scale(1.05); }
 
-        /* Contact Section (#contact) */
         #contact .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
-        .contact-details { /* Becomes a panel */
+        .contact-details { 
             background: var(--light-bg-panel);
             color: var(--text-color);
-            padding: 35px; /* More padding for contact details */
+            padding: 35px; 
             border-radius: var(--border-radius); box-shadow: var(--card-shadow);
             text-align: left; max-width: 700px; width: 100%;
             margin-left: auto; margin-right: auto; margin-bottom: 30px;
@@ -384,32 +381,31 @@
         .contact-details p a { color: var(--secondary-color); }
         .contact-details .social-contact a { font-size: 1.2rem; color: var(--primary-color); }
 
-        /* CAPTCHA and Map also get panel styling */
         .captcha-container, .map-embed {
-            background: var(--light-bg-panel); /* For consistency */
+            background: var(--light-bg-panel); 
             padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
-            max-width: fit-content; /* Captcha: shrink to widget size */
+            max-width: fit-content; 
             margin: 30px auto;
         }
-        .map-embed { max-width: 100%; padding:0; overflow:hidden; } /* Map full width inside paddingless panel */
+        .map-embed { max-width: 100%; padding:0; overflow:hidden; } 
         .map-embed iframe { display: block; border-radius: var(--border-radius); }
 
 
         /* Footer Styling */
         footer {
-            background: rgba(44, 62, 80, 0.9); /* Footer also slightly transparent */
-            backdrop-filter: blur(5px); /* Optional: Frosted glass effect */
+            background: rgba(44, 62, 80, 0.9); 
+            backdrop-filter: blur(5px); 
             -webkit-backdrop-filter: blur(5px);
             color: #bdc3c7;
-            text-align: center; padding: 2.5rem 0; /* Reduced padding */
-            margin-top: 40px; /* Reduced margin */
+            text-align: center; padding: 2.5rem 0; 
+            margin-top: 40px; 
             font-size: 1rem;
-            position: relative; /* Ensure it sits above the ::before pseudo-element of body */
+            position: relative; 
             z-index: 1; 
         }
-        /* ... (rest of footer styles from previous version, ensuring good contrast) ... */
+        
          .footer-nav ul { list-style: none; padding: 0; margin: 0 0 1.5rem 0; display: flex; justify-content: center; flex-wrap: wrap;}
         .footer-nav ul li { margin: 5px 15px; }
         .footer-nav ul li a { color: #ecf0f1; text-decoration: none; transition: color 0.3s ease; font-weight: 500;}
@@ -426,16 +422,14 @@
     </style>
 </head>
 <body>
-    <!-- The body::before pseudo-element will create the global background overlay -->
-
+    
     <header>
-        <!-- Header content from previous response -->
         <div class="container">
             <div class="school-title">
                 <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="logo">
                  <div>
                     <h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1>
-                    <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p>
+                    <p>केराबारी ७, डाँगी, मोरङ</p>
                 </div>
             </div>
             <nav>
@@ -456,8 +450,7 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero"> <!-- No .content-panel here for full-width feel -->
+        <section id="home" class="hero"> 
             <div class="container">
                 <h2>विद्यालयमा स्वागत छ!</h2>
                 <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध। तपाईंको शैक्षिक यात्रा हाम्रो साथमा अझ फलदायी बनाउनुहोस्।</p>
@@ -498,9 +491,7 @@
                         <li>
                             <strong>उच्च माध्यमिक तह (कक्षा ११-१२):</strong>
                             <ul>
-                               <li>विज्ञान संकाय (भौतिक, रसायन, जीवविज्ञान, गणित, कम्प्युटर)</li>
-                               <li>व्यवस्थापन संकाय (लेखा, अर्थशास्त्र, व्यापार अध्ययन)</li>
-                               <li>शिक्षा संकाय (ऐच्छिक विषय सहित - यदि लागू हुन्छ भने)</li>
+                               <li>व्यवस्थापन संकाय (लेखा, अर्थशास्त्र, व्यापार अध्ययन)</li> 
                             </ul>
                         </li>
                         <li><strong>प्राविधिक तथा व्यावसायिक धार (यदि छ भने):</strong> [जस्तै, सिभिल इन्जिनियरिङ, बाली विज्ञान आदि]</li>
@@ -514,7 +505,6 @@
             <div class="container">
                 <h2>समाचार र सूचना</h2>
                 <p class="intro-text">विद्यालय सम्बन्धी ताजा खबर, कार्यक्रम, परीक्षा तालिका र अन्य महत्वपूर्ण सूचनाहरू।</p>
-                <!-- Articles will be styled as panels directly by #news article rule -->
                 <article>
                     <h3>उत्कृष्ट एसईई (SEE) नतिजा - २०७९!</h3>
                     <p>यस वर्षको एसईई परीक्षामा विद्यालयका सम्पूर्ण विद्यार्थी भाइबहिनीहरूले उत्कृष्ट नतिजा ल्याउन सफल भएकोमा हार्दिक बधाई! उनीहरूको उज्ज्वल भविष्यको कामना गर्दछौँ। विस्तृत नतिजा <a href="#">यहाँ</a> हेर्नुहोस्।</p>
@@ -557,12 +547,15 @@
                 <div class="gallery-grid">
                     <div class="gallery-item"><img src="Docs/images/bg.jpg" alt="विद्यालयको वार्षिकोत्सव"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery1.jpg" alt="कक्षाकोठा गतिविधि"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery2.jpg" alt="पुस्तकालय अध्ययन"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery3.jpg" alt="विज्ञान प्रयोगशाला"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery4.jpg" alt="खेलकुद दिवस"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery5.jpg" alt="विद्यालय भवन परिसर"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery6.jpg" alt="विद्यालय भवन परिसर"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery7.jpg" alt="विद्यालय भवन परिसर"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery_library.jpg" alt="पुस्तकालय अध्ययन"></div> <!-- Changed from gallery2.jpg to match previous structure -->
+                    <div class="gallery-item"><img src="Docs/images/gallery_lab.jpg" alt="विज्ञान प्रयोगशाला"></div> <!-- Changed from gallery3.jpg -->
+                    <div class="gallery-item"><img src="Docs/images/gallery_sports.jpg" alt="खेलकुद दिवस"></div> <!-- Changed from gallery4.jpg -->
+                    <div class="gallery-item"><img src="Docs/images/gallery_building.jpg" alt="विद्यालय भवन परिसर"></div> <!-- Changed from gallery5.jpg -->
+                    <!-- You can add more gallery items here if needed -->
+                    <!-- Example:
+                    <div class="gallery-item"><img src="Docs/images/gallery6.jpg" alt="Additional Image 1"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery7.jpg" alt="Additional Image 2"></div>
+                     -->
                 </div>
             </div>
         </section>
@@ -572,21 +565,18 @@
                 <h2>सम्पर्क गर्नुहोस्</h2>
                 <p class="intro-text">हामी तपाईंको प्रश्न, प्रतिक्रिया, र सुझावहरू सुन्न सधैं तयार छौं।</p>
                 
-                <!-- contact-details is already styled as a panel -->
                 <div class="contact-details">
                     <p><i class="fas fa-map-marker-alt"></i><strong>ठेगाना:</strong> डाँगी, वडा नं ७, केराबारी गाउँपालिका, मोरङ, कोशी प्रदेश, नेपाल</p>
-                    <p><i class="fas fa-phone-alt"></i><strong>फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p>
-                    <p><i class="fas fa-envelope"></i><strong>इमेल:</strong> <a href="mailto:[विद्यालयको इमेल]">[विद्यालयको आधिकारिक इमेल ठेगाना]</a></p>
-                    <p><i class="fas fa-globe"></i><strong>वेबसाइट:</strong> <a href="http://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
-                    <p class="social-contact"><i class="fab fa-facebook"></i><strong>फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
+                    <p><i class="fas fa-phone-alt"></i><strong>फोन:</strong> +९७७-9800000000</p>
+                    <p><i class="fas fa-envelope"></i><strong>इमेल:</strong> <a href="mailto:[विद्यालयको इमेल]">sarwajanikschool1@gmail.com</a></p>
+                    <p><i class="fas fa-globe"></i><strong>वेबसाइट:</strong> <a href="https://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
+                    <p class="social-contact"><i class="fab fa-facebook"></i><strong>फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
                 </div>
                 
-                <!-- captcha-container is styled as a panel -->
                 <div class="captcha-container">
                     <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY_HERE" data-theme="light"></div>
                 </div>
 
-                <!-- map-embed is styled as a panel -->
                 <div class="map-embed">
                      <iframe src="https://maps.google.com/maps?q=Q94H%2B9RQ%2C%20Kerabari%2056600%2C%20Nepal&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -595,7 +585,6 @@
     </main>
 
     <footer>
-        <!-- Footer content from previous response -->
         <div class="container">
             <nav class="footer-nav">
                 <ul>
@@ -624,7 +613,6 @@
     </footer>
 
     <script>
-        // JavaScript from the previous response (for hamburger, active nav link, year)
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.getElementById('hamburger-button'); 
             const navList = document.querySelector('.nav-list');
@@ -644,11 +632,10 @@
 
                 navList.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (event) => {
-                        // Active class handled by scroll listener mostly, but set on click for immediate feedback
                         navList.querySelectorAll('a').forEach(navLink => navLink.classList.remove('active'));
                         link.classList.add('active');
 
-                        if (navList.classList.contains('show')) { // Close mobile menu
+                        if (navList.classList.contains('show')) { 
                             navList.classList.remove('show');
                              const icon = hamburger.querySelector('i');
                              icon.classList.remove('fa-times');
@@ -661,7 +648,6 @@
                             if (targetSection) {
                                 const headerOffset = document.querySelector('header').offsetHeight;
                                 const elementPosition = targetSection.getBoundingClientRect().top;
-                                // Extra offset to ensure content is not hidden by header
                                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; 
 
                                 window.scrollTo({
@@ -675,26 +661,23 @@
 
                 const sections = document.querySelectorAll('main section');
                 const headerHeight = document.querySelector('header').offsetHeight; 
+                const footer = document.querySelector('footer'); // Define footer
 
                 function setActiveLink() {
                     let currentId = '';
-                    // Find the current section in view
                     sections.forEach(section => {
-                        const sectionTop = section.offsetTop - headerHeight - 50; // Adjust offset for better accuracy
+                        const sectionTop = section.offsetTop - headerHeight - 50; 
                         const sectionBottom = sectionTop + section.offsetHeight;
                         if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
                             currentId = section.getAttribute('id');
                         }
                     });
                     
-                    // If no specific section is "current" (e.g., at the very top or very bottom of the page), adjust.
                     if (currentId === '' && window.pageYOffset < sections[0].offsetTop - headerHeight - 50) {
-                        currentId = 'home'; // Default to home if above the first section
-                    } else if (currentId === '' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - (footer.offsetHeight + 50)) {
-                        // If near the bottom of the page (accounting for footer), make last section active
+                        currentId = 'home'; 
+                    } else if (footer && currentId === '' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - (footer.offsetHeight + 50)) {
                         currentId = sections[sections.length - 1].id;
                     }
-
 
                     navList.querySelectorAll('a').forEach(a => {
                         a.classList.remove('active');
@@ -705,7 +688,7 @@
                 }
                 
                 window.addEventListener('scroll', setActiveLink);
-                window.addEventListener('load', setActiveLink); // Also set on page load
+                window.addEventListener('load', setActiveLink); 
             }
 
             const currentYearElement = document.getElementById('current-year');
