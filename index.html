@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>श्री सार्वजनिक माध्यमिक विद्यालय</title>
 
+    <!-- Favicon Link -->
+    <link rel="icon" href="favicon.png" type="image/png"> 
+    <!-- If your favicon is in Docs/images/, change href to "Docs/images/favicon.png" -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -316,7 +320,7 @@
         /* Custom Bullet Style */
         #about ul li::before, #admissions ul li::before, #academics ul ul li::before, #academics > ul > li > strong::before {
             content: "\f00c"; /* FontAwesome check icon or use "•" */
-            font-family: "Font Awesome 6 Free"; /* Corrected for FA v6 */
+            font-family: "Font Awesome 6 Free"; 
             font-weight: 900; /* Solid icon */
             color: var(--accent-color);
             position: absolute;
@@ -331,7 +335,7 @@
         }
         #academics > ul > li > strong::before {
              content: "\f192"; /* fa-dot-circle for main points */
-             font-family: "Font Awesome 6 Free"; /* Corrected for FA v6 */
+             font-family: "Font Awesome 6 Free"; 
              top: 7px;
         }
 
@@ -343,7 +347,7 @@
         }
          #academics ul ul li::before {
             content: "\f105"; /* fa-chevron-right */
-            font-family: "Font Awesome 6 Free"; /* Corrected for FA v6 */
+            font-family: "Font Awesome 6 Free"; 
             color: var(--secondary-color);
          }
 
@@ -423,10 +427,10 @@
             padding: 30px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
-            max-width: 700px; /* Added max-width */
-            width: 100%; /* Ensure it takes available space up to max-width */
-            margin-left: auto;  /* Centering the block */
-            margin-right: auto; /* Centering the block */
+            max-width: 700px; 
+            width: 100%; 
+            margin-left: auto;  
+            margin-right: auto; 
         }
         .contact-details p { font-size: 1.1rem; margin-bottom: 12px; color: var(--text-color); }
         .contact-details p strong { color: var(--primary-color); }
@@ -437,7 +441,7 @@
         }
         .contact-details p a:hover { text-decoration: underline; }
         .contact-details .social-contact a {
-             font-size: 1.2rem; /* Specific for FB link in contact */
+             font-size: 1.2rem; 
              margin-right: 10px;
              color: var(--primary-color);
         }
@@ -453,10 +457,10 @@
         }
         
         .captcha-container {
-            margin-top: 40px; /* Added more margin for spacing from contact details */
+            margin-top: 40px; 
             display: flex;
             justify-content: center;
-            padding: 15px; /* Slightly more padding */
+            padding: 15px; 
             background: #fff; 
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
@@ -467,8 +471,8 @@
 
         /* Footer Styling */
         footer {
-            background: #2c3e50; /* Darker, richer blue-gray */
-            color: #bdc3c7; /* Softer light text */
+            background: #2c3e50; 
+            color: #bdc3c7; 
             text-align: center;
             padding: 3rem 0;
             margin-top: 60px;
@@ -485,7 +489,7 @@
         }
         .footer-nav ul li { margin: 5px 18px; }
         .footer-nav ul li a {
-            color: #ecf0f1; /* Brighter footer link text */
+            color: #ecf0f1; 
             text-decoration: none;
             transition: color 0.3s ease;
             font-weight: 500;
@@ -501,7 +505,7 @@
             color: #ecf0f1;
             text-decoration: none;
             margin: 0 15px;
-            font-size: 1.8rem; /* Larger icons */
+            font-size: 1.8rem; 
             transition: color 0.3s ease, transform 0.2s ease;
         }
         .social-links a:hover {
@@ -514,7 +518,7 @@
             font-size: 0.95rem;
         }
         .developer-tag a {
-            color: #95a5a6; /* Subtler color for developer link */
+            color: #95a5a6; 
             text-decoration: none;
             font-weight: 500;
         }
@@ -546,7 +550,7 @@
                     <li><a href="#contact">सम्पर्क</a></li>
                 </ul>
                 <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
-                    <i class="fas fa-bars"></i> <!-- Using FontAwesome for hamburger -->
+                    <i class="fas fa-bars"></i>
                 </button>
             </nav>
         </div>
@@ -558,7 +562,6 @@
                 <h2>विद्यालयमा स्वागत छ!</h2>
                 <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध। तपाईंको शैक्षिक यात्रा हाम्रो साथमा अझ फलदायी बनाउनुहोस्।</p>
                 <a href="#about" class="btn">थप जान्नुहोस्</a>
-                <!-- <a href="#admissions" class="btn btn-secondary" style="margin-left: 10px;">भर्ना खुला छ!</a> -->
             </div>
         </section>
 
@@ -566,7 +569,7 @@
             <div class="container">
                 <h2>हाम्रो बारेमा</h2>
                 <p>श्री सार्वजनिक माध्यमिक विद्यालय मोरङ जिल्लाको केराबारी वडा नम्बर ७, डाँगीमा अवस्थित एक प्रतिष्ठित शैक्षिक संस्था हो। वि.सं. [स्थापना भएको वर्ष] मा स्थापित यस विद्यालयले यस क्षेत्रमा गुणस्तरीय शिक्षा प्रदान गर्दै आइरहेको छ। हाम्रो लक्ष्य विद्यार्थीहरूलाई नैतिकवान, जिम्मेवार र प्रतिस्पर्धी नागरिकको रूपमा विकास गर्नु हो।</p>
-                <h3>भिजन र मिशन</h3> <!-- Combined for flow -->
+                <h3>भिजन र मिशन</h3>
                 <p><strong>भिजन:</strong> अग्रणी शैक्षिक केन्द्रको रूपमा स्थापित भई समुदायको शैक्षिक उन्नयनमा योगदान पुर्याउनु।</p>
                 <p><strong>मिशन:</strong> प्रत्येक विद्यार्थीमा अन्तर्निहित प्रतिभालाई प्रस्फुटन गराउँदै समग्र विकासमा सहयोग पुर्याउनु।</p>
                 <h3>हाम्रा विशेषताहरू</h3>
@@ -601,7 +604,7 @@
                 <p style="margin-top: 30px;">थप पाठ्यक्रम र विषयगत जानकारीका लागि विद्यालय प्रशासनमा सम्पर्क गर्न सक्नुहुन्छ।</p>
             </div>
         </section>
-         <section id="news"> <!-- News section given a standard background for card visibility -->
+         <section id="news"> 
             <div class="container">
                 <h2>समाचार र सूचना</h2>
                 <p>विद्यालय सम्बन्धी ताजा खबर, कार्यक्रम, परीक्षा तालिका र अन्य महत्वपूर्ण सूचनाहरू।</p>
@@ -647,8 +650,7 @@
                     <div class="gallery-item"><img src="Docs/images/gallery_library.jpg" alt="पुस्तकालय अध्ययन"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery_lab.jpg" alt="विज्ञान प्रयोगशाला"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery_sports.jpg" alt="खेलकुद दिवस"></div>
-                    <div class="gallery-item"><img src
-="Docs/images/gallery_building.jpg" alt="विद्यालय भवन परिसर"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery_building.jpg" alt="विद्यालय भवन परिसर"></div>
                 </div>
             </div>
         </section>
@@ -663,14 +665,13 @@
                     <p><strong><i class="fas fa-phone-alt"></i> फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p>
                     <p><strong><i class="fas fa-envelope"></i> इमेल:</strong> <a href="mailto:[विद्यालयको इमेल]">[विद्यालयको आधिकारिक इमेल ठेगाना]</a></p>
                     <p><strong><i class="fas fa-globe"></i> वेबसाइट:</strong> <a href="http://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
-                    <p class="social-contact"><strong><i class="fab fa-facebook"></i> फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
+                    <p class="social-contact"><strong><i class="fab fa-facebook"></i> फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
                 </div>
                  
                 <div class="captcha-container">
                     <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY_HERE" data-theme="light"></div>
                 </div>
 
-                <!-- Google Map Embed -->
                 <div class="map-embed">
                      <iframe src="https://maps.google.com/maps?q=Q94H%2B9RQ%2C%20Kerabari%2056600%2C%20Nepal&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -738,12 +739,11 @@
                         
                         const href = link.getAttribute('href');
                         if (href && href.startsWith('#')) {
-                            // event.preventDefault(); // Only preventDefault if you are NOT using the hash in the URL for other purposes
                             const targetSection = document.querySelector(href);
                             if (targetSection) {
                                 const headerOffset = document.querySelector('header').offsetHeight;
                                 const elementPosition = targetSection.getBoundingClientRect().top;
-                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 15; // 15px extra offset for better spacing
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 15; 
 
                                 window.scrollTo({
                                      top: offsetPosition,
@@ -762,7 +762,7 @@
                     sections.forEach(section => {
                         const sectionTop = section.offsetTop;
                         const sectionHeight = section.clientHeight;
-                        if (pageYOffset >= (sectionTop - headerHeight - sectionHeight / 2.5)) { // Adjust trigger point
+                        if (pageYOffset >= (sectionTop - headerHeight - sectionHeight / 2.5)) { 
                             current = section.getAttribute('id');
                         }
                     });
@@ -772,21 +772,26 @@
                         a.classList.remove('active');
                         if (a.getAttribute('href').substring(1) === current) {
                             a.classList.add('active');
-                            homeLinkActive = false; // Another section is active
+                            homeLinkActive = false; 
                         }
                     });
-                    // If no other section is "current" (e.g., very top of page or between sections), make home active.
+                   
                     if (homeLinkActive && window.pageYOffset < sections[0].offsetTop - headerHeight - 50 ) {
                        const homeLink = navList.querySelector('a[href="#home"]');
                        if (homeLink) homeLink.classList.add('active');
-                    } else if (current === '') { // If scrolled past last section but no new 'current'
-                        const homeLink = navList.querySelector('a[href="#home"]');
-                        if (homeLink) homeLink.classList.add('active');
+                    } else if (current === '' && window.pageYOffset >= sections[sections.length-1].offsetTop + sections[sections.length-1].offsetHeight - window.innerHeight) {
+                        // If scrolled past the last section (e.g. contact), make contact active.
+                        // This might need specific adjustment if footer is very large or map takes full screen height.
+                         const contactLink = navList.querySelector('a[href="#contact"]');
+                         if(contactLink) contactLink.classList.add('active');
+                    } else if (current === '' && homeLinkActive){ // Default to home if no specific section is matched at the very top
+                         const homeLink = navList.querySelector('a[href="#home"]');
+                         if (homeLink) homeLink.classList.add('active');
                     }
                 }
                 
                 window.addEventListener('scroll', setActiveLink);
-                window.addEventListener('load', setActiveLink); // Also set active link on page load
+                window.addEventListener('load', setActiveLink); 
             }
 
             const currentYearElement = document.getElementById('current-year');
