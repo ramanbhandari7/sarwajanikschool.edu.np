@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>श्री सार्वजनिक माध्यमिक विद्यालय</title>
 
-    <!-- Favicon Link -->
-    <link rel="icon" href="favicon.png" type="image/png"> 
-    <!-- If your favicon is in Docs/images/, change href to "Docs/images/favicon.png" -->
+    <link rel="icon" href="favicon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,20 +16,21 @@
 
     <style>
         :root {
-            --primary-color: #0057A8; /* Deep Blue */
-            --secondary-color: #007bff; /* Brighter Blue for accents */
-            --accent-color: #ffc107; /* Yellow/Amber */
-            --light-bg: #f8f9fa;
-            --dark-bg: #eef1f5;
-            --text-color: #343a40;
-            --light-text-color: #f8f9fa;
+            --primary-color: #0057A8;
+            --secondary-color: #007bff;
+            --accent-color: #ffc107;
+            --light-bg-panel: rgba(255, 255, 255, 0.92); /* Semi-transparent light for panels */
+            --dark-bg-panel: rgba(30, 40, 50, 0.85);   /* Semi-transparent dark for panels (alternative) */
+            --text-color: #343a40; /* Dark text for inside panels */
+            --light-text-color: #f8f9fa; /* Light text for general page, headings */
+            --global-overlay-color: rgba(10, 20, 30, 0.75); /* Darker overlay for body background */
             --heading-font-weight: 700;
             --body-font-weight: 400;
-            --base-font-size: 17px; /* Increased base font size */
+            --base-font-size: 17px;
             --line-height: 1.7;
-            --border-radius: 6px;
-            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px; /* Slightly increased border radius */
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -48,30 +47,53 @@
             font-family: 'Mukta', sans-serif;
             font-weight: var(--body-font-weight);
             line-height: var(--line-height);
-            color: var(--text-color);
-            background-color: var(--light-bg);
-            font-size: var(--base-font-size); /* Applied base font size */
+            color: var(--light-text-color); /* Default text is light for global background */
+            font-size: var(--base-font-size);
+            
+            /* GLOBAL HERO BACKGROUND */
+            background-image: url('Docs/images/hero.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed; /* Keeps background fixed during scroll */
+            background-repeat: no-repeat;
+            position: relative; /* For the overlay */
+            min-height: 100vh;
         }
+
+        /* GLOBAL OVERLAY for body background image */
+        body::before {
+            content: '';
+            position: fixed; /* Fixed to cover viewport */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--global-overlay-color);
+            z-index: -1; /* Place it behind all content */
+        }
+
 
         .container {
             width: 90%;
-            max-width: 1140px; /* Slightly reduced for better focus */
+            max-width: 1140px;
             margin: auto;
-            overflow: hidden;
+            overflow: visible; /* Allow shadows from panels to be visible */
             padding: 0 1rem;
         }
 
-        /* Header Styling */
+        /* Header Styling - Remains largely the same, sits on top */
         header {
-            background: var(--primary-color);
+            background: rgba(0, 87, 168, 0.9); /* Header slightly transparent */
             color: var(--light-text-color);
-            padding: 1rem 0;
+            padding: 0.8rem 0; /* Slightly reduced padding */
             box-shadow: var(--header-shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(5px); /* Optional: Frosted glass effect */
+            -webkit-backdrop-filter: blur(5px);
         }
-
+        /* ... (rest of header, nav, hamburger styles from previous version, may need minor tweaks if contrast issues arise with new header bg) ... */
         header .container {
             display: flex;
             justify-content: space-between;
@@ -86,317 +108,253 @@
         }
 
         .school-title .logo {
-            height: 75px; /* Slightly larger logo */
-            width: 75px;
-            margin-right: 1.2rem;
+            height: 70px; 
+            width: 70px;
+            margin-right: 1rem;
             border-radius: 50%;
             background-color: #fff;
-            padding: 6px;
+            padding: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.15);
             object-fit: contain;
         }
 
         .school-title h1 {
-            font-size: 2.1rem; /* Increased font size */
+            font-size: 2rem; 
             margin: 0;
             font-weight: var(--heading-font-weight);
             line-height: 1.2;
         }
-        .school-title h1 .highlight { /* For "श्री" or other parts */
-            color: var(--accent-color); /* Accent color for emphasis */
+        .school-title h1 .highlight { 
+            color: var(--accent-color); 
             font-weight: 700;
         }
 
         .school-title p {
-            font-size: 0.95rem; /* Slightly larger */
+            font-size: 0.9rem; 
             margin: 0;
             opacity: 0.9;
         }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-left: 5px; /* Reduced margin for more compact nav */
-        }
-
+        nav ul { list-style: none; padding: 0; display: flex; }
+        nav ul li { margin-left: 5px; }
         nav ul li a {
             color: var(--light-text-color);
             text-decoration: none;
-            font-weight: 600; /* Bolder nav links */
-            font-size: 1.05rem; /* Slightly larger nav links */
+            font-weight: 600; 
+            font-size: 1rem; 
             transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-            padding: 10px 15px;
+            padding: 8px 14px; /* Adjusted padding */
             border-radius: var(--border-radius);
             display: block;
         }
-
         nav ul li a:hover,
         nav ul li a:focus,
-        nav ul li a.active { /* Style for active link */
+        nav ul li a.active { 
             color: var(--primary-color);
             background-color: #fff;
             transform: translateY(-2px);
         }
-
         .hamburger {
-            display: none;
-            background: transparent;
-            border: none;
-            color: var(--light-text-color);
-            font-size: 2.2rem;
-            cursor: pointer;
-            padding: 5px;
-            line-height: 1;
+            display: none; background: transparent; border: none;
+            color: var(--light-text-color); font-size: 2.2rem; cursor: pointer;
+            padding: 5px; line-height: 1;
         }
-
-        @media (max-width: 992px) { /* Adjusted breakpoint for nav collapse */
-            .school-title h1 {
-                font-size: 1.8rem;
-            }
-            nav ul li a {
-                font-size: 1rem;
-                padding: 8px 12px;
-            }
+         @media (max-width: 992px) {
+            .school-title h1 { font-size: 1.8rem;}
+            nav ul li a { font-size: 0.95rem; padding: 8px 10px;}
         }
-
         @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .school-title {
-                width: 100%;
-                justify-content: center;
-                margin-bottom: 1rem;
-                flex-direction: column;
-                text-align: center;
-            }
-            .school-title .logo {
-                margin: 0 auto 0.75rem auto;
-                height: 65px; width: 65px;
-            }
-             .school-title h1 { font-size: 1.7rem; }
-             .school-title p { font-size: 0.9rem; }
-
+            header .container { flex-direction: column; align-items: flex-start; }
+            .school-title { width: 100%; justify-content: center; margin-bottom: 1rem; flex-direction: column; text-align: center; }
+            .school-title .logo { margin: 0 auto 0.75rem auto; height: 60px; width: 60px;}
+            .school-title h1 { font-size: 1.7rem; }
+            .school-title p { font-size: 0.85rem; }
             nav { width: 100%; text-align: center; }
             nav ul {
-                flex-direction: column;
-                display: none;
-                width: 100%;
-                background: #004a93; /* Slightly darker shade for mobile menu */
-                margin-top: 0.5rem;
-                padding: 10px 0;
-                border-radius: var(--border-radius);
+                flex-direction: column; display: none; width: 100%;
+                background: rgba(0, 74, 147, 0.95); /* Mobile menu bg slightly more opaque */
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                margin-top: 0.5rem; padding: 10px 0; border-radius: var(--border-radius);
             }
             nav ul.show { display: flex; }
             nav ul li { margin: 8px 0; }
             nav ul li a { padding: 12px; width: 90%; margin: auto; }
             nav ul li a:hover, nav ul li a:focus {
                 background-color: var(--accent-color);
-                color: var(--text-color);
+                color: var(--text-color); /* Dark text on accent bg */
             }
-            .hamburger { display: block; position: absolute; top: 1.2rem; right: 1rem; }
+            .hamburger { display: block; position: absolute; top: 1rem; right: 1rem; } /* Adjusted top */
         }
 
         /* Section Base Styling */
         section {
-            padding: 80px 0; /* Increased padding */
+            padding: 60px 0; /* Reduced padding as panels will add visual space */
             text-align: center;
+            background-color: transparent !important; /* Ensure no other background colors interfere */
+            position: relative; /* For z-indexing if needed, but usually not required for panels */
         }
 
+        /* Section Titles are now light, directly on global background */
         section h2 {
-            font-size: 2.6rem; /* Larger section titles */
+            font-size: 2.6rem;
             font-weight: var(--heading-font-weight);
-            margin-bottom: 40px; /* More space below title */
-            color: var(--primary-color);
+            margin-bottom: 40px;
+            color: var(--light-text-color); /* Light color for headings */
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* Subtle shadow for readability */
         }
-        /* Underline effect for section titles */
         section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-color);
-            border-radius: 2px;
+            content: ''; position: absolute; bottom: 0; left: 50%;
+            transform: translateX(-50%); width: 80px; height: 4px;
+            background-color: var(--accent-color); border-radius: 2px;
+        }
+        
+        /* General paragraph style for text NOT in a panel (rarely used now) */
+        section > .container > p:not(.content-panel p) {
+             margin-bottom: 20px;
+             font-size: 1.15rem;
+             max-width: 750px;
+             margin-left: auto; margin-right: auto;
+             color: var(--light-text-color); /* Light color */
+             text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
 
-        section p {
-            margin-bottom: 20px; /* More space between paragraphs */
-            font-size: 1.15rem; /* Larger paragraph text */
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #555; /* Softer text color */
+        /* NEW: Content Panel Styling */
+        .content-panel {
+            background: var(--light-bg-panel);
+            color: var(--text-color); /* Dark text inside panels */
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 30px; /* Space between panels if multiple in a section */
+            text-align: left; /* Default text alignment for panels */
         }
-        section h3 {
-             font-size: 1.8rem; /* Larger h3 */
-             font-weight: 600;
-             margin-top: 30px;
-             margin-bottom: 15px;
-             color: var(--secondary-color);
+        .content-panel-centered { /* For panels that should have centered text */
+            text-align: center;
+        }
+        .content-panel h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 0; /* Reset margin if first element */
+            margin-bottom: 15px;
+            color: var(--primary-color); /* Use primary color for h3 inside panels */
+        }
+        .content-panel p, .content-panel ul {
+            font-size: 1.05rem; /* Adjusted for panel context */
+            margin-bottom: 15px;
+            color: var(--text-color); /* Ensure dark text */
+        }
+        .content-panel ul {
+            list-style: none; padding-left: 0;
+        }
+        .content-panel ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .content-panel ul li::before { /* Custom bullet for lists inside panels */
+            content: "\f00c"; 
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--primary-color); /* Bullets match h3 color */
+            position: absolute; left: 0; top: 4px; font-size: 0.9em;
+        }
+        .content-panel a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .content-panel a:hover {
+            text-decoration: underline;
         }
 
-        .alt-background { background-color: var(--dark-bg); }
 
-        /* Hero Section Styling */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)), url('Docs/images/hero.jpg') no-repeat center center/cover;
+        /* Hero Section (#home) - Now text sits on global background */
+        .hero { /* This section is primarily text now */
+             padding: 120px 0 80px 0; /* Adjust padding as needed */
+        }
+        .hero h2 { /* This is the main page heading now, directly on global bg */
             color: var(--light-text-color);
-            padding: 150px 0; /* More padding */
-            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-        }
-
-        .hero .container { position: relative; z-index: 1; }
-
-        .hero h2 {
-            color: var(--light-text-color);
-            font-size: 3.2rem; /* More impactful heading */
+            font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 25px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.4);
         }
-        .hero h2::after { display: none; } /* Remove default underline from hero h2 */
-
+        .hero h2::after { display: none; } /* No underline for hero h2 */
         .hero p {
-            font-size: 1.4rem; /* Larger hero paragraph */
+            font-size: 1.4rem;
             margin-bottom: 45px;
             opacity: 0.95;
             color: var(--light-text-color);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            max-width: 750px; margin-left: auto; margin-right: auto;
         }
-
+        /* Hero button remains the same */
         .btn {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--text-color); /* Ensuring contrast */
-            padding: 14px 30px; /* Larger button */
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            font-size: 1.15rem;
-            border: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: inline-block; background: var(--accent-color);
+            color: var(--text-color) !important; /* Ensure dark text on yellow button */
+            padding: 14px 30px; text-decoration: none; border-radius: var(--border-radius);
+            font-weight: 600; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 1.15rem; border: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .btn:hover, .btn:focus {
-            background: #e0a800; /* Darker amber */
-            transform: translateY(-3px);
+            background: #e0a800; transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
-        .btn-secondary {
-            background-color: var(--secondary-color);
-            color: var(--light-text-color);
-        }
-        .btn-secondary:hover, .btn-secondary:focus {
-            background-color: #005cb9;
-        }
+        
+        /* .alt-background class is no longer needed for distinct bg color */
+        /* Specific Sections adapt to use .content-panel */
 
+        /* About Section (#about) */
+        /* General description might be a centered panel */
+        #about .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
+        #about .content-panel ul li::before { color: var(--secondary-color); } /* Example: different bullet color */
 
-        /* About, Admissions Lists Styling */
-        #about ul, #admissions ul, #academics ul {
-            list-style: none; /* Remove default bullets */
-            text-align: left;
-            display: block; /* Allow full width */
-            margin: 20px auto;
-            padding-left: 0; /* Remove default padding */
-            max-width: 700px; /* Constrain width of list for readability */
-        }
-         #about ul li, #admissions ul li, #academics ul li {
-            margin-bottom: 12px;
-            font-size: 1.1rem; /* Slightly larger list item text */
-            padding-left: 25px; /* Space for custom bullet */
-            position: relative;
-        }
-        /* Custom Bullet Style */
-        #about ul li::before, #admissions ul li::before, #academics ul ul li::before, #academics > ul > li > strong::before {
-            content: "\f00c"; /* FontAwesome check icon or use "•" */
-            font-family: "Font Awesome 6 Free"; 
-            font-weight: 900; /* Solid icon */
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-            top: 4px; /* Adjust vertical alignment */
-            font-size: 0.9em;
-        }
-        /* Specific for academic main points if they are bolded directly */
-        #academics > ul > li > strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-        #academics > ul > li > strong::before {
-             content: "\f192"; /* fa-dot-circle for main points */
-             font-family: "Font Awesome 6 Free"; 
-             top: 7px;
-        }
+        /* Academics Section (#academics) */
+        #academics .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
+        #academics .content-panel strong { color: var(--primary-color); display: block; margin-bottom: 8px; font-size: 1.1em;}
+        #academics .content-panel ul ul { margin-left: 20px; margin-top: 10px; padding-left: 0; }
+        #academics .content-panel ul ul li::before { content: "\f105"; color: var(--secondary-color); }
 
-
-        #academics ul ul { /* Style for nested lists */
-            margin-left: 20px;
-            margin-top: 10px;
-            padding-left: 0;
-        }
-         #academics ul ul li::before {
-            content: "\f105"; /* fa-chevron-right */
-            font-family: "Font Awesome 6 Free"; 
-            color: var(--secondary-color);
-         }
-
-        /* News Section - Card Style */
-        #news .container > p { margin-bottom: 40px; } /* Space above articles */
-        #news article {
-            background: #fff;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--card-shadow);
-            text-align: left;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        /* News Section (#news) */
+        /* The <article> elements become the panels */
+        #news .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
+        #news article { /* Article itself is a panel */
+            background: var(--light-bg-panel);
+            color: var(--text-color);
+            padding: 25px; margin-bottom: 25px;
+            border-radius: var(--border-radius); box-shadow: var(--card-shadow);
+            text-align: left; transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         #news article:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
         }
         #news article h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 10px;
+            font-size: 1.5rem; color: var(--primary-color);
+            margin-top: 0; margin-bottom: 10px;
         }
-        #news article p {
-            font-size: 1rem;
-            margin-bottom: 15px;
-            color: #555;
-        }
-        #news article a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
+        #news article p { font-size: 1rem; margin-bottom: 15px; color: var(--text-color); }
+        #news article a { color: var(--secondary-color); text-decoration: none; font-weight: 600; }
         #news article a:hover { text-decoration: underline; }
 
+        /* Admissions Section (#admissions) */
+        #admissions .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
 
-        /* Gallery Section Styling */
+        /* Gallery Section (#gallery) */
+        #gallery .intro-text { margin-bottom: 40px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px; /* Increased gap */
-            margin-top: 40px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; margin-top: 0; /* No margin-top if intro-text handles it */
         }
-
-        .gallery-grid .gallery-item {
-            border-radius: var(--border-radius);
-            overflow: hidden; /* To contain image */
-            box-shadow: var(--card-shadow);
+        .gallery-grid .gallery-item { /* Items have their own slight shadow */
+            border-radius: var(--border-radius); overflow: hidden;
+            background: rgba(255,255,255,0.1); /* Slight background for items if image isn't full bleed */
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
@@ -404,133 +362,74 @@
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 8px 18px rgba(0,0,0,0.15);
          }
-
         .gallery-grid img {
-            display: block;
-            width: 100%;
-            height: 220px; /* Slightly increased height */
-            object-fit: cover;
-            transition: transform 0.4s ease;
+            display: block; width: 100%; height: 220px;
+            object-fit: cover; transition: transform 0.4s ease;
         }
-        .gallery-grid .gallery-item:hover img {
-            transform: scale(1.1); /* Zoom effect on image */
-        }
+        .gallery-grid .gallery-item:hover img { transform: scale(1.05); }
 
-        /* Contact Section Styling */
-        .contact-details {
-            margin-top: 25px;
-            text-align: left; /* Keep text left aligned */
-            display: inline-block; /* To center block */
-            font-size: 1.1rem;
-            line-height: 2.2; /* More line height */
-            background: #fff;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--card-shadow);
-            max-width: 700px; 
-            width: 100%; 
-            margin-left: auto;  
-            margin-right: auto; 
+        /* Contact Section (#contact) */
+        #contact .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
+        .contact-details { /* Becomes a panel */
+            background: var(--light-bg-panel);
+            color: var(--text-color);
+            padding: 35px; /* More padding for contact details */
+            border-radius: var(--border-radius); box-shadow: var(--card-shadow);
+            text-align: left; max-width: 700px; width: 100%;
+            margin-left: auto; margin-right: auto; margin-bottom: 30px;
         }
         .contact-details p { font-size: 1.1rem; margin-bottom: 12px; color: var(--text-color); }
         .contact-details p strong { color: var(--primary-color); }
-        .contact-details p a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .contact-details p a:hover { text-decoration: underline; }
-        .contact-details .social-contact a {
-             font-size: 1.2rem; 
-             margin-right: 10px;
-             color: var(--primary-color);
-        }
-        .contact-details .social-contact a:hover {
-             color: var(--accent-color);
-        }
+        .contact-details p i { margin-right: 10px; color: var(--primary-color); width: 20px; text-align: center;}
+        .contact-details p a { color: var(--secondary-color); }
+        .contact-details .social-contact a { font-size: 1.2rem; color: var(--primary-color); }
 
-        .map-embed {
-            margin-top: 40px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-        
-        .captcha-container {
-            margin-top: 40px; 
-            display: flex;
-            justify-content: center;
-            padding: 15px; 
-            background: #fff; 
+        /* CAPTCHA and Map also get panel styling */
+        .captcha-container, .map-embed {
+            background: var(--light-bg-panel); /* For consistency */
+            padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
-            max-width: 320px; 
-            margin-left: auto;
-            margin-right: auto;
+            max-width: fit-content; /* Captcha: shrink to widget size */
+            margin: 30px auto;
         }
+        .map-embed { max-width: 100%; padding:0; overflow:hidden; } /* Map full width inside paddingless panel */
+        .map-embed iframe { display: block; border-radius: var(--border-radius); }
+
 
         /* Footer Styling */
         footer {
-            background: #2c3e50; 
-            color: #bdc3c7; 
-            text-align: center;
-            padding: 3rem 0;
-            margin-top: 60px;
+            background: rgba(44, 62, 80, 0.9); /* Footer also slightly transparent */
+            backdrop-filter: blur(5px); /* Optional: Frosted glass effect */
+            -webkit-backdrop-filter: blur(5px);
+            color: #bdc3c7;
+            text-align: center; padding: 2.5rem 0; /* Reduced padding */
+            margin-top: 40px; /* Reduced margin */
             font-size: 1rem;
+            position: relative; /* Ensure it sits above the ::before pseudo-element of body */
+            z-index: 1; 
         }
-        
-        .footer-nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 2rem 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .footer-nav ul li { margin: 5px 18px; }
-        .footer-nav ul li a {
-            color: #ecf0f1; 
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-        .footer-nav ul li a:hover {
-            color: var(--accent-color);
-        }
+        /* ... (rest of footer styles from previous version, ensuring good contrast) ... */
+         .footer-nav ul { list-style: none; padding: 0; margin: 0 0 1.5rem 0; display: flex; justify-content: center; flex-wrap: wrap;}
+        .footer-nav ul li { margin: 5px 15px; }
+        .footer-nav ul li a { color: #ecf0f1; text-decoration: none; transition: color 0.3s ease; font-weight: 500;}
+        .footer-nav ul li a:hover { color: var(--accent-color); }
 
-        footer p { margin-bottom: 15px; }
+        footer p { margin-bottom: 12px; }
+        .social-links { margin-bottom: 1.5rem; }
+        .social-links a { color: #ecf0f1; text-decoration: none; margin: 0 12px; font-size: 1.7rem; transition: color 0.3s ease, transform 0.2s ease;}
+        .social-links a:hover { color: var(--accent-color); transform: translateY(-3px); }
+        .developer-tag { margin-top: 1rem; font-size: 0.9rem; }
+        .developer-tag a { color: #95a5a6; text-decoration: none; font-weight: 500; }
+        .developer-tag a:hover { color: var(--accent-color); text-decoration: underline; }
 
-        .social-links { margin-bottom: 2rem; }
-        .social-links a {
-            color: #ecf0f1;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.8rem; 
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-        .social-links a:hover {
-            color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        .developer-tag {
-            margin-top: 1.5rem;
-            font-size: 0.95rem;
-        }
-        .developer-tag a {
-            color: #95a5a6; 
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .developer-tag a:hover {
-            color: var(--accent-color);
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
+    <!-- The body::before pseudo-element will create the global background overlay -->
 
     <header>
+        <!-- Header content from previous response -->
         <div class="container">
             <div class="school-title">
                 <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="logo">
@@ -557,7 +456,8 @@
     </header>
 
     <main>
-        <section id="home" class="hero">
+        <!-- Hero Section -->
+        <section id="home" class="hero"> <!-- No .content-panel here for full-width feel -->
             <div class="container">
                 <h2>विद्यालयमा स्वागत छ!</h2>
                 <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध। तपाईंको शैक्षिक यात्रा हाम्रो साथमा अझ फलदायी बनाउनुहोस्।</p>
@@ -568,51 +468,58 @@
         <section id="about">
             <div class="container">
                 <h2>हाम्रो बारेमा</h2>
-                <p>श्री सार्वजनिक माध्यमिक विद्यालय मोरङ जिल्लाको केराबारी वडा नम्बर ७, डाँगीमा अवस्थित एक प्रतिष्ठित शैक्षिक संस्था हो। वि.सं. [स्थापना भएको वर्ष] मा स्थापित यस विद्यालयले यस क्षेत्रमा गुणस्तरीय शिक्षा प्रदान गर्दै आइरहेको छ। हाम्रो लक्ष्य विद्यार्थीहरूलाई नैतिकवान, जिम्मेवार र प्रतिस्पर्धी नागरिकको रूपमा विकास गर्नु हो।</p>
-                <h3>भिजन र मिशन</h3>
-                <p><strong>भिजन:</strong> अग्रणी शैक्षिक केन्द्रको रूपमा स्थापित भई समुदायको शैक्षिक उन्नयनमा योगदान पुर्याउनु।</p>
-                <p><strong>मिशन:</strong> प्रत्येक विद्यार्थीमा अन्तर्निहित प्रतिभालाई प्रस्फुटन गराउँदै समग्र विकासमा सहयोग पुर्याउनु।</p>
-                <h3>हाम्रा विशेषताहरू</h3>
-                <ul>
-                    <li>अत्यन्त अनुभवी र समर्पित शिक्षक-शिक्षिकाहरू</li>
-                    <li>विज्ञान, कम्प्युटर लगायतका आधुनिक प्रयोगशाला सुविधाहरू</li>
-                    <li>पर्याप्त खेलकुद मैदान र विभिन्न खेलकुद गतिविधिहरूमा सहभागिता</li>
-                    <li>पुस्तकालयमा विभिन्न पाठ्यपुस्तक तथा सन्दर्भ सामग्रीहरूको उपलब्धता</li>
-                    <li>नियमित अतिरिक्त क्रियाकलापहरू (सांस्कृतिक कार्यक्रम, वादविवाद प्रतियोगिता आदि)</li>
-                    <li>विद्यार्थी केन्द्रित शिक्षण विधि र सकारात्मक सिकाइ वातावरण</li>
-                </ul>
+                <p class="intro-text">श्री सार्वजनिक माध्यमिक विद्यालय मोरङ जिल्लाको केराबारी वडा नम्बर ७, डाँगीमा अवस्थित एक प्रतिष्ठित शैक्षिक संस्था हो।</p>
+                <div class="content-panel">
+                    <p>वि.सं. [स्थापना भएको वर्ष] मा स्थापित यस विद्यालयले यस क्षेत्रमा गुणस्तरीय शिक्षा प्रदान गर्दै आइरहेको छ। हाम्रो लक्ष्य विद्यार्थीहरूलाई नैतिकवान, जिम्मेवार र प्रतिस्पर्धी नागरिकको रूपमा विकास गर्नु हो।</p>
+                    <h3>भिजन र मिशन</h3>
+                    <p><strong>भिजन:</strong> अग्रणी शैक्षिक केन्द्रको रूपमा स्थापित भई समुदायको शैक्षिक उन्नयनमा योगदान पुर्याउनु।</p>
+                    <p><strong>मिशन:</strong> प्रत्येक विद्यार्थीमा अन्तर्निहित प्रतिभालाई प्रस्फुटन गराउँदै समग्र विकासमा सहयोग पुर्याउनु।</p>
+                    <h3>हाम्रा विशेषताहरू</h3>
+                    <ul>
+                        <li>अत्यन्त अनुभवी र समर्पित शिक्षक-शिक्षिकाहरू</li>
+                        <li>विज्ञान, कम्प्युटर लगायतका आधुनिक प्रयोगशाला सुविधाहरू</li>
+                        <li>पर्याप्त खेलकुद मैदान र विभिन्न खेलकुद गतिविधिहरूमा सहभागिता</li>
+                        <li>पुस्तकालयमा विभिन्न पाठ्यपुस्तक तथा सन्दर्भ सामग्रीहरूको उपलब्धता</li>
+                        <li>नियमित अतिरिक्त क्रियाकलापहरू (सांस्कृतिक कार्यक्रम, वादविवाद प्रतियोगिता आदि)</li>
+                        <li>विद्यार्थी केन्द्रित शिक्षण विधि र सकारात्मक सिकाइ वातावरण</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section id="academics" class="alt-background">
+        <section id="academics">
             <div class="container">
                 <h2>शैक्षिक कार्यक्रमहरू</h2>
-                <p>हाम्रो विद्यालयमा नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रमहरू राष्ट्रिय पाठ्यक्रम अनुसार नवीनतम शिक्षण विधि तथा प्रविधिको प्रयोग गरी संचालित छन्।</p>
-                <ul>
-                    <li><strong>आधारभूत तह (कक्षा १-८):</strong> खेल-आधारित र प्रयोगात्मक सिकाई, नैतिक शिक्षा तथा व्यक्तिगत ध्यानमा केन्द्रित।</li>
-                    <li><strong>माध्यमिक तह (कक्षा ९-१०):</strong> सैद्धान्तिक ज्ञानको बलियो आधार निर्माण र एसईई तयारीमा विशेष जोड।</li>
-                    <li>
-                        <strong>उच्च माध्यमिक तह (कक्षा ११-१२):</strong>
-                        <ul>
-                           <li>विज्ञान संकाय (भौतिक, रसायन, जीवविज्ञान, गणित, कम्प्युटर)</li>
-                           <li>व्यवस्थापन संकाय (लेखा, अर्थशास्त्र, व्यापार अध्ययन)</li>
-                           <li>शिक्षा संकाय (ऐच्छिक विषय सहित - यदि लागू हुन्छ भने)</li>
-                        </ul>
-                    </li>
-                    <li><strong>प्राविधिक तथा व्यावसायिक धार (यदि छ भने):</strong> [जस्तै, सिभिल इन्जिनियरिङ, बाली विज्ञान आदि - विस्तृत जानकारी आवश्यक]</li>
-                </ul>
-                <p style="margin-top: 30px;">थप पाठ्यक्रम र विषयगत जानकारीका लागि विद्यालय प्रशासनमा सम्पर्क गर्न सक्नुहुन्छ।</p>
+                <p class="intro-text">हाम्रो विद्यालयमा नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रमहरू राष्ट्रिय पाठ्यक्रम अनुसार नवीनतम शिक्षण विधि तथा प्रविधिको प्रयोग गरी संचालित छन्।</p>
+                <div class="content-panel">
+                    <ul>
+                        <li><strong>आधारभूत तह (कक्षा १-८):</strong> खेल-आधारित र प्रयोगात्मक सिकाई, नैतिक शिक्षा तथा व्यक्तिगत ध्यानमा केन्द्रित।</li>
+                        <li><strong>माध्यमिक तह (कक्षा ९-१०):</strong> सैद्धान्तिक ज्ञानको बलियो आधार निर्माण र एसईई तयारीमा विशेष जोड।</li>
+                        <li>
+                            <strong>उच्च माध्यमिक तह (कक्षा ११-१२):</strong>
+                            <ul>
+                               <li>विज्ञान संकाय (भौतिक, रसायन, जीवविज्ञान, गणित, कम्प्युटर)</li>
+                               <li>व्यवस्थापन संकाय (लेखा, अर्थशास्त्र, व्यापार अध्ययन)</li>
+                               <li>शिक्षा संकाय (ऐच्छिक विषय सहित - यदि लागू हुन्छ भने)</li>
+                            </ul>
+                        </li>
+                        <li><strong>प्राविधिक तथा व्यावसायिक धार (यदि छ भने):</strong> [जस्तै, सिभिल इन्जिनियरिङ, बाली विज्ञान आदि]</li>
+                    </ul>
+                    <p style="margin-top: 20px;">थप पाठ्यक्रम र विषयगत जानकारीका लागि विद्यालय प्रशासनमा सम्पर्क गर्न सक्नुहुन्छ।</p>
+                </div>
             </div>
         </section>
-         <section id="news"> 
+
+        <section id="news">
             <div class="container">
                 <h2>समाचार र सूचना</h2>
-                <p>विद्यालय सम्बन्धी ताजा खबर, कार्यक्रम, परीक्षा तालिका र अन्य महत्वपूर्ण सूचनाहरू।</p>
+                <p class="intro-text">विद्यालय सम्बन्धी ताजा खबर, कार्यक्रम, परीक्षा तालिका र अन्य महत्वपूर्ण सूचनाहरू।</p>
+                <!-- Articles will be styled as panels directly by #news article rule -->
                 <article>
                     <h3>उत्कृष्ट एसईई (SEE) नतिजा - २०७९!</h3>
                     <p>यस वर्षको एसईई परीक्षामा विद्यालयका सम्पूर्ण विद्यार्थी भाइबहिनीहरूले उत्कृष्ट नतिजा ल्याउन सफल भएकोमा हार्दिक बधाई! उनीहरूको उज्ज्वल भविष्यको कामना गर्दछौँ। विस्तृत नतिजा <a href="#">यहाँ</a> हेर्नुहोस्।</p>
                 </article>
-                 <article>
+                <article>
                     <h3>विद्यालय वार्षिकोत्सव तथा अभिभावक दिवस - २०८१</h3>
                     <p>आगामी [महिना] [गते] गते, [दिन] विद्यालयको [XX] औँ वार्षिकोत्सव तथा अभिभावक दिवस भव्यताका साथ मनाइँदैछ। यहाँहरूको गरिमामय उपस्थितिको लागि हार्दिक अनुरोध गर्दछौँ। <a href="#">कार्यक्रम तालिका</a></p>
                 </article>
@@ -626,24 +533,27 @@
         <section id="admissions">
             <div class="container">
                 <h2>भर्ना प्रक्रिया</h2>
-                <p>श्री सार्वजनिक माध्यमिक विद्यालयमा नयाँ शैक्षिक सत्रका लागि भर्ना खुल्ला गरिएको छ। इच्छुक विद्यार्थी तथा अभिभावकहरूले तोकिएको समयभित्र विद्यालयमा सम्पर्क गरी भर्ना फारम प्राप्त गर्न र प्रक्रियामा सहभागी हुन सक्नुहुनेछ।</p>
-                <p><strong>भर्नाका लागि आवश्यक कागजातहरू:</strong></p>
-                <ul>
-                    <li>विद्यार्थीको जन्मदर्ता प्रमाणपत्रको प्रतिलिपि (अनिवार्य)</li>
-                    <li>अघिल्लो कक्षा उत्तीर्ण गरेको लब्धांकपत्र/प्रमाणपत्रको सक्कल प्रतिलिपि</li>
-                    <li>अघिल्लो विद्यालयको स्थानान्तरण प्रमाणपत्र (ट्रान्सफर सर्टिफिकेट)</li>
-                    <li>हालसालै खिचिएको पासपोर्ट साइजको २ प्रति फोटो</li>
-                    <li>अभिभावकको नागरिकता प्रमाणपत्रको प्रतिलिपि</li>
-                </ul>
-                <p style="margin-top:25px;">विस्तृत जानकारी, भर्ना फारम र अन्य प्रक्रिया बारे बुझ्नका लागि कृपया विद्यालयको कार्यालय समयमा (बिहान १० बजे देखि अपरान्ह ४ बजेसम्म) सम्पर्क गर्नुहोला।</p>
-                <a href="#" class="btn" download>भर्ना फारम (नमुना)</a>
+                <p class="intro-text">श्री सार्वजनिक माध्यमिक विद्यालयमा नयाँ शैक्षिक सत्रका लागि भर्ना खुल्ला गरिएको छ।</p>
+                <div class="content-panel">
+                     <p>इच्छुक विद्यार्थी तथा अभिभावकहरूले तोकिएको समयभित्र विद्यालयमा सम्पर्क गरी भर्ना फारम प्राप्त गर्न र प्रक्रियामा सहभागी हुन सक्नुहुनेछ।</p>
+                    <h3>भर्नाका लागि आवश्यक कागजातहरू:</h3>
+                    <ul>
+                        <li>विद्यार्थीको जन्मदर्ता प्रमाणपत्रको प्रतिलिपि (अनिवार्य)</li>
+                        <li>अघिल्लो कक्षा उत्तीर्ण गरेको लब्धांकपत्र/प्रमाणपत्रको सक्कल प्रतिलिपि</li>
+                        <li>अघिल्लो विद्यालयको स्थानान्तरण प्रमाणपत्र (ट्रान्सफर सर्टिफिकेट)</li>
+                        <li>हालसालै खिचिएको पासपोर्ट साइजको २ प्रति फोटो</li>
+                        <li>अभिभावकको नागरिकता प्रमाणपत्रको प्रतिलिपि</li>
+                    </ul>
+                    <p style="margin-top:20px;">विस्तृत जानकारी, भर्ना फारम र अन्य प्रक्रिया बारे बुझ्नका लागि कृपया विद्यालयको कार्यालय समयमा (बिहान १० बजे देखि अपरान्ह ४ बजेसम्म) सम्पर्क गर्नुहोला।</p>
+                    <p style="text-align: center; margin-top: 30px;"><a href="#" class="btn" download>भर्ना फारम (नमुना)</a></p>
+                </div>
             </div>
         </section>
 
-        <section id="gallery" class="alt-background">
+        <section id="gallery">
             <div class="container">
                 <h2>ग्यालरी</h2>
-                <p>हाम्रो विद्यालयका अविस्मरणीय पलहरू, शैक्षिक गतिविधिहरू र पूर्वाधारहरूको केही झलक।</p>
+                <p class="intro-text">हाम्रो विद्यालयका अविस्मरणीय पलहरू, शैक्षिक गतिविधिहरू र पूर्वाधारहरूको केही झलक।</p>
                 <div class="gallery-grid">
                     <div class="gallery-item"><img src="Docs/images/bg.jpg" alt="विद्यालयको वार्षिकोत्सव"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery1.jpg" alt="कक्षाकोठा गतिविधि"></div>
@@ -658,28 +568,32 @@
         <section id="contact">
             <div class="container">
                 <h2>सम्पर्क गर्नुहोस्</h2>
-                <p>हामी तपाईंको प्रश्न, प्रतिक्रिया, र सुझावहरू सुन्न सधैं तयार छौं। कृपया हामीलाई सम्पर्क गर्न नहिचकिचाउनुहोस्।</p>
+                <p class="intro-text">हामी तपाईंको प्रश्न, प्रतिक्रिया, र सुझावहरू सुन्न सधैं तयार छौं।</p>
                 
+                <!-- contact-details is already styled as a panel -->
                 <div class="contact-details">
-                    <p><strong><i class="fas fa-map-marker-alt"></i> ठेगाना:</strong> डाँगी, वडा नं ७, केराबारी गाउँपालिका, मोरङ, कोशी प्रदेश, नेपाल</p>
-                    <p><strong><i class="fas fa-phone-alt"></i> फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p>
-                    <p><strong><i class="fas fa-envelope"></i> इमेल:</strong> <a href="mailto:[विद्यालयको इमेल]">[विद्यालयको आधिकारिक इमेल ठेगाना]</a></p>
-                    <p><strong><i class="fas fa-globe"></i> वेबसाइट:</strong> <a href="http://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
-                    <p class="social-contact"><strong><i class="fab fa-facebook"></i> फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i><strong>ठेगाना:</strong> डाँगी, वडा नं ७, केराबारी गाउँपालिका, मोरङ, कोशी प्रदेश, नेपाल</p>
+                    <p><i class="fas fa-phone-alt"></i><strong>फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p>
+                    <p><i class="fas fa-envelope"></i><strong>इमेल:</strong> <a href="mailto:[विद्यालयको इमेल]">[विद्यालयको आधिकारिक इमेल ठेगाना]</a></p>
+                    <p><i class="fas fa-globe"></i><strong>वेबसाइट:</strong> <a href="http://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
+                    <p class="social-contact"><i class="fab fa-facebook"></i><strong>फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
                 </div>
-                 
+                
+                <!-- captcha-container is styled as a panel -->
                 <div class="captcha-container">
                     <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY_HERE" data-theme="light"></div>
                 </div>
 
+                <!-- map-embed is styled as a panel -->
                 <div class="map-embed">
-                     <iframe src="https://maps.google.com/maps?q=Q94H%2B9RQ%2C%20Kerabari%2056600%2C%20Nepal&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     <iframe src="https://maps.google.com/maps?q=Q94H%2B9RQ%2C%20Kerabari%2056600%2C%20Nepal&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
+        <!-- Footer content from previous response -->
         <div class="container">
             <nav class="footer-nav">
                 <ul>
@@ -708,6 +622,7 @@
     </footer>
 
     <script>
+        // JavaScript from the previous response (for hamburger, active nav link, year)
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.getElementById('hamburger-button'); 
             const navList = document.querySelector('.nav-list');
@@ -727,10 +642,11 @@
 
                 navList.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (event) => {
+                        // Active class handled by scroll listener mostly, but set on click for immediate feedback
                         navList.querySelectorAll('a').forEach(navLink => navLink.classList.remove('active'));
                         link.classList.add('active');
 
-                        if (navList.classList.contains('show')) {
+                        if (navList.classList.contains('show')) { // Close mobile menu
                             navList.classList.remove('show');
                              const icon = hamburger.querySelector('i');
                              icon.classList.remove('fa-times');
@@ -743,7 +659,8 @@
                             if (targetSection) {
                                 const headerOffset = document.querySelector('header').offsetHeight;
                                 const elementPosition = targetSection.getBoundingClientRect().top;
-                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 15; 
+                                // Extra offset to ensure content is not hidden by header
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; 
 
                                 window.scrollTo({
                                      top: offsetPosition,
@@ -758,40 +675,35 @@
                 const headerHeight = document.querySelector('header').offsetHeight; 
 
                 function setActiveLink() {
-                    let current = '';
+                    let currentId = '';
+                    // Find the current section in view
                     sections.forEach(section => {
-                        const sectionTop = section.offsetTop;
-                        const sectionHeight = section.clientHeight;
-                        if (pageYOffset >= (sectionTop - headerHeight - sectionHeight / 2.5)) { 
-                            current = section.getAttribute('id');
+                        const sectionTop = section.offsetTop - headerHeight - 50; // Adjust offset for better accuracy
+                        const sectionBottom = sectionTop + section.offsetHeight;
+                        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
+                            currentId = section.getAttribute('id');
                         }
                     });
                     
-                    let homeLinkActive = true;
+                    // If no specific section is "current" (e.g., at the very top or very bottom of the page), adjust.
+                    if (currentId === '' && window.pageYOffset < sections[0].offsetTop - headerHeight - 50) {
+                        currentId = 'home'; // Default to home if above the first section
+                    } else if (currentId === '' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - (footer.offsetHeight + 50)) {
+                        // If near the bottom of the page (accounting for footer), make last section active
+                        currentId = sections[sections.length - 1].id;
+                    }
+
+
                     navList.querySelectorAll('a').forEach(a => {
                         a.classList.remove('active');
-                        if (a.getAttribute('href').substring(1) === current) {
+                        if (a.getAttribute('href').substring(1) === currentId) {
                             a.classList.add('active');
-                            homeLinkActive = false; 
                         }
                     });
-                   
-                    if (homeLinkActive && window.pageYOffset < sections[0].offsetTop - headerHeight - 50 ) {
-                       const homeLink = navList.querySelector('a[href="#home"]');
-                       if (homeLink) homeLink.classList.add('active');
-                    } else if (current === '' && window.pageYOffset >= sections[sections.length-1].offsetTop + sections[sections.length-1].offsetHeight - window.innerHeight) {
-                        // If scrolled past the last section (e.g. contact), make contact active.
-                        // This might need specific adjustment if footer is very large or map takes full screen height.
-                         const contactLink = navList.querySelector('a[href="#contact"]');
-                         if(contactLink) contactLink.classList.add('active');
-                    } else if (current === '' && homeLinkActive){ // Default to home if no specific section is matched at the very top
-                         const homeLink = navList.querySelector('a[href="#home"]');
-                         if (homeLink) homeLink.classList.add('active');
-                    }
                 }
                 
                 window.addEventListener('scroll', setActiveLink);
-                window.addEventListener('load', setActiveLink); 
+                window.addEventListener('load', setActiveLink); // Also set on page load
             }
 
             const currentYearElement = document.getElementById('current-year');
