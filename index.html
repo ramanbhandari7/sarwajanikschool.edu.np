@@ -267,14 +267,31 @@
         #about ul {
             list-style: disc;
             text-align: left;
-            margin-left: 20px;
-            display: inline-block;
+            margin-left: 20px; /* This might need adjustment for deeper nested lists if not desired */
+            display: inline-block; /* This makes the ul only as wide as its content */
             margin-top: 20px;
         }
 
         #about ul li {
             margin-bottom: 8px;
             font-size: 1.05rem;
+        }
+        
+        /* Academics Section Specifics for nested lists (if different styling is needed) */
+        #academics ul {
+            list-style: disc; /* Default, can be changed */
+            text-align: left;
+            margin-left: 40px; /* Indent outer list */
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #academics ul li {
+            margin-bottom: 8px;
+        }
+        #academics ul ul { /* Style for nested lists */
+            list-style: circle; /* Example: different bullet */
+            margin-left: 20px; /* Further indent nested list */
+            margin-top: 5px;
         }
 
 
@@ -338,26 +355,18 @@
             margin-bottom: 10px;
         }
 
-        footer a {
+        footer a { /* General links in footer */
             color: #ddd;
             text-decoration: none;
-            margin: 0 10px;
+            margin: 0 5px; /* Adjusted margin for social links if they are separate */
             transition: color 0.3s ease;
         }
-
         footer a:hover {
             color: #fff;
             text-decoration: underline;
         }
-                .social-links a {
-            color: #ddd;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        .social-links a:hover {
-            color: #fff;
-            text-decoration: underline;
+        .social-links a { /* Specific styling for social links if needed, inherits from footer a */
+            margin: 0 10px; /* Can be more specific if needed */
         }
 
     </style>
@@ -426,13 +435,17 @@
                 <h2>शैक्षिक कार्यक्रमहरू</h2>
                 <p>हाम्रो विद्यालयमा नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रमहरू संचालित छन्। राष्ट्रिय पाठ्यक्रममा आधारित शिक्षण विधि अपनाइन्छ र प्रविधिको प्रयोगमा जोड दिइन्छ।</p>
                 <ul>
-                    <li>**आधारभूत तह (कक्षा १-८):** खेल-आधारित सिकाई र व्यक्तिगत ध्यानमा केन्द्रित।</li>
-                    <li>**माध्यमिक तह (कक्षा ९-१०):** बलियो सैद्धान्तिक आधार निर्माणमा जोड।</li>
-                    <li>**उच्च माध्यमिक तह (कक्षा ११-१२):** </li>
-                       <li>विज्ञान संकाय</li>
-                       <li>व्यवस्थापन संकाय</li>
-                       <li>शिक्षा संकाय (यदि लागू हुन्छ भने)</li>
-                    <li>**प्राविधिक तथा व्यावसायिक धार (यदि छ भने):** [जस्तै, कम्प्युटर इन्जिनियरिङ, बाली विज्ञान आदि]</li>
+                    <li><strong>आधारभूत तह (कक्षा १-८):</strong> खेल-आधारित सिकाई र व्यक्तिगत ध्यानमा केन्द्रित।</li>
+                    <li><strong>माध्यमिक तह (कक्षा ९-१०):</strong> बलियो सैद्धान्तिक आधार निर्माणमा जोड।</li>
+                    <li>
+                        <strong>उच्च माध्यमिक तह (कक्षा ११-१२):</strong>
+                        <ul>
+                           <li>विज्ञान संकाय</li>
+                           <li>व्यवस्थापन संकाय</li>
+                           <li>शिक्षा संकाय (यदि लागू हुन्छ भने)</li>
+                        </ul>
+                    </li>
+                    <li><strong>प्राविधिक तथा व्यावसायिक धार (यदि छ भने):</strong> [जस्तै, कम्प्युटर इन्जिनियरिङ, बाली विज्ञान आदि]</li>
                 </ul>
                 <p>थप पाठ्यक्रम र विषयगत जानकारीका लागि विद्यालयमा सम्पर्क गर्न सक्नुहुन्छ।</p>
             </div>
@@ -526,6 +539,8 @@
             <div class="social-links">
                 <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" aria-label="Facebook Page Link" target="_blank">फेसबुक</a>
                 <!-- अरु Social Media Links यहाँ थप्न सक्नुहुन्छ -->
+                <!-- Example: <a href="[Your Twitter Link]" target="_blank">ट्विटर</a> -->
+                <!-- Example: <a href="[Your Instagram Link]" target="_blank">इन्स्टाग्राम</a> -->
             </div>
         </div>
     </footer>
@@ -557,18 +572,24 @@
                         }
 
                         // Optional: Add smooth scrolling functionality
-                        // Prevent the default anchor link behavior (jumping)
-                        // event.preventDefault();
-                        // Get the target section ID from the href attribute (e.g., '#about')
-                        // const targetId = link.getAttribute('href');
-                        // Find the target section element
-                        // const targetSection = document.querySelector(targetId);
-                        // If the target section exists, scroll smoothly to it
-                        // if (targetSection) {
-                        //     targetSection.scrollIntoView({
-                        //         behavior: 'smooth' // Add smooth scrolling effect
-                        //     });
-                        // }
+                        // To enable smooth scrolling, uncomment the lines below
+                        /*
+                        const href = link.getAttribute('href');
+                        // Check if it's an internal link
+                        if (href && href.startsWith('#')) {
+                             event.preventDefault();
+                            // Get the target section ID from the href attribute (e.g., '#about')
+                            const targetId = href;
+                            // Find the target section element
+                            const targetSection = document.querySelector(targetId);
+                            // If the target section exists, scroll smoothly to it
+                            if (targetSection) {
+                                targetSection.scrollIntoView({
+                                    behavior: 'smooth' // Add smooth scrolling effect
+                                });
+                            }
+                        }
+                        */
                     });
                 });
             }
