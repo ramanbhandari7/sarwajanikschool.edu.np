@@ -1,328 +1,167 @@
-/* नेपाली font को लागि */
-/* @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap'); */
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्री सार्वजनिक माध्यमिक विद्यालय</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Link to a Nepali-friendly font from Google Fonts -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet"> -->
+</head>
+<body>
 
-/* Basic Reset and Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <header>
+        <div class="container">
+            <div class="school-title">
+                <!-- <img src="logo.png" alt="स्कूल लोगो" class="logo"> -->
+                <h1>श्री सार्वजनिक माध्यमिक विद्यालय</h1>
+                <p>स्थानीय सरकारको मातहतमा संचालित</p> <!-- Example subtitle -->
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#home">मुख्य पृष्ठ</a></li>
+                    <li><a href="#about">हाम्रो बारेमा</a></li>
+                    <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
+                    <li><a href="#admissions">भर्ना</a></li>
+                    <li><a href="#news">समाचार/सूचना</a></li>
+                    <li><a href="#gallery">ग्यालरी</a></li>
+                    <li><a href="#contact">सम्पर्क</a></li>
+                </ul>
+                <!-- Hamburger menu for mobile (using JS) -->
+                <button class="hamburger" aria-label="Toggle navigation">
+                    ☰
+                </button>
+            </nav>
+        </div>
+    </header>
 
-body {
-    font-family: 'Mukta', sans-serif; /* यहाँ तपाईंले प्रयोग गर्ने नेपाली font राख्नुहोस् */
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>विद्यालयमा स्वागत छ!</h2>
+                <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध ।</p>
+                <!-- <a href="#admissions" class="btn">भर्ना खुला छ!</a> -->
+            </div>
+        </section>
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 1rem; /* किनारामा स्पेस थपियो */
-}
+        <section id="about">
+            <div class="container">
+                <h2>हाम्रो बारेमा</h2>
+                <p>यहाँ विद्यालयको परिचय, इतिहास, स्थापना, लक्ष्य र उद्देश्यबारे लेख्नुहोस्।</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+                <!-- Add more content like mission, vision -->
+                <h3>मिशन र भिजन</h3>
+                <p>यहाँ विद्यालयको मिशन र भिजनबारे लेख्नुहोस्।</p>
+                <h3>हाम्रो विशेषता</h3>
+                <ul>
+                    <li>अनुभवी शिक्षक</li>
+                    <li>आधुनिक प्रयोगशाला</li>
+                    <li>खेलकुद मैदान</li>
+                    <li>पुस्तकालय</li>
+                </ul>
+            </div>
+        </section>
 
-/* Header */
-header {
-    background: #0056b3; /* गाढा नीलो रङ */
-    color: #fff;
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
+        <section id="academics" class="alt-background">
+            <div class="container">
+                <h2>शैक्षिक कार्यक्रमहरू</h2>
+                <p>यहाँ नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रम, पाठ्यक्रम र विशेषताहरू उल्लेख गर्नुहोस्।</p>
+                <ul>
+                    <li>कक्षा १-५ (प्राथमिक तह)</li>
+                    <li>कक्षा ६-८ (निम्न माध्यमिक तह)</li>
+                    <li>कक्षा ९-१० (माध्यमिक तह)</li>
+                    <li>कक्षा ११-१२ (उच्च माध्यमिक तह - विज्ञान, व्यवस्थापन, शिक्षा वा अन्य संकाय)</li>
+                    <li>प्राविधिक धार (यदि छ भने)</li>
+                </ul>
+                <!-- Add details about subjects, teaching methods etc. -->
+            </div>
+        </section>
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* साानो स्क्रिनमा item हरू wrap हुनका लागि */
-}
+        <section id="admissions">
+            <div class="container">
+                <h2>भर्ना प्रक्रिया</h2>
+                <p>यहाँ विद्यालयमा भर्ना हुनका लागि आवश्यक कागजात, योग्यता र प्रक्रियाबारे जानकारी दिनुहोस्।</p>
+                <p>भर्ना फारम प्राप्त गर्न वा थप जानकारीका लागि सम्पर्क गर्नुहोस्।</p>
+                <!-- Maybe link to a downloadable form or online form (if available) -->
+                <!-- <a href="#" class="btn">भर्ना फारम डाउनलोड गर्नुहोस्</a> -->
+            </div>
+        </section>
 
-.school-title {
-    display: flex;
-    align-items: center;
-    flex-grow: 1; /* शीर्षकलाई ठाउँ दिनका लागि */
-}
+        <section id="news" class="alt-background">
+            <div class="container">
+                <h2>समाचार र सूचना</h2>
+                <p>यहाँ विद्यालयका नवीनतम समाचार, सूचना, परीक्षा तालिका, नतिजा वा अन्य घोषणाहरू प्रकाशित गर्नुहोस्।</p>
+                <article>
+                    <h3>नवीनतम समाचार १</h3>
+                    <p>यो समाचारको संक्षिप्त विवरण हो। <a href="#">थप पढ्नुहोस्</a></p>
+                </article>
+                <article>
+                    <h3>महत्वपूर्ण सूचना</h3>
+                    <p>यो सूचनाको संक्षिप्त विवरण हो। <a href="#">थप पढ्नुहोस्</a></p>
+                </article>
+                <!-- Repeat for more news/announcements -->
+            </div>
+        </section>
 
-/* लोगोको स्टाइल */
-.school-title .logo {
-    height: 70px; /* लोगोको उचाई, आवश्यकता अनुसार मिलाउनुहोस् */
-    width: auto; /* चौडाई आफैँ मिलाउन */
-    margin-right: 1rem;
-}
+        <section id="gallery">
+            <div class="container">
+                <h2>ग्यालरी</h2>
+                <p>यहाँ विद्यालयका गतिविधि, कार्यक्रम, भवन वा अन्य फोटो/भिडियोहरू राख्नुहोस्।</p>
+                <div class="gallery-grid">
+                    <!-- Add image tags here -->
+                    <img src="placeholder-img.jpg" alt="ग्यालरी फोटो १">
+                    <img src="placeholder-img.jpg" alt="ग्यालरी फोटो २">
+                    <img src="placeholder-img.jpg" alt="ग्यालरी फोटो ३">
+                    <!-- Add more images -->
+                </div>
+            </div>
+        </section>
 
-.school-title h1 {
-    font-size: 1.8rem;
-    margin: 0;
-}
+        <section id="contact" class="alt-background">
+            <div class="container">
+                <h2>सम्पर्क</h2>
+                <p>तपाईं हामीलाई निम्न ठेगाना र फोन नम्बरमा सम्पर्क गर्न सक्नुहुन्छ।</p>
+                <div class="contact-details">
+                    <p><strong>ठेगाना:</strong> [विद्यालयको पूरा ठेगाना], नेपाल</p>
+                    <p><strong>फोन:</strong> [फोन नम्बर]</p>
+                    <p><strong>इमेल:</strong> [इमेल ठेगाना]</p>
+                    <!-- Optional: Embed Google Map -->
+                    <!-- <div class="map-embed">
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d...!2d...!3d...!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x...:0x...!2s...!5e0!3m2!1sne!2snp!4v..." width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div> -->
+                </div>
+                <!-- Optional: Contact Form -->
+                <!-- <div class="contact-form">
+                    <h3>हामीलाई सन्देश पठाउनुहोस्</h3>
+                    <form action="send_email.php" method="POST"> // Needs backend script to handle
+                        <input type="text" name="name" placeholder="तपाईंको नाम" required>
+                        <input type="email" name="email" placeholder="तपाईंको इमेल" required>
+                        <textarea name="message" placeholder="तपाईंको सन्देश" rows="5" required></textarea>
+                        <button type="submit">सन्देश पठाउनुहोस्</button>
+                    </form>
+                </div> -->
+            </div>
+        </section>
+    </main>
 
-.school-title p {
-    font-size: 0.9rem;
-    margin: 0;
-    opacity: 0.9;
-}
+    <footer>
+        <div class="container">
+            <p>© <span id="current-year"></span> श्री सार्वजनिक माध्यमिक विद्यालय। सबै अधिकार सुरक्षित।</p>
+            <!-- Add quick links or social media icons if needed -->
+            <!-- <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+            </div> -->
+        </div>
+    </footer>
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex; /* navigation items हरूलाई छेउछाउमा राख्न */
-}
+    <script src="script.js"></script>
+    <!-- Optional: Add script to auto-update year in footer -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-    padding: 5px 0; /* Touch area बढायो */
-    display: block;
-}
-
-nav ul li a:hover {
-    color: #ddd;
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: none; /* ठूलो स्क्रिनमा hide गर्ने */
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 5px 10px;
-    line-height: 1;
-}
-
-/* === Responsive Design (मोबाइलका लागि) === */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column; /* Mobile मा stack गर्ने */
-        align-items: flex-start;
-    }
-
-    .school-title {
-        width: 100%;
-        justify-content: center; /* Center content when stacked */
-        margin-bottom: 1rem;
-        flex-direction: column; /* Logo and text vertically */
-        text-align: center;
-    }
-
-    .school-title .logo {
-        margin: 0 0 0.5rem 0; /* लोगोलाई Center गरेर तल Space */
-        height: 60px; /* Mobile मा लोगोको सानो आकार */
-    }
-
-     .school-title h1 {
-        font-size: 1.6rem; /* Mobile मा शीर्षकको सानो आकार */
-    }
-     .school-title p {
-        font-size: 0.8rem; /* Mobile मा subtitle को सानो आकार */
-    }
-
-
-    nav {
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column; /* Navigation links लाई तल-माथि राख्ने */
-        display: none; /* Hamburger नथिचेसम्म navigation hide गर्ने */
-        width: 100%;
-        background: #004080; /* Dropdown menu को background */
-        margin-top: 0.5rem;
-        padding: 10px 0;
-    }
-
-    nav ul.show {
-        display: flex; /* Hamburger click गर्दा navigation देखाउने (JS ले गर्छ) */
-    }
-
-    nav ul li {
-        margin: 10px 0; /* Navigation link हरू बीच ठाउँ */
-    }
-     nav ul li a {
-         padding: 10px; /* Touch area बढाउने */
-     }
-
-    .hamburger {
-        display: block; /* Mobile मा hamburger देखाउने */
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-    }
-}
-
-
-/* Sections Styling */
-section {
-    padding: 60px 0; /* Section हरूको माथि र तल स्पेस */
-    text-align: center;
-}
-
-section h2 {
-    font-size: 2.2rem; /* शीर्षकको आकार */
-    margin-bottom: 30px;
-    color: #0056b3; /* शीर्षकको रङ */
-}
-
-section p {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-}
-section h3 {
-     font-size: 1.5rem;
-     margin-top: 25px;
-     margin-bottom: 15px;
-     color: #007bff; /* Secondary blue */
-}
-
-/* Alternate background for sections */
-.alt-background {
-    background-color: #e9e9e9;
-}
-
-/* Hero Section (मुख्य पृष्ठको ठूलो ब्यानर) */
-.hero {
-    /* हिरो इमेजको पथ अपडेट गरिएको छ */
-    background: url('Docs/imges/hero.jpg') no-repeat center center/cover;
-    color: #fff;
-    padding: 120px 0; /* माथि र तल ठूलो स्पेस */
-    position: relative;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.7); /* Text पढ्न सजिलो बनाउन Shadow */
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* इमेजमाथि कालो opacity Overlay */
-}
-
-.hero .container {
-    position: relative; /* सुनिश्चित गर्नुहोस् कि सामग्री overlay को माथि छ */
-    z-index: 1;
-}
-
-.hero h2 {
-    color: #fff; /* हिरो सेक्सनको शीर्षकको रङ */
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 40px;
-}
-
-/* Button Styling */
-.btn {
-    display: inline-block;
-    background: #ffc107; /* सुनौलो/पहेँलो रङ */
-    color: #333;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease;
-    font-size: 1.1rem;
-}
-
-.btn:hover {
-    background: #e0a800; /* गाढा सुनौलो रङ */
-}
-
-/* About Section Specifics */
-#about ul {
-    list-style: disc;
-    text-align: left; /* list लाई बाँया तिर मिलाउन */
-    margin-left: 20px;
-    display: inline-block; /* list को block लाई बीचमा ल्याउन */
-    margin-top: 20px;
-}
-
-#about ul li {
-    margin-bottom: 8px;
-    font-size: 1.05rem;
-}
-
-
-/* Gallery Section */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive Grid */
-    gap: 20px; /* Grid item हरू बीच Space */
-    margin-top: 30px;
-}
-
-.gallery-grid img {
-    display: block;
-    width: 100%;
-    height: 200px; /* वा एउटै निश्चित उचाई */
-    object-fit: cover; /* Image को proportion नमिलाइकन grid space भर्न */
-    border-radius: 5px;
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover गर्दा एनिमेसन */
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.03); /* Hover गर्दा सानो जुम */
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
-}
-
-
-/* Contact Section */
-.contact-details {
-    margin-top: 25px;
-    text-align: left; /* विवरणलाई बाँया तिर मिलाउन */
-    display: inline-block; /* विवरणको block लाई बीचमा ल्याउन */
-    font-size: 1.1rem;
-    line-height: 2; /* Line हरू बीच Space */
-}
-
-.contact-details p {
-    margin-bottom: 10px;
-}
-
-/* Map Embed Styling (यदि प्रयोग गर्नुहुन्छ भने) */
-.map-embed {
-    margin-top: 30px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
-}
-
-/* Footer */
-footer {
-    background: #222; /* गाढा रङ */
-    color: #ddd; /* हल्का सेतो रङ */
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 40px; /* Section र footer बीच स्पेस */
-    font-size: 0.9rem;
-}
-
-footer p {
-    margin-bottom: 10px; /* copyright र link हरू बीच स्पेस */
-}
-
-footer a {
-    color: #ddd;
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
+</body>
+</html>
