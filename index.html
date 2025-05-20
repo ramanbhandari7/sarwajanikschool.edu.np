@@ -207,40 +207,45 @@
         }
 
         /* Hero Section (मुख्य पृष्ठको ठूलो ब्यानर) */
-        .hero {
-            /* हिरो इमेजको पथ */
-            background: url('Docs/imges/hero.jpg') no-repeat center center/cover;
-            color: #fff;
-            padding: 120px 0; /* माथि र तल ठूलो स्पेस */
-            position: relative;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.7); /* Text पढ्न सजिलो बनाउन Shadow */
-        }
+.hero {
+    /* हिरो इमेजको पथ यहाँ छ */
+    background: url('Docs/imges/hero.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 120px 0; /* Section को माथि र तल को स्पेस */
+    position: relative;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7); /* पढ्न सजिलो होस् भनेर टेक्स्ट मा shadow दिइएको */
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* इमेजमाथि कालो opacity Overlay */
-        }
+/* इमेज माथि ओभरले (Overlay) ताकि टेक्स्ट पढ्न सजिलो होस् */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* कालो रङको 50% ओपेसिटी (Transparency) भएको ओभरले */
+}
 
-        .hero .container {
-            position: relative; /* सुनिश्चित गर्नुहोस् कि सामग्री overlay को माथि छ */
-            z-index: 1;
-        }
+/* Hero भित्रको सामग्री (टेक्स्ट) लाई ओभरले भन्दा माथि राख्न */
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
 
-        .hero h2 {
-            color: #fff; /* हिरो सेक्सनको शीर्षकको रङ */
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-        }
+/* Hero भित्रका टेक्स्टहरूको स्टाइल */
+.hero h2 {
+    color: #fff;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-        }
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+}
+
+/* ... (बाँकी CSS कोड) ... */
 
         /* Button Styling */
         .btn {
@@ -353,11 +358,10 @@
     <header>
         <div class="container">
             <div class="school-title">
-                <!-- लोगोको पथ -->
                 <img src="Docs/imges/logo.jpg" alt="स्कूल लोगो" class="logo">
                  <div> <!-- शीर्षक र subtitle को लागि -->
                     <h1>श्री सार्वजनिक माध्यमिक विद्यालय</h1>
-                    <p>स्थानीय सरकारको मातहतमा संचालित</p>
+                    <p>केराबारी ७, डाँगी, मोरङ</p>
                 </div>
             </div>
             <nav>
