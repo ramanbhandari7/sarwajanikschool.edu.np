@@ -5,36 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>श्री सार्वजनिक माध्यमिक विद्यालय</title>
 
-    <!-- नेपाली font को लागि Google Fonts बाट link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Cloudflare Turnstile CAPTCHA Script (Add this to the head) -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-    <!-- Font Awesome for Social Icons (Optional, but recommended for better icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <style>
-        /* Basic Reset and Global Styles */
+        :root {
+            --primary-color: #0057A8; /* Deep Blue */
+            --secondary-color: #007bff; /* Brighter Blue for accents */
+            --accent-color: #ffc107; /* Yellow/Amber */
+            --light-bg: #f8f9fa;
+            --dark-bg: #eef1f5;
+            --text-color: #343a40;
+            --light-text-color: #f8f9fa;
+            --heading-font-weight: 700;
+            --body-font-weight: 400;
+            --base-font-size: 17px; /* Increased base font size */
+            --line-height: 1.7;
+            --border-radius: 6px;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Mukta', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa; /* Slightly lighter main background */
+            font-weight: var(--body-font-weight);
+            line-height: var(--line-height);
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            font-size: var(--base-font-size); /* Applied base font size */
         }
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1140px; /* Slightly reduced for better focus */
             margin: auto;
             overflow: hidden;
             padding: 0 1rem;
@@ -42,11 +59,11 @@
 
         /* Header Styling */
         header {
-            background: #0057A8; /* Updated primary blue */
-            color: #fff;
+            background: var(--primary-color);
+            color: var(--light-text-color);
             padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            position: sticky; /* Optional: make header sticky */
+            box-shadow: var(--header-shadow);
+            position: sticky;
             top: 0;
             z-index: 1000;
         }
@@ -64,29 +81,30 @@
             flex-grow: 1;
         }
 
-        .school-title > div {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
         .school-title .logo {
-            height: 70px;
-            width: auto;
-            margin-right: 1rem;
+            height: 75px; /* Slightly larger logo */
+            width: 75px;
+            margin-right: 1.2rem;
             border-radius: 50%;
             background-color: #fff;
-            padding: 5px;
-            box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            padding: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            object-fit: contain;
         }
 
         .school-title h1 {
-            font-size: 1.8rem;
+            font-size: 2.1rem; /* Increased font size */
             margin: 0;
+            font-weight: var(--heading-font-weight);
+            line-height: 1.2;
+        }
+        .school-title h1 .highlight { /* For "श्री" or other parts */
+            color: var(--accent-color); /* Accent color for emphasis */
+            font-weight: 700;
         }
 
         .school-title p {
-            font-size: 0.9rem;
+            font-size: 0.95rem; /* Slightly larger */
             margin: 0;
             opacity: 0.9;
         }
@@ -98,35 +116,47 @@
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 5px; /* Reduced margin for more compact nav */
         }
 
         nav ul li a {
-            color: #fff;
+            color: var(--light-text-color);
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: color 0.3s ease, background-color 0.3s ease; /* Added background transition */
-            padding: 8px 12px; /* Added padding for better touch targets */
-            border-radius: 4px; /* Rounded corners for links */
+            font-weight: 600; /* Bolder nav links */
+            font-size: 1.05rem; /* Slightly larger nav links */
+            transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
             display: block;
         }
 
-        nav ul li a:hover, nav ul li a:focus {
-            color: #0057A8; /* Primary color for text on hover */
-            background-color: #fff; /* White background on hover */
+        nav ul li a:hover,
+        nav ul li a:focus,
+        nav ul li a.active { /* Style for active link */
+            color: var(--primary-color);
+            background-color: #fff;
+            transform: translateY(-2px);
         }
 
-        /* Hamburger Menu Button Styling */
         .hamburger {
             display: none;
-            background: none;
+            background: transparent;
             border: none;
-            color: #fff;
-            font-size: 2rem;
+            color: var(--light-text-color);
+            font-size: 2.2rem;
             cursor: pointer;
-            padding: 5px 10px;
+            padding: 5px;
             line-height: 1;
+        }
+
+        @media (max-width: 992px) { /* Adjusted breakpoint for nav collapse */
+            .school-title h1 {
+                font-size: 1.8rem;
+            }
+            nav ul li a {
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -134,7 +164,6 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-
             .school-title {
                 width: 100%;
                 justify-content: center;
@@ -142,295 +171,357 @@
                 flex-direction: column;
                 text-align: center;
             }
-
             .school-title .logo {
-                margin: 0 auto 0.5rem auto;
-                height: 60px;
+                margin: 0 auto 0.75rem auto;
+                height: 65px; width: 65px;
             }
+             .school-title h1 { font-size: 1.7rem; }
+             .school-title p { font-size: 0.9rem; }
 
-             .school-title h1 {
-                font-size: 1.6rem;
-            }
-             .school-title p {
-                font-size: 0.8rem;
-            }
-
-            nav {
-                width: 100%;
-                text-align: center;
-            }
-
+            nav { width: 100%; text-align: center; }
             nav ul {
                 flex-direction: column;
                 display: none;
                 width: 100%;
-                background: #004080; /* Darker blue for mobile dropdown */
+                background: #004a93; /* Slightly darker shade for mobile menu */
                 margin-top: 0.5rem;
                 padding: 10px 0;
+                border-radius: var(--border-radius);
             }
-
-            nav ul.show {
-                display: flex;
+            nav ul.show { display: flex; }
+            nav ul li { margin: 8px 0; }
+            nav ul li a { padding: 12px; width: 90%; margin: auto; }
+            nav ul li a:hover, nav ul li a:focus {
+                background-color: var(--accent-color);
+                color: var(--text-color);
             }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-             nav ul li a {
-                 padding: 10px;
-             }
-             nav ul li a:hover, nav ul li a:focus { /* Ensure hover effect works on mobile too */
-                color: #004080;
-                background-color: #e0e0e0;
-             }
-
-            .hamburger {
-                display: block;
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-            }
+            .hamburger { display: block; position: absolute; top: 1.2rem; right: 1rem; }
         }
 
         /* Section Base Styling */
         section {
-            padding: 60px 0;
+            padding: 80px 0; /* Increased padding */
             text-align: center;
         }
 
         section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: #0057A8; /* Updated primary blue */
+            font-size: 2.6rem; /* Larger section titles */
+            font-weight: var(--heading-font-weight);
+            margin-bottom: 40px; /* More space below title */
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
         }
+        /* Underline effect for section titles */
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
 
         section p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            max-width: 800px;
+            margin-bottom: 20px; /* More space between paragraphs */
+            font-size: 1.15rem; /* Larger paragraph text */
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
+            color: #555; /* Softer text color */
         }
         section h3 {
-             font-size: 1.5rem;
-             margin-top: 25px;
+             font-size: 1.8rem; /* Larger h3 */
+             font-weight: 600;
+             margin-top: 30px;
              margin-bottom: 15px;
-             color: #007bff; /* A slightly brighter blue for subheadings */
+             color: var(--secondary-color);
         }
 
-        .alt-background {
-            background-color: #eef1f5; /* Softer alternate background */
-        }
+        .alt-background { background-color: var(--dark-bg); }
 
         /* Hero Section Styling */
         .hero {
-            background: url('Docs/images/hero.jpg') no-repeat center center/cover;
-            color: #fff;
-            padding: 120px 0;
-            position: relative;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Slightly softer text shadow */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)), url('Docs/images/hero.jpg') no-repeat center center/cover;
+            color: var(--light-text-color);
+            padding: 150px 0; /* More padding */
+            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.55); /* Slightly adjusted overlay */
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
+        .hero .container { position: relative; z-index: 1; }
 
         .hero h2 {
-            color: #fff;
-            font-size: 2.8rem;
-            margin-bottom: 20px;
+            color: var(--light-text-color);
+            font-size: 3.2rem; /* More impactful heading */
+            font-weight: 700;
+            margin-bottom: 25px;
         }
+        .hero h2::after { display: none; } /* Remove default underline from hero h2 */
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
+            font-size: 1.4rem; /* Larger hero paragraph */
+            margin-bottom: 45px;
+            opacity: 0.95;
+            color: var(--light-text-color);
         }
 
         .btn {
             display: inline-block;
-            background: #ffc107;
-            color: #212529; /* Darker text for yellow button for better contrast */
-            padding: 12px 25px;
+            background: var(--accent-color);
+            color: var(--text-color); /* Ensuring contrast */
+            padding: 14px 30px; /* Larger button */
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.2s ease;
-            font-size: 1.1rem;
-            border: none; /* Remove default border */
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 1.15rem;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .btn:hover {
-            background: #e0a800;
-            transform: translateY(-2px); /* Slight lift on hover */
+        .btn:hover, .btn:focus {
+            background: #e0a800; /* Darker amber */
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--light-text-color);
+        }
+        .btn-secondary:hover, .btn-secondary:focus {
+            background-color: #005cb9;
         }
 
-        #about ul, #admissions ul {
-            list-style: disc;
+
+        /* About, Admissions Lists Styling */
+        #about ul, #admissions ul, #academics ul {
+            list-style: none; /* Remove default bullets */
             text-align: left;
-            display: inline-block;
-            margin-top: 15px;
-            padding-left: 20px; /* Ensure list items are not cut off */
+            display: block; /* Allow full width */
+            margin: 20px auto;
+            padding-left: 0; /* Remove default padding */
+            max-width: 700px; /* Constrain width of list for readability */
         }
-         #about ul li, #admissions ul li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
+         #about ul li, #admissions ul li, #academics ul li {
+            margin-bottom: 12px;
+            font-size: 1.1rem; /* Slightly larger list item text */
+            padding-left: 25px; /* Space for custom bullet */
+            position: relative;
         }
-        
-        #academics ul {
-            list-style: disc;
-            text-align: left;
-            margin-left: 40px;
+        /* Custom Bullet Style */
+        #about ul li::before, #admissions ul li::before, #academics ul ul li::before, #academics > ul > li > strong::before {
+            content: "\f00c"; /* FontAwesome check icon or use "•" */
+            font-family: "Font Awesome 6 Free"; /* Corrected for FA v6 */
+            font-weight: 900; /* Solid icon */
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            top: 4px; /* Adjust vertical alignment */
+            font-size: 0.9em;
+        }
+        /* Specific for academic main points if they are bolded directly */
+        #academics > ul > li > strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        #academics > ul > li > strong::before {
+             content: "\f192"; /* fa-dot-circle for main points */
+             font-family: "Font Awesome 6 Free"; /* Corrected for FA v6 */
+             top: 7px;
+        }
+
+
+        #academics ul ul { /* Style for nested lists */
+            margin-left: 20px;
             margin-top: 10px;
+            padding-left: 0;
+        }
+         #academics ul ul li::before {
+            content: "\f105"; /* fa-chevron-right */
+            font-family: "Font Awesome 6 Free"; /* Corrected for FA v6 */
+            color: var(--secondary-color);
+         }
+
+        /* News Section - Card Style */
+        #news .container > p { margin-bottom: 40px; } /* Space above articles */
+        #news article {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            text-align: left;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        #news article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        #news article h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-top: 0;
             margin-bottom: 10px;
         }
-        #academics ul li {
-            margin-bottom: 8px;
+        #news article p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #555;
         }
-        #academics ul ul {
-            list-style: circle;
-            margin-left: 20px;
-            margin-top: 5px;
+        #news article a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
         }
+        #news article a:hover { text-decoration: underline; }
 
+
+        /* Gallery Section Styling */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            gap: 25px; /* Increased gap */
+            margin-top: 40px;
         }
+
+        .gallery-grid .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden; /* To contain image */
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+         .gallery-grid .gallery-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+         }
 
         .gallery-grid img {
             display: block;
             width: 100%;
-            height: 200px;
+            height: 220px; /* Slightly increased height */
             object-fit: cover;
-            border-radius: 5px;
-            box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s ease;
+        }
+        .gallery-grid .gallery-item:hover img {
+            transform: scale(1.1); /* Zoom effect on image */
         }
 
-        .gallery-grid img:hover {
-            transform: scale(1.03);
-            box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
-        }
-
+        /* Contact Section Styling */
         .contact-details {
             margin-top: 25px;
-            text-align: left;
-            display: inline-block;
+            text-align: left; /* Keep text left aligned */
+            display: inline-block; /* To center block */
             font-size: 1.1rem;
-            line-height: 2;
+            line-height: 2.2; /* More line height */
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            max-width: 700px; /* Added max-width */
+            width: 100%; /* Ensure it takes available space up to max-width */
+            margin-left: auto;  /* Centering the block */
+            margin-right: auto; /* Centering the block */
         }
-
-        .contact-details p {
-            margin-bottom: 10px;
+        .contact-details p { font-size: 1.1rem; margin-bottom: 12px; color: var(--text-color); }
+        .contact-details p strong { color: var(--primary-color); }
+        .contact-details p a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
         }
-         .contact-details p strong {
-            color: #0057A8; /* Match primary color */
-         }
+        .contact-details p a:hover { text-decoration: underline; }
+        .contact-details .social-contact a {
+             font-size: 1.2rem; /* Specific for FB link in contact */
+             margin-right: 10px;
+             color: var(--primary-color);
+        }
+        .contact-details .social-contact a:hover {
+             color: var(--accent-color);
+        }
 
         .map-embed {
-            margin-top: 30px;
-            border-radius: 8px;
+            margin-top: 40px;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+            box-shadow: var(--card-shadow);
         }
         
-        /* Styles for CAPTCHA Container */
         .captcha-container {
-            margin-top: 30px;
+            margin-top: 40px; /* Added more margin for spacing from contact details */
             display: flex;
-            justify-content: center; /* Center the CAPTCHA widget */
-            padding: 10px;
+            justify-content: center;
+            padding: 15px; /* Slightly more padding */
+            background: #fff; 
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            max-width: 320px; 
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .cf-turnstile { /* Cloudflare Turnstile class */
-            /* Add any specific styling for the container if needed, */
-            /* but the widget itself is styled by Cloudflare */
-        }
-
 
         /* Footer Styling */
         footer {
-            background: #343a40; /* Darker, more modern footer background */
-            color: #e9ecef; /* Lighter text color for footer */
+            background: #2c3e50; /* Darker, richer blue-gray */
+            color: #bdc3c7; /* Softer light text */
             text-align: center;
-            padding: 2.5rem 0; /* Increased padding */
-            margin-top: 40px;
-            font-size: 0.95rem; /* Slightly larger font */
+            padding: 3rem 0;
+            margin-top: 60px;
+            font-size: 1rem;
         }
         
         .footer-nav ul {
             list-style: none;
             padding: 0;
-            margin: 0 0 1.5rem 0; /* Space below nav */
+            margin: 0 0 2rem 0;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
         }
-
-        .footer-nav ul li {
-            margin: 5px 15px;
-        }
-
+        .footer-nav ul li { margin: 5px 18px; }
         .footer-nav ul li a {
-            color: #e9ecef;
+            color: #ecf0f1; /* Brighter footer link text */
             text-decoration: none;
             transition: color 0.3s ease;
-            font-weight: normal; /* Normal weight for footer links */
+            font-weight: 500;
         }
-
         .footer-nav ul li a:hover {
-            color: #ffc107; /* Accent color on hover */
-            text-decoration: underline;
+            color: var(--accent-color);
         }
 
-        footer p {
-            margin-bottom: 10px;
-        }
+        footer p { margin-bottom: 15px; }
 
-        .social-links {
-            margin-bottom: 1.5rem; /* Space below social links */
-        }
-
+        .social-links { margin-bottom: 2rem; }
         .social-links a {
-            color: #e9ecef;
+            color: #ecf0f1;
             text-decoration: none;
-            margin: 0 12px;
-            font-size: 1.5rem; /* Larger icons */
+            margin: 0 15px;
+            font-size: 1.8rem; /* Larger icons */
             transition: color 0.3s ease, transform 0.2s ease;
         }
         .social-links a:hover {
-            color: #ffc107; /* Accent color on hover */
-            transform: translateY(-2px);
+            color: var(--accent-color);
+            transform: translateY(-3px);
         }
 
         .developer-tag {
-            margin-top: 1rem;
-            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
         }
         .developer-tag a {
-            color: #adb5bd; /* Subtler color for developer link */
+            color: #95a5a6; /* Subtler color for developer link */
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
         }
         .developer-tag a:hover {
-            color: #ffc107; /* Accent color on hover */
+            color: var(--accent-color);
             text-decoration: underline;
         }
-
-
     </style>
 </head>
 <body>
@@ -440,13 +531,13 @@
             <div class="school-title">
                 <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="logo">
                  <div>
-                    <h1>श्री सार्वजनिक माध्यमिक विद्यालय</h1>
+                    <h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1>
                     <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p>
                 </div>
             </div>
             <nav>
                 <ul class="nav-list">
-                    <li><a href="#home">मुख्य पृष्ठ</a></li>
+                    <li><a href="#home" class="active">मुख्य पृष्ठ</a></li>
                     <li><a href="#about">हाम्रो बारेमा</a></li>
                     <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
                     <li><a href="#admissions">भर्ना</a></li>
@@ -455,7 +546,7 @@
                     <li><a href="#contact">सम्पर्क</a></li>
                 </ul>
                 <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
-                    ☰
+                    <i class="fas fa-bars"></i> <!-- Using FontAwesome for hamburger -->
                 </button>
             </nav>
         </div>
@@ -465,8 +556,9 @@
         <section id="home" class="hero">
             <div class="container">
                 <h2>विद्यालयमा स्वागत छ!</h2>
-                <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध । तपाईंको शैक्षिक यात्रा हाम्रो साथमा अझ फलदायी बनाउनुहोस् ।</p>
-                <!-- <a href="#admissions" class="btn">भर्ना खुला छ! अहिले आवेदन दिनुहोस्</a> -->
+                <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध। तपाईंको शैक्षिक यात्रा हाम्रो साथमा अझ फलदायी बनाउनुहोस्।</p>
+                <a href="#about" class="btn">थप जान्नुहोस्</a>
+                <!-- <a href="#admissions" class="btn btn-secondary" style="margin-left: 10px;">भर्ना खुला छ!</a> -->
             </div>
         </section>
 
@@ -474,17 +566,17 @@
             <div class="container">
                 <h2>हाम्रो बारेमा</h2>
                 <p>श्री सार्वजनिक माध्यमिक विद्यालय मोरङ जिल्लाको केराबारी वडा नम्बर ७, डाँगीमा अवस्थित एक प्रतिष्ठित शैक्षिक संस्था हो। वि.सं. [स्थापना भएको वर्ष] मा स्थापित यस विद्यालयले यस क्षेत्रमा गुणस्तरीय शिक्षा प्रदान गर्दै आइरहेको छ। हाम्रो लक्ष्य विद्यार्थीहरूलाई नैतिकवान, जिम्मेवार र प्रतिस्पर्धी नागरिकको रूपमा विकास गर्नु हो।</p>
-                <h3>मिशन र भिजन</h3>
-                <p><strong>मिशन:</strong> प्रत्येक विद्यार्थीमा अन्तर्निहित प्रतिभालाई प्रस्फुटन गराउँदै समग्र विकासमा सहयोग पुर्याउनु।</p>
+                <h3>भिजन र मिशन</h3> <!-- Combined for flow -->
                 <p><strong>भिजन:</strong> अग्रणी शैक्षिक केन्द्रको रूपमा स्थापित भई समुदायको शैक्षिक उन्नयनमा योगदान पुर्याउनु।</p>
-                <h3>हाम्रो विशेषता</h3>
+                <p><strong>मिशन:</strong> प्रत्येक विद्यार्थीमा अन्तर्निहित प्रतिभालाई प्रस्फुटन गराउँदै समग्र विकासमा सहयोग पुर्याउनु।</p>
+                <h3>हाम्रा विशेषताहरू</h3>
                 <ul>
                     <li>अत्यन्त अनुभवी र समर्पित शिक्षक-शिक्षिकाहरू</li>
                     <li>विज्ञान, कम्प्युटर लगायतका आधुनिक प्रयोगशाला सुविधाहरू</li>
                     <li>पर्याप्त खेलकुद मैदान र विभिन्न खेलकुद गतिविधिहरूमा सहभागिता</li>
-                    <li>पुस्तकालयमा विभिन्न किसिमका पाठ्यपुस्तक तथा सन्दर्भ सामग्रीहरूको उपलब्धता</li>
+                    <li>पुस्तकालयमा विभिन्न पाठ्यपुस्तक तथा सन्दर्भ सामग्रीहरूको उपलब्धता</li>
                     <li>नियमित अतिरिक्त क्रियाकलापहरू (सांस्कृतिक कार्यक्रम, वादविवाद प्रतियोगिता आदि)</li>
-                    <li>विद्यार्थी केन्द्रित शिक्षण विधि</li>
+                    <li>विद्यार्थी केन्द्रित शिक्षण विधि र सकारात्मक सिकाइ वातावरण</li>
                 </ul>
             </div>
         </section>
@@ -492,186 +584,209 @@
         <section id="academics" class="alt-background">
             <div class="container">
                 <h2>शैक्षिक कार्यक्रमहरू</h2>
-                <p>हाम्रो विद्यालयमा नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रमहरू संचालित छन्। राष्ट्रिय पाठ्यक्रममा आधारित शिक्षण विधि अपनाइन्छ र प्रविधिको प्रयोगमा जोड दिइन्छ।</p>
+                <p>हाम्रो विद्यालयमा नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रमहरू राष्ट्रिय पाठ्यक्रम अनुसार नवीनतम शिक्षण विधि तथा प्रविधिको प्रयोग गरी संचालित छन्।</p>
                 <ul>
-                    <li><strong>आधारभूत तह (कक्षा १-८):</strong> खेल-आधारित सिकाई र व्यक्तिगत ध्यानमा केन्द्रित।</li>
-                    <li><strong>माध्यमिक तह (कक्षा ९-१०):</strong> बलियो सैद्धान्तिक आधार निर्माणमा जोड।</li>
+                    <li><strong>आधारभूत तह (कक्षा १-८):</strong> खेल-आधारित र प्रयोगात्मक सिकाई, नैतिक शिक्षा तथा व्यक्तिगत ध्यानमा केन्द्रित।</li>
+                    <li><strong>माध्यमिक तह (कक्षा ९-१०):</strong> सैद्धान्तिक ज्ञानको बलियो आधार निर्माण र एसईई तयारीमा विशेष जोड।</li>
                     <li>
                         <strong>उच्च माध्यमिक तह (कक्षा ११-१२):</strong>
                         <ul>
-                           <li>विज्ञान संकाय</li>
-                           <li>व्यवस्थापन संकाय</li>
-                           <li>शिक्षा संकाय (यदि लागू हुन्छ भने)</li>
+                           <li>विज्ञान संकाय (भौतिक, रसायन, जीवविज्ञान, गणित, कम्प्युटर)</li>
+                           <li>व्यवस्थापन संकाय (लेखा, अर्थशास्त्र, व्यापार अध्ययन)</li>
+                           <li>शिक्षा संकाय (ऐच्छिक विषय सहित - यदि लागू हुन्छ भने)</li>
                         </ul>
                     </li>
-                    <li><strong>प्राविधिक तथा व्यावसायिक धार (यदि छ भने):</strong> [जस्तै, कम्प्युटर इन्जिनियरिङ, बाली विज्ञान आदि]</li>
+                    <li><strong>प्राविधिक तथा व्यावसायिक धार (यदि छ भने):</strong> [जस्तै, सिभिल इन्जिनियरिङ, बाली विज्ञान आदि - विस्तृत जानकारी आवश्यक]</li>
                 </ul>
-                <p>थप पाठ्यक्रम र विषयगत जानकारीका लागि विद्यालयमा सम्पर्क गर्न सक्नुहुन्छ।</p>
+                <p style="margin-top: 30px;">थप पाठ्यक्रम र विषयगत जानकारीका लागि विद्यालय प्रशासनमा सम्पर्क गर्न सक्नुहुन्छ।</p>
+            </div>
+        </section>
+         <section id="news"> <!-- News section given a standard background for card visibility -->
+            <div class="container">
+                <h2>समाचार र सूचना</h2>
+                <p>विद्यालय सम्बन्धी ताजा खबर, कार्यक्रम, परीक्षा तालिका र अन्य महत्वपूर्ण सूचनाहरू।</p>
+                <article>
+                    <h3>उत्कृष्ट एसईई (SEE) नतिजा - २०७९!</h3>
+                    <p>यस वर्षको एसईई परीक्षामा विद्यालयका सम्पूर्ण विद्यार्थी भाइबहिनीहरूले उत्कृष्ट नतिजा ल्याउन सफल भएकोमा हार्दिक बधाई! उनीहरूको उज्ज्वल भविष्यको कामना गर्दछौँ। विस्तृत नतिजा <a href="#">यहाँ</a> हेर्नुहोस्।</p>
+                </article>
+                 <article>
+                    <h3>विद्यालय वार्षिकोत्सव तथा अभिभावक दिवस - २०८१</h3>
+                    <p>आगामी [महिना] [गते] गते, [दिन] विद्यालयको [XX] औँ वार्षिकोत्सव तथा अभिभावक दिवस भव्यताका साथ मनाइँदैछ। यहाँहरूको गरिमामय उपस्थितिको लागि हार्दिक अनुरोध गर्दछौँ। <a href="#">कार्यक्रम तालिका</a></p>
+                </article>
+                 <article>
+                    <h3>नयाँ शैक्षिक सत्रको भर्ना खुल्यो!</h3>
+                    <p>शैक्षिक सत्र २०८१/८२ का लागि नर्सरी देखि कक्षा ९ सम्म नयाँ भर्ना खुल्यो। सिमित सिटहरू! <a href="#admissions">भर्ना जानकारी</a></p>
+                </article>
             </div>
         </section>
 
         <section id="admissions">
             <div class="container">
                 <h2>भर्ना प्रक्रिया</h2>
-                <p>श्री सार्वजनिक माध्यमिक विद्यालयमा भर्नाका लागि हरेक वर्ष नयाँ भर्ना खुल्ला गरिन्छ। इच्छुक विद्यार्थी तथा अभिभावकहरूले तोकिएको समयमा भर्ना फारम प्राप्त गरी प्रक्रियामा सहभागी हुन सक्नुहुनेछ।</p>
-                <p>भर्ना हुनका लागि आवश्यक कागजातहरू:</p>
+                <p>श्री सार्वजनिक माध्यमिक विद्यालयमा नयाँ शैक्षिक सत्रका लागि भर्ना खुल्ला गरिएको छ। इच्छुक विद्यार्थी तथा अभिभावकहरूले तोकिएको समयभित्र विद्यालयमा सम्पर्क गरी भर्ना फारम प्राप्त गर्न र प्रक्रियामा सहभागी हुन सक्नुहुनेछ।</p>
+                <p><strong>भर्नाका लागि आवश्यक कागजातहरू:</strong></p>
                 <ul>
-                    <li>जन्मदर्ता प्रमाणपत्रको प्रतिलिपि</li>
-                    <li>अघिल्लो कक्षा उत्तीर्ण भएको लब्धांकपत्र/प्रमाणपत्रको प्रतिलिपि</li>
-                    <li>ट्रान्सफर प्रमाणपत्र (यदि अघिल्लो विद्यालयबाट आउनुभएको हो भने)</li>
-                    <li>हालसालै खिचेको पासपोर्ट साइजको फोटो</li>
-                    <li>अभिभावकको परिचयपत्रको प्रतिलिपि</li>
+                    <li>विद्यार्थीको जन्मदर्ता प्रमाणपत्रको प्रतिलिपि (अनिवार्य)</li>
+                    <li>अघिल्लो कक्षा उत्तीर्ण गरेको लब्धांकपत्र/प्रमाणपत्रको सक्कल प्रतिलिपि</li>
+                    <li>अघिल्लो विद्यालयको स्थानान्तरण प्रमाणपत्र (ट्रान्सफर सर्टिफिकेट)</li>
+                    <li>हालसालै खिचिएको पासपोर्ट साइजको २ प्रति फोटो</li>
+                    <li>अभिभावकको नागरिकता प्रमाणपत्रको प्रतिलिपि</li>
                 </ul>
-                <p>विस्तृत जानकारी, भर्ना फारम र प्रक्रिया बारे बुझ्नका लागि विद्यालयको कार्यालय समयमा सम्पर्क गर्नुहोला।</p>
-                <!-- <a href="Docs/admission-form.pdf" class="btn" download>भर्ना फारम डाउनलोड गर्नुहोस्</a> -->
+                <p style="margin-top:25px;">विस्तृत जानकारी, भर्ना फारम र अन्य प्रक्रिया बारे बुझ्नका लागि कृपया विद्यालयको कार्यालय समयमा (बिहान १० बजे देखि अपरान्ह ४ बजेसम्म) सम्पर्क गर्नुहोला।</p>
+                <a href="#" class="btn" download>भर्ना फारम (नमुना)</a>
             </div>
         </section>
 
-        <section id="news" class="alt-background">
-            <div class="container">
-                <h2>समाचार र सूचना</h2>
-                <p>विद्यालय सम्बन्धी ताजा खबर, कार्यक्रम तालिका, परीक्षा तालिका र अन्य महत्वपूर्ण सूचनाहरू यहाँ नियमित रूपमा प्रकाशित गरिन्छ।</p>
-                <article>
-                    <h3>एसईई (SEE) परीक्षाको नतिजा प्रकाशित!</h3>
-                    <p>यस वर्षको एसईई परीक्षामा सामेल हुनुहुने सम्पूर्ण विद्यार्थी भाइबहिनीहरूलाई सफल नतिजाको लागि हार्दिक बधाई तथा उज्ज्वल भविष्यको कामना! नतिजा [नतिजा हेर्ने लिङ्क] बाट हेर्न सकिनेछ।</p>
-                </article>
-                 <article>
-                    <h3>विद्यालयको वार्षिकोत्सव तथा अभिभावक दिवस मनाइँदै</h3>
-                    <p>मिति २०८० साल [महिना] महिनाको [गते] गते [दिन] बार विद्यालयको [संस्थापना वर्ष] औँ वार्षिकोत्सव तथा अभिभावक दिवस भव्यताका साथ मनाइँदैछ। कार्यक्रममा यहाँहरूको गरिमामय उपस्थितिको लागि अनुरोध गर्दछौँ। <a href="#">कार्यक्रम तालिका हेर्नुहोस्</a></p>
-                </article>
-                 <article>
-                    <h3>कक्षा [कक्षा नम्बर] को मासिक परीक्षा सुरु हुँदैछ</h3>
-                    <p>मिति [गते] गतेबाट कक्षा [कक्षा नम्बर] को मासिक परीक्षाहरू संचालन हुँदैछन्। विद्यार्थीहरूले परीक्षा तालिका अनुसार तयारी गर्नुपर्नेछ। <a href="#">परीक्षा तालिका डाउनलोड गर्नुहोस्</a></p>
-                </article>
-            </div>
-        </section>
-
-        <section id="gallery">
+        <section id="gallery" class="alt-background">
             <div class="container">
                 <h2>ग्यालरी</h2>
-                <p>हाम्रो विद्यालयका विभिन्न कार्यक्रमहरू, शैक्षिक गतिविधिहरू र पूर्वाधारहरूको केही झलक यहाँ प्रस्तुत गरिएको छ।</p>
+                <p>हाम्रो विद्यालयका अविस्मरणीय पलहरू, शैक्षिक गतिविधिहरू र पूर्वाधारहरूको केही झलक।</p>
                 <div class="gallery-grid">
-                    <img src="Docs/images/bg.jpg" alt="विद्यालयको वार्षिकोत्सव कार्यक्रम">
-                    <img src="Docs/images/gallery1.jpg" alt="कक्षाकोठा">
-                    <img src="Docs/images/gallery_library.jpg" alt="पुस्तकालय">
-                    <img src="Docs/images/gallery_lab.jpg" alt="विज्ञान प्रयोगशाला">
-                    <img src="Docs/images/gallery_sports.jpg" alt="खेलकुद गतिविधि">
-                    <img src="Docs/images/gallery_building.jpg" alt="विद्यालय भवन">
+                    <div class="gallery-item"><img src="Docs/images/bg.jpg" alt="विद्यालयको वार्षिकोत्सव"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery1.jpg" alt="कक्षाकोठा गतिविधि"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery_library.jpg" alt="पुस्तकालय अध्ययन"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery_lab.jpg" alt="विज्ञान प्रयोगशाला"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery_sports.jpg" alt="खेलकुद दिवस"></div>
+                    <div class="gallery-item"><img src
+="Docs/images/gallery_building.jpg" alt="विद्यालय भवन परिसर"></div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="alt-background">
+        <section id="contact">
             <div class="container">
-                <h2>सम्पर्क</h2>
-                <p>श्री सार्वजनिक माध्यमिक विद्यालयसँग सम्पर्क राख्नका लागि निम्न जानकारी प्रयोग गर्न सक्नुहुन्छ। हामी तपाईंको जिज्ञासा समाधान गर्न सदैव तत्पर छौँ।</p>
+                <h2>सम्पर्क गर्नुहोस्</h2>
+                <p>हामी तपाईंको प्रश्न, प्रतिक्रिया, र सुझावहरू सुन्न सधैं तयार छौं। कृपया हामीलाई सम्पर्क गर्न नहिचकिचाउनुहोस्।</p>
+                
                 <div class="contact-details">
-                    <p><strong>ठेगाना:</strong> डाँगी, वडा नं ७, केराबारी गाउँपालिका, मोरङ, कोशी प्रदेश, नेपाल</p>
-                    <p><strong>फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p>
-                    <p><strong>इमेल:</strong> [विद्यालयको आधिकारिक इमेल ठेगाना]@example.com.np</p>
-                     <p><strong>वेबसाइट:</strong> sarwajanikschool.edu.np</p>
-                     <p><strong>फेसबुक पेज:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" aria-label="Facebook Page Link" target="_blank" style="color: #0057A8;">हाम्रो फेसबुक पेज</a></p>
+                    <p><strong><i class="fas fa-map-marker-alt"></i> ठेगाना:</strong> डाँगी, वडा नं ७, केराबारी गाउँपालिका, मोरङ, कोशी प्रदेश, नेपाल</p>
+                    <p><strong><i class="fas fa-phone-alt"></i> फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p>
+                    <p><strong><i class="fas fa-envelope"></i> इमेल:</strong> <a href="mailto:[विद्यालयको इमेल]">[विद्यालयको आधिकारिक इमेल ठेगाना]</a></p>
+                    <p><strong><i class="fas fa-globe"></i> वेबसाइट:</strong> <a href="http://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
+                    <p class="social-contact"><strong><i class="fab fa-facebook"></i> फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
                 </div>
-                 <!-- Example Contact Form Placeholder (CAPTCHA usually goes inside a form) -->
-                <!--
-                <form id="contact-form" style="margin-top:30px; max-width: 600px; margin-left:auto; margin-right:auto; text-align:left;">
-                     <div style="margin-bottom:15px;">
-                         <label for="name" style="display:block; margin-bottom:5px;">नाम:</label>
-                         <input type="text" id="name" name="name" required style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
-                     </div>
-                     <div style="margin-bottom:15px;">
-                         <label for="email" style="display:block; margin-bottom:5px;">इमेल:</label>
-                         <input type="email" id="email" name="email" required style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;">
-                     </div>
-                     <div style="margin-bottom:15px;">
-                         <label for="message" style="display:block; margin-bottom:5px;">सन्देश:</label>
-                         <textarea id="message" name="message" rows="5" required style="width:100%; padding:10px; border:1px solid #ccc; border-radius:4px;"></textarea>
-                     </div>
-                -->
-                     <!-- Cloudflare CAPTCHA Placement -->
-                     <div class="captcha-container">
-                        <!-- IMPORTANT: Replace 'YOUR_SITE_KEY_HERE' with your actual Cloudflare Turnstile Site Key -->
-                        <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY_HERE" data-theme="auto"></div>
-                        <!-- Options for data-theme: "light", "dark", "auto" -->
-                     </div>
-                <!--
-                     <button type="submit" class="btn" style="margin-top:15px;">पठाउनुहोस्</button>
-                 </form>
-                 -->
-                 <!-- Map (if needed) -->
-                <!--
-                    <div class="map-embed">
-                         <iframe src="तपाईंको Google Map embed कोड यहाँ राख्नुहोस्" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                -->
+                 
+                <div class="captcha-container">
+                    <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY_HERE" data-theme="light"></div>
+                </div>
+
+                <!-- Google Map Embed -->
+                <div class="map-embed">
+                     <iframe src="https://maps.google.com/maps?q=Q94H%2B9RQ%2C%20Kerabari%2056600%2C%20Nepal&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <!-- Footer Navigation -->
             <nav class="footer-nav">
                 <ul>
                     <li><a href="#home">मुख्य पृष्ठ</a></li>
                     <li><a href="#about">हाम्रो बारेमा</a></li>
                     <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
-                    <li><a href="#admissions">भर्ना</a></li>
                     <li><a href="#news">समाचार/सूचना</a></li>
                     <li><a href="#gallery">ग्यालरी</a></li>
                     <li><a href="#contact">सम्पर्क</a></li>
                 </ul>
             </nav>
 
-            <!-- Social Media Links -->
             <div class="social-links">
-                <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" aria-label="Facebook Page" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter Page" target="_blank"><i class="fab fa-twitter"></i></a> <!-- Placeholder -->
-                <a href="#" aria-label="Instagram Page" target="_blank"><i class="fab fa-instagram"></i></a> <!-- Placeholder -->
-                <a href="#" aria-label="YouTube Channel" target="_blank"><i class="fab fa-youtube"></i></a> <!-- Placeholder -->
+                <a href="YOUR_FACEBOOK_LINK" aria-label="Facebook Page" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="YOUR_TWITTER_LINK" aria-label="Twitter Page" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="YOUR_INSTAGRAM_LINK" aria-label="Instagram Page" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="YOUR_YOUTUBE_LINK" aria-label="YouTube Channel" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
 
-            <p>© <span id="current-year"></span> श्री सार्वजनिक माध्यमिक विद्यालय। सबै अधिकार सुरक्षित।</p>
+            <p>© <span id="current-year"></span> श्री सार्वजनिक माध्यमिक विद्यालय। सर्वाधिकार सुरक्षित।</p>
             
-            <!-- Developer Tag -->
             <div class="developer-tag">
-                Digital Hub Online Nepal - Contact: <a href="https://ramanbhandari.com.np/" target="_blank">Raman Bhandari</a>
+                Website by <a href="https://ramanbhandari.com.np/" target="_blank">Digital Hub Online Nepal - Raman Bhandari</a>
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.querySelector('.hamburger'); // Corrected selector
+            const hamburger = document.getElementById('hamburger-button'); 
             const navList = document.querySelector('.nav-list');
 
             if (hamburger && navList) {
                 hamburger.addEventListener('click', () => {
                     navList.classList.toggle('show');
+                    const icon = hamburger.querySelector('i');
+                    if (navList.classList.contains('show')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
                 });
 
                 navList.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (event) => {
+                        navList.querySelectorAll('a').forEach(navLink => navLink.classList.remove('active'));
+                        link.classList.add('active');
+
                         if (navList.classList.contains('show')) {
                             navList.classList.remove('show');
+                             const icon = hamburger.querySelector('i');
+                             icon.classList.remove('fa-times');
+                             icon.classList.add('fa-bars');
                         }
-                        // Smooth scrolling logic (keep as is, or enable if preferred)
+                        
                         const href = link.getAttribute('href');
                         if (href && href.startsWith('#')) {
-                             // event.preventDefault(); // Uncomment if you want to prevent default anchor behavior completely
-                            const targetId = href;
-                            const targetSection = document.querySelector(targetId);
+                            // event.preventDefault(); // Only preventDefault if you are NOT using the hash in the URL for other purposes
+                            const targetSection = document.querySelector(href);
                             if (targetSection) {
-                                // Adding a small delay for the menu to close before scrolling
-                                setTimeout(() => {
-                                    targetSection.scrollIntoView({
-                                        behavior: 'smooth'
-                                    });
-                                }, 100); // 100ms delay
+                                const headerOffset = document.querySelector('header').offsetHeight;
+                                const elementPosition = targetSection.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 15; // 15px extra offset for better spacing
+
+                                window.scrollTo({
+                                     top: offsetPosition,
+                                     behavior: "smooth"
+                                });
                             }
                         }
                     });
                 });
+
+                const sections = document.querySelectorAll('main section');
+                const headerHeight = document.querySelector('header').offsetHeight; 
+
+                function setActiveLink() {
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.clientHeight;
+                        if (pageYOffset >= (sectionTop - headerHeight - sectionHeight / 2.5)) { // Adjust trigger point
+                            current = section.getAttribute('id');
+                        }
+                    });
+                    
+                    let homeLinkActive = true;
+                    navList.querySelectorAll('a').forEach(a => {
+                        a.classList.remove('active');
+                        if (a.getAttribute('href').substring(1) === current) {
+                            a.classList.add('active');
+                            homeLinkActive = false; // Another section is active
+                        }
+                    });
+                    // If no other section is "current" (e.g., very top of page or between sections), make home active.
+                    if (homeLinkActive && window.pageYOffset < sections[0].offsetTop - headerHeight - 50 ) {
+                       const homeLink = navList.querySelector('a[href="#home"]');
+                       if (homeLink) homeLink.classList.add('active');
+                    } else if (current === '') { // If scrolled past last section but no new 'current'
+                        const homeLink = navList.querySelector('a[href="#home"]');
+                        if (homeLink) homeLink.classList.add('active');
+                    }
+                }
+                
+                window.addEventListener('scroll', setActiveLink);
+                window.addEventListener('load', setActiveLink); // Also set active link on page load
             }
 
             const currentYearElement = document.getElementById('current-year');
