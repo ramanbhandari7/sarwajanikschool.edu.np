@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>श्री सार्वजनिक माध्यमिक विद्यालय</title>
 
-    <!-- यहाँ CSS स्टाइलको सम्पूर्ण कोड राखिएको छ -->
-    <style>
-        /* नेपाली font को लागि */
-        /* यदि Mukta font प्रयोग गर्ने हो भने तलको लाइन active गर्नुहोस् */
-        /* @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap'); */
+    <!-- नेपाली font को लागि Google Fonts बाट link (आवश्यकता अनुसार हटाउनु वा राख्न सक्नुहुन्छ) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700&display=swap" rel="stylesheet">
 
+    <!-- यहाँ CSS स्टाइलको सम्पूर्ण "वास्तविक" कोड राखिएको छ -->
+    <style>
         /* Basic Reset and Global Styles */
         * {
             margin: 0;
@@ -19,7 +20,7 @@
         }
 
         body {
-            font-family: 'Mukta', sans-serif; /* यहाँ तपाईंले प्रयोग गर्ने नेपाली font राख्नुहोस् */
+            font-family: 'Mukta', sans-serif; /* Google Font 'Mukta' प्रयोग गरियो */
             line-height: 1.6;
             color: #333;
             background-color: #f4f4f4;
@@ -30,12 +31,12 @@
             max-width: 1200px;
             margin: auto;
             overflow: hidden;
-            padding: 0 1rem; /* किनारामा स्पेस थपियो */
+            padding: 0 1rem;
         }
 
-        /* Header */
+        /* Header Styling */
         header {
-            background: #0056b3; /* गाढा नीलो रङ */
+            background: #0056b3; /* गाढा नीलो */
             color: #fff;
             padding: 1rem 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -45,26 +46,30 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* साानो स्क्रिनमा item हरू wrap हुनका लागि */
+            flex-wrap: wrap;
         }
 
         .school-title {
             display: flex;
             align-items: center;
-            flex-grow: 1; /* शीर्षकलाई ठाउँ दिनका लागि */
+            flex-grow: 1;
         }
 
-        .school-title > div { /* लोगो र शीर्षकको टेक्स्ट राख्ने div */
+        .school-title > div { /* For stacking title and subtitle below logo on mobile */
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        /* लोगोको स्टाइल */
+        /* लोगो स्टाइल: 'Docs/imges/logo.jpg' को लागि path सेट गरिएको */
         .school-title .logo {
-            height: 70px; /* लोगोको उचाई, आवश्यकता अनुसार मिलाउनुहोस् */
-            width: auto; /* चौडाई आफैँ मिलाउन */
+            height: 70px; /* Height adjustment */
+            width: auto; /* Maintain aspect ratio */
             margin-right: 1rem;
+            border-radius: 50%; /* Optional: Round logo if desired */
+            background-color: #fff; /* Optional: White background for rounded logo */
+            padding: 5px; /* Optional: Padding if using rounded logo */
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.2); /* Optional: small shadow */
         }
 
         .school-title h1 {
@@ -81,7 +86,7 @@
         nav ul {
             list-style: none;
             padding: 0;
-            display: flex; /* navigation items हरूलाई छेउछाउमा राख्न */
+            display: flex;
         }
 
         nav ul li {
@@ -94,7 +99,7 @@
             font-weight: bold;
             font-size: 1rem;
             transition: color 0.3s ease;
-            padding: 5px 0; /* Touch area बढायो */
+            padding: 5px 0;
             display: block;
         }
 
@@ -102,9 +107,9 @@
             color: #ddd;
         }
 
-        /* Hamburger Menu */
+        /* Hamburger Menu Button Styling */
         .hamburger {
-            display: none; /* ठूलो स्क्रिनमा hide गर्ने */
+            display: none; /* Hidden by default on larger screens */
             background: none;
             border: none;
             color: #fff;
@@ -114,33 +119,32 @@
             line-height: 1;
         }
 
-        /* === Responsive Design (मोबाइलका लागि) === */
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
             header .container {
-                flex-direction: column; /* Mobile मा stack गर्ने */
+                flex-direction: column;
                 align-items: flex-start;
             }
 
             .school-title {
                 width: 100%;
-                justify-content: center; /* Center content when stacked */
+                justify-content: center;
                 margin-bottom: 1rem;
-                flex-direction: column; /* Logo and text vertically */
+                flex-direction: column;
                 text-align: center;
             }
 
             .school-title .logo {
-                margin: 0 0 0.5rem 0; /* लोगोलाई Center गरेर तल Space */
-                height: 60px; /* Mobile मा लोगोको सानो आकार */
+                margin: 0 auto 0.5rem auto; /* Center logo */
+                height: 60px;
             }
 
              .school-title h1 {
-                font-size: 1.6rem; /* Mobile मा शीर्षकको सानो आकार */
+                font-size: 1.6rem;
             }
              .school-title p {
-                font-size: 0.8rem; /* Mobile मा subtitle को सानो आकार */
+                font-size: 0.8rem;
             }
-
 
             nav {
                 width: 100%;
@@ -148,56 +152,57 @@
             }
 
             nav ul {
-                flex-direction: column; /* Navigation links लाई तल-माथि राख्ने */
-                display: none; /* Hamburger नथिचेसम्म navigation hide गर्ने */
+                flex-direction: column;
+                display: none; /* Hidden by default */
                 width: 100%;
-                background: #004080; /* Dropdown menu को background */
+                background: #004080;
                 margin-top: 0.5rem;
                 padding: 10px 0;
             }
 
-            nav ul.show {
-                display: flex; /* Hamburger click गर्दा navigation देखाउने (JS ले गर्छ) */
+            nav ul.show { /* Class added by JavaScript */
+                display: flex;
             }
 
             nav ul li {
-                margin: 10px 0; /* Navigation link हरू बीच ठाउँ */
+                margin: 10px 0;
             }
              nav ul li a {
-                 padding: 10px; /* Touch area बढाउने */
+                 padding: 10px;
              }
 
-
             .hamburger {
-                display: block; /* Mobile मा hamburger देखाउने */
+                display: block; /* Visible on smaller screens */
                 position: absolute;
                 top: 1rem;
                 right: 1rem;
             }
         }
 
-
-        /* Sections Styling */
+        /* Section Base Styling */
         section {
-            padding: 60px 0; /* Section हरूको माथि र तल स्पेस */
+            padding: 60px 0;
             text-align: center;
         }
 
         section h2 {
-            font-size: 2.2rem; /* शीर्षकको आकार */
+            font-size: 2.2rem;
             margin-bottom: 30px;
-            color: #0056b3; /* शीर्षकको रङ */
+            color: #0056b3;
         }
 
         section p {
             margin-bottom: 15px;
             font-size: 1.1rem;
+            max-width: 800px; /* Limit text width for readability */
+            margin-left: auto;
+            margin-right: auto;
         }
         section h3 {
              font-size: 1.5rem;
              margin-top: 25px;
              margin-bottom: 15px;
-             color: #007bff; /* Secondary blue */
+             color: #007bff;
         }
 
 
@@ -206,51 +211,45 @@
             background-color: #e9e9e9;
         }
 
-        /* Hero Section (मुख्य पृष्ठको ठूलो ब्यानर) */
-.hero {
-    /* हिरो इमेजको पथ यहाँ छ */
-    background: url('Docs/imges/hero.jpg') no-repeat center center/cover;
-    color: #fff;
-    padding: 120px 0; /* Section को माथि र तल को स्पेस */
-    position: relative;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.7); /* पढ्न सजिलो होस् भनेर टेक्स्ट मा shadow दिइएको */
-}
+        /* Hero Section Styling - 'Docs/imges/hero.jpg' को लागि path सेट गरिएको */
+        .hero {
+            background: url('Docs/imges/hero.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 120px 0;
+            position: relative;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+        }
 
-/* इमेज माथि ओभरले (Overlay) ताकि टेक्स्ट पढ्न सजिलो होस् */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* कालो रङको 50% ओपेसिटी (Transparency) भएको ओभरले */
-}
+        .hero::before { /* Overlay for text readability */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* 50% opacity black overlay */
+        }
 
-/* Hero भित्रको सामग्री (टेक्स्ट) लाई ओभरले भन्दा माथि राख्न */
-.hero .container {
-    position: relative;
-    z-index: 1;
-}
+        .hero .container { /* Content z-index */
+            position: relative;
+            z-index: 1;
+        }
 
-/* Hero भित्रका टेक्स्टहरूको स्टाइल */
-.hero h2 {
-    color: #fff;
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-}
+        .hero h2 {
+            color: #fff;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
 
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 40px;
-}
-
-/* ... (बाँकी CSS कोड) ... */
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+        }
 
         /* Button Styling */
         .btn {
             display: inline-block;
-            background: #ffc107; /* सुनौलो/पहेँलो रङ */
+            background: #ffc107; /* Amber/Yellow */
             color: #333;
             padding: 12px 25px;
             text-decoration: none;
@@ -261,15 +260,15 @@
         }
 
         .btn:hover {
-            background: #e0a800; /* गाढा सुनौलो रङ */
+            background: #e0a800; /* Darker amber */
         }
 
         /* About Section Specifics */
         #about ul {
             list-style: disc;
-            text-align: left; /* list लाई बाँया तिर मिलाउन */
+            text-align: left;
             margin-left: 20px;
-            display: inline-block; /* list को block लाई बीचमा ल्याउन */
+            display: inline-block;
             margin-top: 20px;
         }
 
@@ -279,44 +278,44 @@
         }
 
 
-        /* Gallery Section */
+        /* Gallery Section Styling */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive Grid */
-            gap: 20px; /* Grid item हरू बीच Space */
+            gap: 20px;
             margin-top: 30px;
         }
 
+        /* Gallery Images Styling - 'Docs/imges/...' पाथ प्रयोग हुनेछ */
         .gallery-grid img {
             display: block;
             width: 100%;
-            height: 200px; /* वा एउटै निश्चित उचाई */
-            object-fit: cover; /* Image को proportion नमिलाइकन grid space भर्न */
+            height: 200px; /* Fixed height for grid */
+            object-fit: cover; /* Ensure image covers area */
             border-radius: 5px;
             box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover गर्दा एनिमेसन */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery-grid img:hover {
-            transform: scale(1.03); /* Hover गर्दा सानो जुम */
+            transform: scale(1.03);
             box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
         }
 
-
-        /* Contact Section */
+        /* Contact Section Styling */
         .contact-details {
             margin-top: 25px;
-            text-align: left; /* विवरणलाई बाँया तिर मिलाउन */
-            display: inline-block; /* विवरणको block लाई बीचमा ल्याउन */
+            text-align: left;
+            display: inline-block;
             font-size: 1.1rem;
-            line-height: 2; /* Line हरू बीच Space */
+            line-height: 2;
         }
 
         .contact-details p {
             margin-bottom: 10px;
         }
 
-        /* Map Embed Styling (यदि प्रयोग गर्नुहुन्छ भने) */
+        /* Map Embed Styling (if used) */
         .map-embed {
             margin-top: 30px;
             border-radius: 8px;
@@ -325,18 +324,18 @@
         }
 
 
-        /* Footer */
+        /* Footer Styling */
         footer {
-            background: #222; /* गाढा रङ */
-            color: #ddd; /* हल्का सेतो रङ */
+            background: #222;
+            color: #ddd;
             text-align: center;
             padding: 2rem 0;
-            margin-top: 40px; /* Section र footer बीच स्पेस */
+            margin-top: 40px;
             font-size: 0.9rem;
         }
 
         footer p {
-            margin-bottom: 10px; /* copyright र link हरू बीच स्पेस */
+            margin-bottom: 10px;
         }
 
         footer a {
@@ -350,6 +349,16 @@
             color: #fff;
             text-decoration: underline;
         }
+                .social-links a {
+            color: #ddd;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
 
     </style>
 </head>
@@ -358,10 +367,12 @@
     <header>
         <div class="container">
             <div class="school-title">
-                <img src="Docs/imges/logo.jpg" alt="स्कूल लोगो" class="logo">
-                 <div> <!-- शीर्षक र subtitle को लागि -->
+                <!-- लोगोको लागि IMG tag, 'Docs/imges/logo.jpg' मा सेट गरिएको -->
+                <!-- तपाईंले यो src लाई आफ्नो actual logo फाइल नाम अनुसार परिवर्तन गर्नुपर्नेछ यदि फरक छ भने -->
+                <img src="Docs/imges/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="logo">
+                 <div>
                     <h1>श्री सार्वजनिक माध्यमिक विद्यालय</h1>
-                    <p>केराबारी ७, डाँगी, मोरङ</p>
+                    <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p> <!-- यहाँ ठेगाना राखिएको छ -->
                 </div>
             </div>
             <nav>
@@ -383,27 +394,31 @@
     </header>
 
     <main>
+        <!-- Hero Section - 'Docs/imges/hero.jpg' ब्याकग्राउन्ड इमेजको रूपमा सेट गरिएको -->
         <section id="home" class="hero">
             <div class="container">
                 <h2>विद्यालयमा स्वागत छ!</h2>
-                <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध ।</p>
-                <!--<a href="#admissions" class="btn">भर्ना खुला छ!</a>-->
+                <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध । तपाईंको शैक्षिक यात्रा हाम्रो साथमा अझ फलदायी बनाउनुहोस् ।</p>
+                <!-- आवश्यकता अनुसार बटन सक्रिय गर्न सक्नुहुन्छ -->
+                <!-- <a href="#admissions" class="btn">भर्ना खुला छ! अहिले आवेदन दिनुहोस्</a> -->
             </div>
         </section>
 
         <section id="about">
             <div class="container">
                 <h2>हाम्रो बारेमा</h2>
-                <p>यहाँ विद्यालयको परिचय, इतिहास, स्थापना, लक्ष्य र उद्देश्यबारे लेख्नुहोस्। यो अंश तपाईंले विद्यालयको वास्तविक जानकारी अनुसार भर्नुपर्नेछ।</p>
+                <p>श्री सार्वजनिक माध्यमिक विद्यालय मोरङ जिल्लाको केराबारी वडा नम्बर ७, डाँगीमा अवस्थित एक प्रतिष्ठित शैक्षिक संस्था हो। वि.सं. [स्थापना भएको वर्ष] मा स्थापित यस विद्यालयले यस क्षेत्रमा गुणस्तरीय शिक्षा प्रदान गर्दै आइरहेको छ। हाम्रो लक्ष्य विद्यार्थीहरूलाई नैतिकवान, जिम्मेवार र प्रतिस्पर्धी नागरिकको रूपमा विकास गर्नु हो।</p>
                 <h3>मिशन र भिजन</h3>
-                <p>यहाँ विद्यालयको मिशन र भिजनबारे लेख्नुहोस्।</p>
+                <p><strong>मिशन:</strong> प्रत्येक विद्यार्थीमा अन्तर्निहित प्रतिभालाई प्रस्फुटन गराउँदै समग्र विकासमा सहयोग पुर्याउनु।</p>
+                <p><strong>भिजन:</strong> अग्रणी शैक्षिक केन्द्रको रूपमा स्थापित भई समुदायको शैक्षिक उन्नयनमा योगदान पुर्याउनु।</p>
                 <h3>हाम्रो विशेषता</h3>
                 <ul>
-                    <li>अनुभवी शिक्षक</li>
-                    <li>आधुनिक प्रयोगशाला</li>
-                    <li>खेलकुद मैदान</li>
-                    <li>पुस्तकालय</li>
-                    <!-- विद्यालयका थप विशेषताहरू उल्लेख गर्नुहोस् -->
+                    <li>अत्यन्त अनुभवी र समर्पित शिक्षक-शिक्षिकाहरू</li>
+                    <li>विज्ञान, कम्प्युटर लगायतका आधुनिक प्रयोगशाला सुविधाहरू</li>
+                    <li>पर्याप्त खेलकुद मैदान र विभिन्न खेलकुद गतिविधिहरूमा सहभागिता</li>
+                    <li>पुस्तकालयमा विभिन्न किसिमका पाठ्यपुस्तक तथा सन्दर्भ सामग्रीहरूको उपलब्धता</li>
+                    <li>नियमित अतिरिक्त क्रियाकलापहरू (सांस्कृतिक कार्यक्रम, वादविवाद प्रतियोगिता आदि)</li>
+                    <li>विद्यार्थी केन्द्रित शिक्षण विधि</li>
                 </ul>
             </div>
         </section>
@@ -411,43 +426,53 @@
         <section id="academics" class="alt-background">
             <div class="container">
                 <h2>शैक्षिक कार्यक्रमहरू</h2>
-                <p>यहाँ नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रम, पाठ्यक्रम र विशेषताहरू उल्लेख गर्नुहोस्।</p>
+                <p>हाम्रो विद्यालयमा नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रमहरू संचालित छन्। राष्ट्रिय पाठ्यक्रममा आधारित शिक्षण विधि अपनाइन्छ र प्रविधिको प्रयोगमा जोड दिइन्छ।</p>
                 <ul>
-                    <li>कक्षा १-५ (प्राथमिक तह)</li>
-                    <li>कक्षा ६-८ (निम्न माध्यमिक तह)</li>
-                    <li>कक्षा ९-१० (माध्यमिक तह)</li>
-                    <li>कक्षा ११-१२ (उच्च माध्यमिक तह - विज्ञान, व्यवस्थापन, शिक्षा वा अन्य संकाय)</li>
-                    <li>प्राविधिक धार (यदि छ भने)</li>
+                    <li>**आधारभूत तह (कक्षा १-८):** खेल-आधारित सिकाई र व्यक्तिगत ध्यानमा केन्द्रित।</li>
+                    <li>**माध्यमिक तह (कक्षा ९-१०):** बलियो सैद्धान्तिक आधार निर्माणमा जोड।</li>
+                    <li>**उच्च माध्यमिक तह (कक्षा ११-१२):** </li>
+                       <li>विज्ञान संकाय</li>
+                       <li>व्यवस्थापन संकाय</li>
+                       <li>शिक्षा संकाय (यदि लागू हुन्छ भने)</li>
+                    <li>**प्राविधिक तथा व्यावसायिक धार (यदि छ भने):** [जस्तै, कम्प्युटर इन्जिनियरिङ, बाली विज्ञान आदि]</li>
                 </ul>
-                <!-- पाठ्यक्रम, अध्यापन विधि, सह-क्रियाकलाप आदिको विवरण थप्न सकिन्छ -->
+                <p>थप पाठ्यक्रम र विषयगत जानकारीका लागि विद्यालयमा सम्पर्क गर्न सक्नुहुन्छ।</p>
             </div>
         </section>
 
         <section id="admissions">
             <div class="container">
                 <h2>भर्ना प्रक्रिया</h2>
-                <p>यहाँ विद्यालयमा भर्ना हुनका लागि आवश्यक कागजात, योग्यता र प्रक्रियाबारे जानकारी दिनुहोस्। भर्ना सम्बन्धी महत्वपूर्ण मितिहरू यहाँ राख्नुहोस्।</p>
-                <p>भर्ना फारम प्राप्त गर्न वा थप जानकारीका लागि विद्यालयमा सम्पर्क गर्नुहोस्।</p>
-                <!-- डाउनलोड गर्न मिल्ने भर्ना फारम वा अनलाइन फारमको लिंक यहाँ राख्न सकिन्छ -->
-                <!-- <a href="/path/to/admission-form.pdf" class="btn" download>भर्ना फारम डाउनलोड गर्नुहोस्</a> -->
+                <p>श्री सार्वजनिक माध्यमिक विद्यालयमा भर्नाका लागि हरेक वर्ष नयाँ भर्ना खुल्ला गरिन्छ। इच्छुक विद्यार्थी तथा अभिभावकहरूले तोकिएको समयमा भर्ना फारम प्राप्त गरी प्रक्रियामा सहभागी हुन सक्नुहुनेछ।</p>
+                <p>भर्ना हुनका लागि आवश्यक कागजातहरू:</p>
+                <ul>
+                    <li>जन्मदर्ता प्रमाणपत्रको प्रतिलिपि</li>
+                    <li>अघिल्लो कक्षा उत्तीर्ण भएको लब्धांकपत्र/प्रमाणपत्रको प्रतिलिपि</li>
+                    <li>ट्रान्सफर प्रमाणपत्र (यदि अघिल्लो विद्यालयबाट आउनुभएको हो भने)</li>
+                    <li>हालसालै खिचेको पासपोर्ट साइजको फोटो</li>
+                    <li>अभिभावकको परिचयपत्रको प्रतिलिपि</li>
+                </ul>
+                <p>विस्तृत जानकारी, भर्ना फारम र प्रक्रिया बारे बुझ्नका लागि विद्यालयको कार्यालय समयमा सम्पर्क गर्नुहोला।</p>
+                <!-- यदि भर्ना फारम PDF उपलब्ध छ भने यहाँ लिंक राख्न सक्नुहुन्छ -->
+                <!-- <a href="Docs/admission-form.pdf" class="btn" download>भर्ना फारम डाउनलोड गर्नुहोस्</a> -->
             </div>
         </section>
 
         <section id="news" class="alt-background">
             <div class="container">
                 <h2>समाचार र सूचना</h2>
-                <p>यहाँ विद्यालयका नवीनतम समाचार, सूचना, परीक्षा तालिका, नतिजा, कार्यक्रमहरूको बारेमा घोषणाहरू प्रकाशित गर्नुहोस्।</p>
+                <p>विद्यालय सम्बन्धी ताजा खबर, कार्यक्रम तालिका, परीक्षा तालिका र अन्य महत्वपूर्ण सूचनाहरू यहाँ नियमित रूपमा प्रकाशित गरिन्छ।</p>
                 <article>
-                    <h3>नवीनतम समाचार १ को शीर्षक</h3>
-                    <p>यहाँ समाचार वा सूचनाको छोटो विवरण लेख्नुहोस्। <a href="#">थप पढ्नुहोस्</a></p>
+                    <h3>एसईई (SEE) परीक्षाको नतिजा प्रकाशित!</h3>
+                    <p>यस वर्षको एसईई परीक्षामा सामेल हुनुहुने सम्पूर्ण विद्यार्थी भाइबहिनीहरूलाई सफल नतिजाको लागि हार्दिक बधाई तथा उज्ज्वल भविष्यको कामना! नतिजा [नतिजा हेर्ने लिङ्क] बाट हेर्न सकिनेछ।</p>
                 </article>
                  <article>
-                    <h3>परीक्षा तालिका सम्बन्धी सूचना</h3>
-                    <p>आसन्न परीक्षाहरूको तालिका सम्बन्धमा। <a href="#">थप पढ्नुहोस्</a></p>
+                    <h3>विद्यालयको वार्षिकोत्सव तथा अभिभावक दिवस मनाइँदै</h3>
+                    <p>मिति २०८० साल [महिना] महिनाको [गते] गते [दिन] बार विद्यालयको [संस्थापना वर्ष] औँ वार्षिकोत्सव तथा अभिभावक दिवस भव्यताका साथ मनाइँदैछ। कार्यक्रममा यहाँहरूको गरिमामय उपस्थितिको लागि अनुरोध गर्दछौँ। <a href="#">कार्यक्रम तालिका हेर्नुहोस्</a></p>
                 </article>
                  <article>
-                    <h3>बिदाको सूचना</h3>
-                    <p>कुनै विशेष दिनमा विद्यालय बन्द हुने सूचना। <a href="#">थप पढ्नुहोस्</a></p>
+                    <h3>कक्षा [कक्षा नम्बर] को मासिक परीक्षा सुरु हुँदैछ</h3>
+                    <p>मिति [गते] गतेबाट कक्षा [कक्षा नम्बर] को मासिक परीक्षाहरू संचालन हुँदैछन्। विद्यार्थीहरूले परीक्षा तालिका अनुसार तयारी गर्नुपर्नेछ। <a href="#">परीक्षा तालिका डाउनलोड गर्नुहोस्</a></p>
                 </article>
                 <!-- आवश्यकता अनुसार थप समाचार र सूचनाहरू थप्नुहोस् -->
             </div>
@@ -456,14 +481,16 @@
         <section id="gallery">
             <div class="container">
                 <h2>ग्यालरी</h2>
-                <p>यहाँ विद्यालयका कार्यक्रम, भवन, विद्यार्थी गतिविधि, खेलकुद वा अन्य स्मरणीय क्षणका फोटो/भिडियोहरू राख्नुहोस्।</p>
+                <p>हाम्रो विद्यालयका विभिन्न कार्यक्रमहरू, शैक्षिक गतिविधिहरू र पूर्वाधारहरूको केही झलक यहाँ प्रस्तुत गरिएको छ।</p>
                 <div class="gallery-grid">
-                    <!-- ग्यालरी इमेजहरूको पथ -->
-                     <!-- आफ्ना फोटोहरूको नामअनुसार यहाँका src path हरू मिलाउनुहोस् -->
-                    <img src="Docs/imges/gallery-photo-1.jpg" alt="फोटो विवरण १">
-                    <img src="Docs/imges/gallery-photo-2.jpg" alt="फोटो विवरण २">
-                    <img src="Docs/imges/gallery-photo-3.jpg" alt="फोटो विवरण ३">
-                    <img src="Docs/imges/gallery-photo-4.jpg" alt="फोटो विवरण ४">
+                    <!-- ग्यालरी इमेजहरूको लागि IMG tag हरू, 'Docs/imges/...' पाथ प्रयोग भएको छ -->
+                    <!-- आफ्ना वास्तविक फोटोहरूको नाम अनुसार src attribute अपडेट गर्नुहोस् -->
+                    <img src="Docs/imges/gallery_annual_function.jpg" alt="विद्यालयको वार्षिकोत्सव कार्यक्रम">
+                    <img src="Docs/imges/gallery_classroom.jpg" alt="कक्षाकोठा">
+                    <img src="Docs/imges/gallery_library.jpg" alt="पुस्तकालय">
+                    <img src="Docs/imges/gallery_lab.jpg" alt="विज्ञान प्रयोगशाला">
+                     <img src="Docs/imges/gallery_sports.jpg" alt="खेलकुद गतिविधि">
+                    <img src="Docs/imges/gallery_building.jpg" alt="विद्यालय भवन">
                     <!-- थप फोटोहरूको लागि img ट्यागहरू थप्नुहोस् -->
                 </div>
             </div>
@@ -472,77 +499,83 @@
         <section id="contact" class="alt-background">
             <div class="container">
                 <h2>सम्पर्क</h2>
-                <p>तपाईं हामीलाई निम्न ठेगाना र फोन नम्बरमा सम्पर्क गर्न सक्नुहुन्छ।</p>
+                <p>श्री सार्वजनिक माध्यमिक विद्यालयसँग सम्पर्क राख्नका लागि निम्न जानकारी प्रयोग गर्न सक्नुहुन्छ। हामी तपाईंको जिज्ञासा समाधान गर्न सदैव तत्पर छौँ।</p>
                 <div class="contact-details">
-                    <p><strong>ठेगाना:</strong> [विद्यालयको पूरा ठेगाना], [स्थानीय तहको नाम], [जिल्लाको नाम], नेपाल</p>
-                    <p><strong>फोन:</strong> [प्रशासनको फोन नम्बर]</p>
-                    <p><strong>इमेल:</strong> [विद्यालयको इमेल ठेगाना]</p>
+                    <p><strong>ठेगाना:</strong> डाँगी, वडा नं ७, केराबारी गाउँपालिका, मोरङ, कोशी प्रदेश, नेपाल</p> <!-- पूरा ठेगाना यहाँ राखिएको छ -->
+                    <p><strong>फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p> <!-- उदाहरण: +९७७-०२१-xxxxx -->
+                    <p><strong>इमेल:</strong> [विद्यालयको आधिकारिक इमेल ठेगाना]@example.com.np</p>
                      <p><strong>वेबसाइट:</strong> sarwajanikschool.edu.np</p>
-                    <!-- यदि Google Map embed गर्न चाहनुहुन्छ भने iframe कोड यहाँ राख्नुहोस् -->
-                    <!-- <div class="map-embed">
-                         <iframe src="तपाईंको Google Map embed कोड" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div> -->
+                     <!-- वैकल्पिक: Facebook पेजको लिङ्क -->
+                     <p><strong>फेसबुक पेज:</strong> <a href="[तपाईंको फेसबुक पेजको लिङ्क]" target="_blank">[फेसबुक पेज]</a></p>
+
+                    <!-- यदि Google Map embed गर्न चाहनुहुन्छ भने तल iframe कोड राख्नुहोस् -->
+                    <!-- सुनिश्चित गर्नुहोस् कि Google Map embed कोडको src attribute मा तपाईंको विद्यालयको स्थान सही छ -->
+                    <!--
+                    <div class="map-embed">
+                         <iframe src="तपाईंको Google Map embed कोड यहाँ राख्नुहोस्" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    -->
                 </div>
                 <!-- अनलाइन सम्पर्क फारम राख्नका लागि backend को आवश्यकता पर्छ, त्यसैले यसलाई यहाँ COMMENT गरिएको छ -->
-                <!--
-                <div class="contact-form">
-                    <h3>हामीलाई सन्देश पठाउनुहोस्</h3>
-                    <form action="your-backend-script-url" method="POST">
-                        <input type="text" name="name" placeholder="तपाईंको नाम" required>
-                        <input type="email" name="email" placeholder="तपाईंको इमेल" required>
-                        <textarea name="message" placeholder="तपाईंको सन्देश" rows="5" required></textarea>
-                        <button type="submit" class="btn">सन्देश पठाउनुहोस्</button>
-                    </form>
-                </div>
-                -->
             </div>
         </section>
     </main>
 
-    <footer>
+        <footer>
         <div class="container">
             <p>© <span id="current-year"></span> श्री सार्वजनिक माध्यमिक विद्यालय। सबै अधिकार सुरक्षित।</p>
-            <!-- आवश्यक भएमा तल Quick Links वा Social Media Links राख्न सकिन्छ -->
-            <!--
+            <!-- Social media links यहाँ थपिएको छ -->
             <div class="social-links">
-                <a href="#" aria-label="Facebook">Facebook</a>
-                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" aria-label="Facebook Page Link" target="_blank">फेसबुक</a>
+                <!-- अरु Social Media Links यहाँ थप्न सक्नुहुन्छ -->
             </div>
-            -->
         </div>
     </footer>
 
-    <!-- यहाँ JavaScript को सम्पूर्ण कोड राखिएको छ -->
+    <!-- यहाँ JavaScript को सम्पूर्ण "वास्तविक" कोड राखिएको छ -->
     <script>
-        // HTML content load भइसकेपछि मात्र यो कोड चल्नेछ
+        // Ensure the DOM is fully loaded before running scripts
         document.addEventListener('DOMContentLoaded', () => {
-            // Hamburger button र navigation list element हरूलाई ल्याउँछ
+            // Select the hamburger button and navigation list
             const hamburger = document.querySelector('.hamburger');
             const navList = document.querySelector('.nav-list');
 
-            // यदि element हरू भेटियो भने मात्र event listener set गर्ने
+            // Check if both elements exist before adding event listeners
             if (hamburger && navList) {
-                // Hamburger मा क्लिक गर्दा navList मा 'show' class थप्ने/हटाउने
+                // Toggle 'show' class on navList when hamburger is clicked
                 hamburger.addEventListener('click', () => {
                     navList.classList.toggle('show');
                 });
 
-                // Optional: Single Page Website मा लिंक क्लिक गर्दा Menu बन्द गर्ने
-                // Navigation list भित्रका सबै 'a' (link) हरू खोज्छ
+                // Optional: Close the navigation menu when a link is clicked (useful for single-page sites)
+                // Select all 'a' (link) tags within the navigation list
                 navList.querySelectorAll('a').forEach(link => {
-                    // प्रत्येक link मा क्लिक गर्दा
-                    link.addEventListener('click', () => {
-                        // यदि navigation list मा 'show' class छ भने त्यसलाई हटाउने (menu बन्द गर्ने)
+                    // Add click event listener to each link
+                    link.addEventListener('click', (event) => {
+                        // If the navigation list has the 'show' class (meaning the menu is open)
                         if (navList.classList.contains('show')) {
+                            // Remove the 'show' class to close the menu
                             navList.classList.remove('show');
                         }
-                        // Smooth Scrolling effect यही JavaScript मा थप्न सकिन्छ
-                        // उदाहरणका लागि: event.preventDefault(); र scrollIntoView() प्रयोग गरेर
+
+                        // Optional: Add smooth scrolling functionality
+                        // Prevent the default anchor link behavior (jumping)
+                        // event.preventDefault();
+                        // Get the target section ID from the href attribute (e.g., '#about')
+                        // const targetId = link.getAttribute('href');
+                        // Find the target section element
+                        // const targetSection = document.querySelector(targetId);
+                        // If the target section exists, scroll smoothly to it
+                        // if (targetSection) {
+                        //     targetSection.scrollIntoView({
+                        //         behavior: 'smooth' // Add smooth scrolling effect
+                        //     });
+                        // }
                     });
                 });
             }
 
-            // Footer मा वर्तमान वर्ष (Current Year) राख्नको लागि Script
+            // Script to auto-update the current year in the footer
             const currentYearElement = document.getElementById('current-year');
             if (currentYearElement) {
                  currentYearElement.textContent = new Date().getFullYear();
