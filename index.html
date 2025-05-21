@@ -67,8 +67,7 @@
             z-index: -1;
         }
 
-
-        .container {
+        .container { /* Default container for sections */
             width: 90%;
             max-width: 1140px;
             margin: auto;
@@ -76,10 +75,11 @@
             padding: 0 1rem;
         }
 
+        /* --- START: UPDATED HEADER STYLES --- */
         header {
             background: rgba(0, 87, 168, 0.9);
             color: var(--light-text-color);
-            padding: 0.8rem 0;
+            padding: 0.8rem 0; /* Vertical padding for header bar */
             box-shadow: var(--header-shadow);
             position: sticky;
             top: 0;
@@ -88,27 +88,17 @@
             -webkit-backdrop-filter: blur(5px);
         }
 
-        header .container {
+        header > .container { /* Header-specific container */
+            max-width: 100%;
+            width: 100%;
+            padding: 0 1.5rem; /* Side padding for full-width header content */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            /* flex-wrap: wrap; removed, center content handles its own wrapping */
         }
 
-        /* Styles for the new wrapper for logo, title, and nav */
-        .header-left-content {
-            display: flex;
-            align-items: center;
-            flex-grow: 1; /* This makes the left content take available space, pushing the flag to the right */
-        }
-        
-        .school-title {
-            display: flex;
-            align-items: center;
-            flex-grow: 1; /* School title will expand within .header-left-content */
-        }
-
-        .school-title .logo {
+        .header-logo-corner {
             height: 70px;
             width: 70px;
             margin-right: 1rem;
@@ -117,6 +107,22 @@
             padding: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.15);
             object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .header-center-content {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;
+            min-width: 0; /* Prevents overflow with long content */
+        }
+
+        .school-title {
+            display: flex;
+            align-items: center;
+            margin-right: 1.5rem; /* Space between title block and nav */
+             text-align: left; /* Explicitly set for clarity */
         }
 
         .school-title h1 {
@@ -124,26 +130,35 @@
             margin: 0;
             font-weight: var(--heading-font-weight);
             line-height: 1.2;
+            white-space: nowrap; /* Prevents title from wrapping if space is tight */
         }
         .school-title h1 .highlight {
             color: var(--accent-color);
             font-weight: 700;
         }
-
         .school-title p {
             font-size: 0.9rem;
             margin: 0;
             opacity: 0.9;
-        }
-        
-        /* Styles for the WavingFlag.gif */
-        .header-flag {
-            height: 10px; /* Adjust height as needed, logo is 70px */
-            margin-left: 2rem; /* Provides some space from the navigation/left content block */
+            white-space: nowrap; /* Prevents subtitle from wrapping */
         }
 
-        nav ul { list-style: none; padding: 0; display: flex; }
+        .header-flag-corner {
+            height: 60px;
+            width: auto; /* Maintain aspect ratio */
+            margin-left: 1rem;
+            flex-shrink: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap; /* Allow nav links to wrap if they don't fit */
+            justify-content: center; /* Center nav items if they wrap */
+        }
         nav ul li { margin-left: 5px; }
+        nav ul li:first-child { margin-left: 0; }
         nav ul li a {
             color: var(--light-text-color);
             text-decoration: none;
@@ -161,46 +176,90 @@
             background-color: #fff;
             transform: translateY(-2px);
         }
+
         .hamburger {
             display: none; background: transparent; border: none;
             color: var(--light-text-color); font-size: 2.2rem; cursor: pointer;
             padding: 5px; line-height: 1;
         }
-         @media (max-width: 992px) {
-            .school-title h1 { font-size: 1.8rem;}
-            nav ul li a { font-size: 0.95rem; padding: 8px 10px;}
+
+        @media (max-width: 1024px) { /* Adjust breakpoint for medium screens */
+             .school-title h1 { font-size: 1.5rem;} /* Smaller title for medium screens */
+             .school-title p { font-size: 0.8rem;}
+             nav ul li a { font-size: 0.9rem; padding: 8px 10px;}
+             .header-logo-corner { height: 60px; width: 60px; }
+             .header-flag-corner { height: 50px; }
+             .school-title { margin-right: 1rem; } /* Reduce space slightly */
         }
-        @media (max-width: 768px) {
-            header .container { flex-direction: column; align-items: flex-start; }
-            
-            .header-left-content {
-                width: 100%; 
-            }
-            .header-flag {
-                display: none; /* Hide flag on small screens */
+
+        @media (max-width: 768px) { /* Mobile specific */
+            header > .container {
+                flex-direction: column;
+                align-items: center;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                position: relative; /* Context for hamburger */
             }
 
-            .school-title { width: 100%; justify-content: center; margin-bottom: 1rem; flex-direction: column; text-align: center; }
-            .school-title .logo { margin: 0 auto 0.75rem auto; height: 60px; width: 60px;}
-            .school-title h1 { font-size: 1.7rem; }
-            .school-title p { font-size: 0.85rem; }
-            nav { width: 100%; text-align: center; }
-            nav ul {
-                flex-direction: column; display: none; width: 100%;
+            .header-logo-corner {
+                margin-right: 0;
+                margin-bottom: 0.75rem;
+                height: 60px; width: 60px;
+            }
+
+            .header-center-content {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .school-title {
+                flex-direction: column; /* Stack H1 and P */
+                text-align: center;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+             .school-title h1 { font-size: 1.7rem; white-space: normal; } /* Allow title to wrap */
+             .school-title p { font-size: 0.85rem; white-space: normal; } /* Allow subtitle to wrap */
+
+
+            nav {
+                width: 100%;
+                text-align: center;
+            }
+            nav ul { /* Existing mobile nav display logic */
+                flex-direction: column;
+                display: none; /* Controlled by JS */
+                width: 100%;
                 background: rgba(0, 74, 147, 0.95);
                 backdrop-filter: blur(5px);
                 -webkit-backdrop-filter: blur(5px);
-                margin-top: 0.5rem; padding: 10px 0; border-radius: var(--border-radius);
+                margin-top: 0; /* Hamburger controls opening, not from margin to title */
+                padding: 10px 0;
+                border-radius: var(--border-radius);
             }
             nav ul.show { display: flex; }
-            nav ul li { margin: 8px 0; }
+            nav ul li { margin: 8px 0; margin-left: 0; }
             nav ul li a { padding: 12px; width: 90%; margin: auto; }
             nav ul li a:hover, nav ul li a:focus {
                 background-color: var(--accent-color);
                 color: var(--text-color);
             }
-            .hamburger { display: block; position: absolute; top: 1rem; right: 1rem; }
+
+            .header-flag-corner {
+                display: none; /* Hide flag on small screens */
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 1rem; /* Adjust to visually align better with logo or desired position */
+                right: 1.5rem; /* Corresponds to header > .container padding */
+            }
         }
+        /* --- END: UPDATED HEADER STYLES --- */
+
 
         section {
             padding: 60px 0;
@@ -419,46 +478,54 @@
 
         /* MOBILE SPECIFIC FIX FOR FIXED BACKGROUND */
         @media (max-width: 768px) {
-            /* body {
+            body { /* Apply this rule */
                 background-attachment: scroll;
-            } */
+            }
         }
 
     </style>
-<header>
-    <div class="container"> <!-- This container will be styled to be full-width -->
-        <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="header-logo-corner">
+</head>
+<body>
 
-        <div class="header-center-content">
-            <div class="school-title">
-                <!-- Logo is no longer here -->
-                <div>
-                    <h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1>
-                    <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p>
+    <header>
+        <div class="container"> <!-- Header specific container, full width with padding -->
+            <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="header-logo-corner">
+    
+            <div class="header-center-content">
+                <div class="school-title">
+                    <div>
+                        <h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1>
+                        <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p>
+                    </div>
                 </div>
+                <nav>
+                    <ul class="nav-list">
+                        <li><a href="#home" class="active">मुख्य पृष्ठ</a></li>
+                        <li><a href="#about">हाम्रो बारेमा</a></li>
+                        <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
+                        <li><a href="#admissions">भर्ना</a></li>
+                        <li><a href="#news">समाचार/सूचना</a></li>
+                        <li><a href="#gallery">ग्यालरी</a></li>
+                        <li><a href="#contact">सम्पर्क</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <ul class="nav-list">
-                    <li><a href="#home" class="active">मुख्य पृष्ठ</a></li>
-                    <li><a href="#about">हाम्रो बारेमा</a></li>
-                    <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
-                    <li><a href="#admissions">भर्ना</a></li>
-                    <li><a href="#news">समाचार/सूचना</a></li>
-                    <li><a href="#gallery">ग्यालरी</a></li>
-                    <li><a href="#contact">सम्पर्क</a></li>
-                </ul>
-                <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
+            
+            <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- The button is placed here to be part of the header's direct flex children
+                 in case further complex layout changes, but it's absolutely positioned for mobile
+                 anyway. Could also be inside header-center-content if logic preferred that,
+                 but for mobile it's taken out of flow. For desktop it's display:none -->
 
-        <img src="Docs/images/WavingFlag.gif" alt="Waving Nepali Flag" class="header-flag-corner">
-    </div>
-</header>
+            <img src="Docs/images/WavingFlag.gif" alt="Waving Nepali Flag" class="header-flag-corner">
+        </div>
+    </header>
+
     <main>
         <section id="home" class="hero">
-            <div class="container">
+            <div class="container"> <!-- This uses the default .container class -->
                 <h2>विद्यालयमा स्वागत छ!</h2>
                 <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध। तपाईंको शैक्षिक यात्रा हाम्रो साथमा अझ फलदायी बनाउनुहोस्।</p>
                 <a href="#about" class="btn">थप जान्नुहोस्</a>
@@ -626,7 +693,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.getElementById('hamburger-button');
-            const navList = document.querySelector('.nav-list');
+            const navList = document.querySelector('header nav .nav-list'); // More specific selector for nav list
 
             if (hamburger && navList) {
                 hamburger.addEventListener('click', () => {
@@ -635,31 +702,38 @@
                     if (navList.classList.contains('show')) {
                         icon.classList.remove('fa-bars');
                         icon.classList.add('fa-times');
+                        // Ensure hamburger remains visible above expanded menu
+                        hamburger.style.zIndex = "1001"; // Ensure hamburger is above the expanded nav
                     } else {
                         icon.classList.remove('fa-times');
                         icon.classList.add('fa-bars');
+                         hamburger.style.zIndex = ""; // Reset z-index
                     }
                 });
 
                 navList.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (event) => {
+                        // No event.preventDefault() to allow external links if any
+
                         navList.querySelectorAll('a').forEach(navLink => navLink.classList.remove('active'));
                         link.classList.add('active');
 
-                        if (navList.classList.contains('show')) {
+                        if (navList.classList.contains('show')) { // If mobile menu is open, close it
                             navList.classList.remove('show');
                              const icon = hamburger.querySelector('i');
                              icon.classList.remove('fa-times');
                              icon.classList.add('fa-bars');
+                             hamburger.style.zIndex = ""; // Reset z-index
                         }
 
                         const href = link.getAttribute('href');
-                        if (href && href.startsWith('#')) {
+                        if (href && href.startsWith('#') && href.length > 1) { // Check for valid anchor
+                            event.preventDefault(); // Prevent default only for hash links
                             const targetSection = document.querySelector(href);
                             if (targetSection) {
                                 const headerOffset = document.querySelector('header').offsetHeight;
                                 const elementPosition = targetSection.getBoundingClientRect().top;
-                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20;
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; // Extra 20px offset
 
                                 window.scrollTo({
                                      top: offsetPosition,
@@ -670,36 +744,56 @@
                     });
                 });
 
-                const sections = document.querySelectorAll('main section');
+                const sections = document.querySelectorAll('main section[id]'); // Ensure sections have an ID
                 const headerHeight = document.querySelector('header').offsetHeight;
                 const footer = document.querySelector('footer');
+                const navLinks = navList.querySelectorAll('a'); // Cache nav links
 
                 function setActiveLink() {
                     let currentId = '';
+                    const scrollPosition = window.pageYOffset + headerHeight + 50; // Adjusted scroll position
+
                     sections.forEach(section => {
-                        const sectionTop = section.offsetTop - headerHeight - 50;
+                        const sectionTop = section.offsetTop;
                         const sectionBottom = sectionTop + section.offsetHeight;
-                        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                             currentId = section.getAttribute('id');
                         }
                     });
-
+                    
+                    // Handle case where no section is "active" (e.g., at the very top before first section or bottom after last)
                     if (currentId === '' && window.pageYOffset < sections[0].offsetTop - headerHeight - 50) {
-                        currentId = 'home';
-                    } else if (footer && currentId === '' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - (footer.offsetHeight + 50)) {
-                        currentId = sections[sections.length - 1].id;
+                        currentId = 'home'; // Default to home if above all sections
+                    } else if (footer && currentId === '' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - (footer.offsetHeight / 2)) {
+                        // If scrolled to the bottom, make the last relevant link active (e.g. contact)
+                        // Find the last nav link that points to a section
+                        for (let i = navLinks.length - 1; i >= 0; i--) {
+                            const href = navLinks[i].getAttribute('href');
+                            if (href.startsWith('#')) {
+                                currentId = href.substring(1);
+                                break;
+                            }
+                        }
                     }
 
-                    navList.querySelectorAll('a').forEach(a => {
+
+                    navLinks.forEach(a => {
                         a.classList.remove('active');
-                        if (a.getAttribute('href').substring(1) === currentId) {
+                        const href = a.getAttribute('href');
+                        if (href && href.substring(1) === currentId) {
                             a.classList.add('active');
                         }
                     });
                 }
 
                 window.addEventListener('scroll', setActiveLink);
-                window.addEventListener('load', setActiveLink);
+                window.addEventListener('load', () => {
+                     setActiveLink(); // Initial check on load
+                     // Activate 'home' link if page loads at top before any scrolling
+                     if (window.pageYOffset < sections[0].offsetTop - headerHeight - 50) {
+                         navList.querySelector('a[href="#home"]').classList.add('active');
+                     }
+                });
             }
 
             const currentYearElement = document.getElementById('current-year');
