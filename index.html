@@ -138,8 +138,8 @@
         
         /* Styles for the WavingFlag.gif */
         .header-flag {
-            height: 60px; /* Adjust height as needed, logo is 70px */
-            margin-left: 1rem; /* Provides some space from the navigation/left content block */
+            height: 10px; /* Adjust height as needed, logo is 70px */
+            margin-left: 2rem; /* Provides some space from the navigation/left content block */
         }
 
         nav ul { list-style: none; padding: 0; display: flex; }
@@ -425,39 +425,37 @@
         }
 
     </style>
-</head>
-<body>
+<header>
+    <div class="container"> <!-- This container will be styled to be full-width -->
+        <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="header-logo-corner">
 
-    <header>
-        <div class="container">
-            <div class="header-left-content"> <!-- New wrapper for left side elements -->
-                <div class="school-title">
-                    <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="logo">
-                    <div>
-                        <h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1>
-                        <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p>
-                    </div>
+        <div class="header-center-content">
+            <div class="school-title">
+                <!-- Logo is no longer here -->
+                <div>
+                    <h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1>
+                    <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p>
                 </div>
-                <nav>
-                    <ul class="nav-list">
-                        <li><a href="#home" class="active">मुख्य पृष्ठ</a></li>
-                        <li><a href="#about">हाम्रो बारेमा</a></li>
-                        <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
-                        <li><a href="#admissions">भर्ना</a></li>
-                        <li><a href="#news">समाचार/सूचना</a></li>
-                        <li><a href="#gallery">ग्यालरी</a></li>
-                        <li><a href="#contact">सम्पर्क</a></li>
-                    </ul>
-                    <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </nav>
             </div>
-    
-            <img src="Docs/images/WavingFlag.gif" alt="Waving Nepali Flag" class="header-flag"> <!-- Added Flag GIF -->
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#home" class="active">मुख्य पृष्ठ</a></li>
+                    <li><a href="#about">हाम्रो बारेमा</a></li>
+                    <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
+                    <li><a href="#admissions">भर्ना</a></li>
+                    <li><a href="#news">समाचार/सूचना</a></li>
+                    <li><a href="#gallery">ग्यालरी</a></li>
+                    <li><a href="#contact">सम्पर्क</a></li>
+                </ul>
+                <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
         </div>
-    </header>
 
+        <img src="Docs/images/WavingFlag.gif" alt="Waving Nepali Flag" class="header-flag-corner">
+    </div>
+</header>
     <main>
         <section id="home" class="hero">
             <div class="container">
