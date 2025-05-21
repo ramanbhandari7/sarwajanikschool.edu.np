@@ -20,7 +20,7 @@
             --dark-bg-panel: rgba(30, 40, 50, 0.85);
             --text-color: #343a40;
             --light-text-color: #f8f9fa;
-            --global-overlay-color: rgba(10, 20, 30, 0.75);
+            --global-overlay-color: rgba(10, 20, 30, 0.75); /* This is the overlay color */
             --heading-font-weight: 700;
             --body-font-weight: 400;
             --base-font-size: 17px;
@@ -47,16 +47,16 @@
             color: var(--light-text-color);
             font-size: var(--base-font-size);
 
-            background-image: url('Docs/images/hero.jpg');
+            background-image: url('Docs/images/hero.jpg'); /* Ensure this path is correct! */
             background-size: cover;
             background-position: center center;
-            background-attachment: fixed;
+            background-attachment: fixed; /* Default for desktop */
             background-repeat: no-repeat;
-            position: relative;
+            position: relative; /* For stacking context related to ::before */
             min-height: 100vh;
         }
 
-        body::before {
+        body::before { /* Overlay element */
             content: '';
             position: fixed;
             top: 0;
@@ -64,7 +64,7 @@
             right: 0;
             bottom: 0;
             background-color: var(--global-overlay-color);
-            z-index: -1;
+            z-index: -1; /* Positions overlay on top of body's background, but behind body's content */
         }
 
         .container { /* Default container for sections */
@@ -95,7 +95,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            /* flex-wrap: wrap; removed, center content handles its own wrapping */
         }
 
         .header-logo-corner {
@@ -115,14 +114,14 @@
             align-items: center;
             flex-grow: 1;
             justify-content: center;
-            min-width: 0; /* Prevents overflow with long content */
+            min-width: 0; 
         }
 
         .school-title {
             display: flex;
             align-items: center;
-            margin-right: 1.5rem; /* Space between title block and nav */
-             text-align: left; /* Explicitly set for clarity */
+            margin-right: 1.5rem; 
+             text-align: left; 
         }
 
         .school-title h1 {
@@ -130,7 +129,7 @@
             margin: 0;
             font-weight: var(--heading-font-weight);
             line-height: 1.2;
-            white-space: nowrap; /* Prevents title from wrapping if space is tight */
+            white-space: nowrap; 
         }
         .school-title h1 .highlight {
             color: var(--accent-color);
@@ -140,12 +139,12 @@
             font-size: 0.9rem;
             margin: 0;
             opacity: 0.9;
-            white-space: nowrap; /* Prevents subtitle from wrapping */
+            white-space: nowrap; 
         }
 
         .header-flag-corner {
             height: 60px;
-            width: auto; /* Maintain aspect ratio */
+            width: auto; 
             margin-left: 1rem;
             flex-shrink: 0;
         }
@@ -154,8 +153,8 @@
             list-style: none;
             padding: 0;
             display: flex;
-            flex-wrap: wrap; /* Allow nav links to wrap if they don't fit */
-            justify-content: center; /* Center nav items if they wrap */
+            flex-wrap: wrap; 
+            justify-content: center; 
         }
         nav ul li { margin-left: 5px; }
         nav ul li:first-child { margin-left: 0; }
@@ -183,22 +182,34 @@
             padding: 5px; line-height: 1;
         }
 
-        @media (max-width: 1024px) { /* Adjust breakpoint for medium screens */
-             .school-title h1 { font-size: 1.5rem;} /* Smaller title for medium screens */
+        @media (max-width: 1024px) { 
+             .school-title h1 { font-size: 1.5rem;} 
              .school-title p { font-size: 0.8rem;}
              nav ul li a { font-size: 0.9rem; padding: 8px 10px;}
              .header-logo-corner { height: 60px; width: 60px; }
              .header-flag-corner { height: 50px; }
-             .school-title { margin-right: 1rem; } /* Reduce space slightly */
+             .school-title { margin-right: 1rem; } 
         }
 
         @media (max-width: 768px) { /* Mobile specific */
+            body { 
+                background-attachment: scroll !important; /* Make hero scroll on mobile - !important for testing emphasis if needed */
+                /* If the above doesn't work, also try re-declaring the image, though it shouldn't be necessary */
+                /* background-image: url('Docs/images/hero.jpg') !important;  */
+            }
+            /* To test if overlay is the issue on mobile, uncomment the next lines */
+            /*
+            body::before {
+                display: none !important;
+            }
+            */
+
             header > .container {
                 flex-direction: column;
                 align-items: center;
                 padding-top: 0.5rem;
                 padding-bottom: 0.5rem;
-                position: relative; /* Context for hamburger */
+                position: relative; 
             }
 
             .header-logo-corner {
@@ -215,27 +226,27 @@
             }
 
             .school-title {
-                flex-direction: column; /* Stack H1 and P */
+                flex-direction: column; 
                 text-align: center;
                 margin-right: 0;
                 margin-bottom: 1rem;
             }
-             .school-title h1 { font-size: 1.7rem; white-space: normal; } /* Allow title to wrap */
-             .school-title p { font-size: 0.85rem; white-space: normal; } /* Allow subtitle to wrap */
+             .school-title h1 { font-size: 1.7rem; white-space: normal; } 
+             .school-title p { font-size: 0.85rem; white-space: normal; } 
 
 
             nav {
                 width: 100%;
                 text-align: center;
             }
-            nav ul { /* Existing mobile nav display logic */
+            nav ul { 
                 flex-direction: column;
-                display: none; /* Controlled by JS */
+                display: none; 
                 width: 100%;
                 background: rgba(0, 74, 147, 0.95);
                 backdrop-filter: blur(5px);
                 -webkit-backdrop-filter: blur(5px);
-                margin-top: 0; /* Hamburger controls opening, not from margin to title */
+                margin-top: 0; 
                 padding: 10px 0;
                 border-radius: var(--border-radius);
             }
@@ -248,14 +259,14 @@
             }
 
             .header-flag-corner {
-                display: none; /* Hide flag on small screens */
+                display: none; 
             }
 
             .hamburger {
                 display: block;
                 position: absolute;
-                top: 1rem; /* Adjust to visually align better with logo or desired position */
-                right: 1.5rem; /* Corresponds to header > .container padding */
+                top: 1rem; 
+                right: 1.5rem; 
             }
         }
         /* --- END: UPDATED HEADER STYLES --- */
@@ -476,19 +487,16 @@
         .developer-tag a { color: #95a5a6; text-decoration: none; font-weight: 500; }
         .developer-tag a:hover { color: var(--accent-color); text-decoration: underline; }
 
-        /* MOBILE SPECIFIC FIX FOR FIXED BACKGROUND */
-        @media (max-width: 768px) {
-            body { /* Apply this rule */
-                background-attachment: scroll;
-            }
-        }
+        /* (No other MOBILE SPECIFIC FIX FOR FIXED BACKGROUND section needed as it's incorporated above) */
 
     </style>
 </head>
 <body>
+    <!-- Test image for path verification - remove after testing -->
+    <!-- <img src="Docs/images/hero.jpg" alt="Test Hero" style="width:50px; height:50px; border:1px solid red; position:fixed; top:0; left:0; z-index:9999;"> -->
 
     <header>
-        <div class="container"> <!-- Header specific container, full width with padding -->
+        <div class="container"> 
             <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="header-logo-corner">
     
             <div class="header-center-content">
@@ -514,10 +522,6 @@
             <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
                 <i class="fas fa-bars"></i>
             </button>
-            <!-- The button is placed here to be part of the header's direct flex children
-                 in case further complex layout changes, but it's absolutely positioned for mobile
-                 anyway. Could also be inside header-center-content if logic preferred that,
-                 but for mobile it's taken out of flow. For desktop it's display:none -->
 
             <img src="Docs/images/WavingFlag.gif" alt="Waving Nepali Flag" class="header-flag-corner">
         </div>
@@ -525,7 +529,7 @@
 
     <main>
         <section id="home" class="hero">
-            <div class="container"> <!-- This uses the default .container class -->
+            <div class="container"> 
                 <h2>विद्यालयमा स्वागत छ!</h2>
                 <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध। तपाईंको शैक्षिक यात्रा हाम्रो साथमा अझ फलदायी बनाउनुहोस्।</p>
                 <a href="#about" class="btn">थप जान्नुहोस्</a>
@@ -693,7 +697,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.getElementById('hamburger-button');
-            const navList = document.querySelector('header nav .nav-list'); // More specific selector for nav list
+            const navList = document.querySelector('header nav .nav-list'); 
 
             if (hamburger && navList) {
                 hamburger.addEventListener('click', () => {
@@ -702,38 +706,35 @@
                     if (navList.classList.contains('show')) {
                         icon.classList.remove('fa-bars');
                         icon.classList.add('fa-times');
-                        // Ensure hamburger remains visible above expanded menu
-                        hamburger.style.zIndex = "1001"; // Ensure hamburger is above the expanded nav
+                        hamburger.style.zIndex = "1001"; 
                     } else {
                         icon.classList.remove('fa-times');
                         icon.classList.add('fa-bars');
-                         hamburger.style.zIndex = ""; // Reset z-index
+                         hamburger.style.zIndex = ""; 
                     }
                 });
 
                 navList.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (event) => {
-                        // No event.preventDefault() to allow external links if any
-
                         navList.querySelectorAll('a').forEach(navLink => navLink.classList.remove('active'));
                         link.classList.add('active');
 
-                        if (navList.classList.contains('show')) { // If mobile menu is open, close it
+                        if (navList.classList.contains('show')) { 
                             navList.classList.remove('show');
                              const icon = hamburger.querySelector('i');
                              icon.classList.remove('fa-times');
                              icon.classList.add('fa-bars');
-                             hamburger.style.zIndex = ""; // Reset z-index
+                             hamburger.style.zIndex = ""; 
                         }
 
                         const href = link.getAttribute('href');
-                        if (href && href.startsWith('#') && href.length > 1) { // Check for valid anchor
-                            event.preventDefault(); // Prevent default only for hash links
+                        if (href && href.startsWith('#') && href.length > 1) { 
+                            event.preventDefault(); 
                             const targetSection = document.querySelector(href);
                             if (targetSection) {
                                 const headerOffset = document.querySelector('header').offsetHeight;
                                 const elementPosition = targetSection.getBoundingClientRect().top;
-                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; // Extra 20px offset
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; 
 
                                 window.scrollTo({
                                      top: offsetPosition,
@@ -744,14 +745,14 @@
                     });
                 });
 
-                const sections = document.querySelectorAll('main section[id]'); // Ensure sections have an ID
+                const sections = document.querySelectorAll('main section[id]'); 
                 const headerHeight = document.querySelector('header').offsetHeight;
                 const footer = document.querySelector('footer');
-                const navLinks = navList.querySelectorAll('a'); // Cache nav links
+                const navLinks = navList.querySelectorAll('a'); 
 
                 function setActiveLink() {
                     let currentId = '';
-                    const scrollPosition = window.pageYOffset + headerHeight + 50; // Adjusted scroll position
+                    const scrollPosition = window.pageYOffset + headerHeight + 50; 
 
                     sections.forEach(section => {
                         const sectionTop = section.offsetTop;
@@ -761,12 +762,9 @@
                         }
                     });
                     
-                    // Handle case where no section is "active" (e.g., at the very top before first section or bottom after last)
                     if (currentId === '' && window.pageYOffset < sections[0].offsetTop - headerHeight - 50) {
-                        currentId = 'home'; // Default to home if above all sections
+                        currentId = 'home'; 
                     } else if (footer && currentId === '' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - (footer.offsetHeight / 2)) {
-                        // If scrolled to the bottom, make the last relevant link active (e.g. contact)
-                        // Find the last nav link that points to a section
                         for (let i = navLinks.length - 1; i >= 0; i--) {
                             const href = navLinks[i].getAttribute('href');
                             if (href.startsWith('#')) {
@@ -775,7 +773,6 @@
                             }
                         }
                     }
-
 
                     navLinks.forEach(a => {
                         a.classList.remove('active');
@@ -788,10 +785,10 @@
 
                 window.addEventListener('scroll', setActiveLink);
                 window.addEventListener('load', () => {
-                     setActiveLink(); // Initial check on load
-                     // Activate 'home' link if page loads at top before any scrolling
+                     setActiveLink(); 
                      if (window.pageYOffset < sections[0].offsetTop - headerHeight - 50) {
-                         navList.querySelector('a[href="#home"]').classList.add('active');
+                         const homeLink = navList.querySelector('a[href="#home"]');
+                         if (homeLink) homeLink.classList.add('active');
                      }
                 });
             }
