@@ -95,10 +95,17 @@
             flex-wrap: wrap;
         }
 
+        /* Styles for the new wrapper for logo, title, and nav */
+        .header-left-content {
+            display: flex;
+            align-items: center;
+            flex-grow: 1; /* This makes the left content take available space, pushing the flag to the right */
+        }
+        
         .school-title {
             display: flex;
             align-items: center;
-            flex-grow: 1;
+            flex-grow: 1; /* School title will expand within .header-left-content */
         }
 
         .school-title .logo {
@@ -127,6 +134,12 @@
             font-size: 0.9rem;
             margin: 0;
             opacity: 0.9;
+        }
+        
+        /* Styles for the WavingFlag.gif */
+        .header-flag {
+            height: 60px; /* Adjust height as needed, logo is 70px */
+            margin-left: 1rem; /* Provides some space from the navigation/left content block */
         }
 
         nav ul { list-style: none; padding: 0; display: flex; }
@@ -159,6 +172,14 @@
         }
         @media (max-width: 768px) {
             header .container { flex-direction: column; align-items: flex-start; }
+            
+            .header-left-content {
+                width: 100%; 
+            }
+            .header-flag {
+                display: none; /* Hide flag on small screens */
+            }
+
             .school-title { width: 100%; justify-content: center; margin-bottom: 1rem; flex-direction: column; text-align: center; }
             .school-title .logo { margin: 0 auto 0.75rem auto; height: 60px; width: 60px;}
             .school-title h1 { font-size: 1.7rem; }
@@ -401,14 +422,6 @@
             /* body {
                 background-attachment: scroll;
             } */
-            /* The above line was commented out in the previous step to potentially fix hero image display on mobile.
-               If 'background-attachment: scroll;' caused the hero image to not display on mobile,
-               this change will make mobile devices use 'background-attachment: fixed;'
-               (inherited from the general 'body' style). This might restore visibility.
-               However, be aware that 'background-attachment: fixed;' can have performance
-               implications or other minor visual issues on some mobile browsers, which might
-               have been the reason for adding the 'scroll' rule initially.
-            */
         }
 
     </style>
@@ -417,27 +430,31 @@
 
     <header>
         <div class="container">
-            <div class="school-title">
-                <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="logo">
-                 <div>
-                    <h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1>
-                    <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p>
+            <div class="header-left-content"> <!-- New wrapper for left side elements -->
+                <div class="school-title">
+                    <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="logo">
+                    <div>
+                        <h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1>
+                        <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p>
+                    </div>
                 </div>
+                <nav>
+                    <ul class="nav-list">
+                        <li><a href="#home" class="active">मुख्य पृष्ठ</a></li>
+                        <li><a href="#about">हाम्रो बारेमा</a></li>
+                        <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
+                        <li><a href="#admissions">भर्ना</a></li>
+                        <li><a href="#news">समाचार/सूचना</a></li>
+                        <li><a href="#gallery">ग्यालरी</a></li>
+                        <li><a href="#contact">सम्पर्क</a></li>
+                    </ul>
+                    <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
             </div>
-            <nav>
-                <ul class="nav-list">
-                    <li><a href="#home" class="active">मुख्य पृष्ठ</a></li>
-                    <li><a href="#about">हाम्रो बारेमा</a></li>
-                    <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
-                    <li><a href="#admissions">भर्ना</a></li>
-                    <li><a href="#news">समाचार/सूचना</a></li>
-                    <li><a href="#gallery">ग्यालरी</a></li>
-                    <li><a href="#contact">सम्पर्क</a></li>
-                </ul>
-                <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
+    
+            <img src="Docs/images/WavingFlag.gif" alt="Waving Nepali Flag" class="header-flag"> <!-- Added Flag GIF -->
         </div>
     </header>
 
@@ -566,7 +583,7 @@
                     <p><i class="fas fa-phone-alt"></i><strong>फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p>
                     <p><i class="fas fa-envelope"></i><strong>इमेल:</strong> <a href="mailto:[विद्यालयको इमेल]">sarwajanikschool1@gmail.com</a></p>
                     <p><i class="fas fa-globe"></i><strong>वेबसाइट:</strong> <a href="http://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
-                    <p class="social-contact"><i class="fab fa-facebook"></i><strong>फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%8B%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
+                    <p class="social-contact"><i class="fab fa-facebook"></i><strong>फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%AB%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%8B%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
                 </div>
 
                 <div class="captcha-container">
@@ -594,7 +611,7 @@
             </nav>
 
             <div class="social-links">
-                <a href="href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%8B%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank" aria-label="Facebook Page" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%AB%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%8B%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank" aria-label="Facebook Page" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="YOUR_TWITTER_LINK" aria-label="Twitter Page" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="YOUR_INSTAGRAM_LINK" aria-label="Instagram Page" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@sharwajanikmavi" aria-label="YouTube Channel" target="_blank"><i class="fab fa-youtube"></i></a>
