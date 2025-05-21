@@ -17,16 +17,16 @@
             --primary-color: #0057A8;
             --secondary-color: #007bff;
             --accent-color: #ffc107;
-            --light-bg-panel: rgba(255, 255, 255, 0.92); 
-            --dark-bg-panel: rgba(30, 40, 50, 0.85);   
-            --text-color: #343a40; 
-            --light-text-color: #f8f9fa; 
-            --global-overlay-color: rgba(10, 20, 30, 0.75); 
+            --light-bg-panel: rgba(255, 255, 255, 0.92);
+            --dark-bg-panel: rgba(30, 40, 50, 0.85);
+            --text-color: #343a40;
+            --light-text-color: #f8f9fa;
+            --global-overlay-color: rgba(10, 20, 30, 0.75);
             --heading-font-weight: 700;
             --body-font-weight: 400;
             --base-font-size: 17px;
             --line-height: 1.7;
-            --border-radius: 8px; 
+            --border-radius: 8px;
             --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
@@ -45,27 +45,27 @@
             font-family: 'Mukta', sans-serif;
             font-weight: var(--body-font-weight);
             line-height: var(--line-height);
-            color: var(--light-text-color); 
+            color: var(--light-text-color);
             font-size: var(--base-font-size);
-            
+
             background-image: url('Docs/images/hero.jpg');
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            position: relative; 
+            position: relative;
             min-height: 100vh;
         }
 
         body::before {
             content: '';
-            position: fixed; 
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             background-color: var(--global-overlay-color);
-            z-index: -1; 
+            z-index: -1;
         }
 
 
@@ -73,22 +73,22 @@
             width: 90%;
             max-width: 1140px;
             margin: auto;
-            overflow: visible; 
+            overflow: visible;
             padding: 0 1rem;
         }
 
         header {
-            background: rgba(0, 87, 168, 0.9); 
+            background: rgba(0, 87, 168, 0.9);
             color: var(--light-text-color);
-            padding: 0.8rem 0; 
+            padding: 0.8rem 0;
             box-shadow: var(--header-shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(5px); 
+            backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
         }
-        
+
         header .container {
             display: flex;
             justify-content: space-between;
@@ -103,7 +103,7 @@
         }
 
         .school-title .logo {
-            height: 70px; 
+            height: 70px;
             width: 70px;
             margin-right: 1rem;
             border-radius: 50%;
@@ -114,18 +114,18 @@
         }
 
         .school-title h1 {
-            font-size: 2rem; 
+            font-size: 2rem;
             margin: 0;
             font-weight: var(--heading-font-weight);
             line-height: 1.2;
         }
-        .school-title h1 .highlight { 
-            color: var(--accent-color); 
+        .school-title h1 .highlight {
+            color: var(--accent-color);
             font-weight: 700;
         }
 
         .school-title p {
-            font-size: 0.9rem; 
+            font-size: 0.9rem;
             margin: 0;
             opacity: 0.9;
         }
@@ -135,16 +135,16 @@
         nav ul li a {
             color: var(--light-text-color);
             text-decoration: none;
-            font-weight: 600; 
-            font-size: 1rem; 
+            font-weight: 600;
+            font-size: 1rem;
             transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-            padding: 8px 14px; 
+            padding: 8px 14px;
             border-radius: var(--border-radius);
             display: block;
         }
         nav ul li a:hover,
         nav ul li a:focus,
-        nav ul li a.active { 
+        nav ul li a.active {
             color: var(--primary-color);
             background-color: #fff;
             transform: translateY(-2px);
@@ -167,7 +167,7 @@
             nav { width: 100%; text-align: center; }
             nav ul {
                 flex-direction: column; display: none; width: 100%;
-                background: rgba(0, 74, 147, 0.95); 
+                background: rgba(0, 74, 147, 0.95);
                 backdrop-filter: blur(5px);
                 -webkit-backdrop-filter: blur(5px);
                 margin-top: 0.5rem; padding: 10px 0; border-radius: var(--border-radius);
@@ -177,66 +177,66 @@
             nav ul li a { padding: 12px; width: 90%; margin: auto; }
             nav ul li a:hover, nav ul li a:focus {
                 background-color: var(--accent-color);
-                color: var(--text-color); 
+                color: var(--text-color);
             }
-            .hamburger { display: block; position: absolute; top: 1rem; right: 1rem; } 
+            .hamburger { display: block; position: absolute; top: 1rem; right: 1rem; }
         }
 
         section {
-            padding: 60px 0; 
+            padding: 60px 0;
             text-align: center;
-            background-color: transparent !important; 
-            position: relative; 
+            background-color: transparent !important;
+            position: relative;
         }
 
         section h2 {
             font-size: 2.6rem;
             font-weight: var(--heading-font-weight);
             margin-bottom: 40px;
-            color: var(--light-text-color); 
+            color: var(--light-text-color);
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3); 
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
         section h2::after {
             content: ''; position: absolute; bottom: 0; left: 50%;
             transform: translateX(-50%); width: 80px; height: 4px;
             background-color: var(--accent-color); border-radius: 2px;
         }
-        
+
         section > .container > p:not(.content-panel p) {
              margin-bottom: 20px;
              font-size: 1.15rem;
              max-width: 750px;
              margin-left: auto; margin-right: auto;
-             color: var(--light-text-color); 
+             color: var(--light-text-color);
              text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .content-panel {
             background: var(--light-bg-panel);
-            color: var(--text-color); 
+            color: var(--text-color);
             padding: 30px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
-            margin-bottom: 30px; 
-            text-align: left; 
+            margin-bottom: 30px;
+            text-align: left;
         }
-        .content-panel-centered { 
+        .content-panel-centered {
             text-align: center;
         }
         .content-panel h3 {
             font-size: 1.8rem;
             font-weight: 600;
-            margin-top: 0; 
+            margin-top: 0;
             margin-bottom: 15px;
-            color: var(--primary-color); 
+            color: var(--primary-color);
         }
         .content-panel p, .content-panel ul {
-            font-size: 1.05rem; 
+            font-size: 1.05rem;
             margin-bottom: 15px;
-            color: var(--text-color); 
+            color: var(--text-color);
         }
         .content-panel ul {
             list-style: none; padding-left: 0;
@@ -246,11 +246,11 @@
             padding-left: 25px;
             position: relative;
         }
-        .content-panel ul li::before { 
-            content: "\f00c"; 
+        .content-panel ul li::before {
+            content: "\f00c";
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
-            color: var(--primary-color); 
+            color: var(--primary-color);
             position: absolute; left: 0; top: 4px; font-size: 0.9em;
         }
         .content-panel a {
@@ -262,17 +262,17 @@
             text-decoration: underline;
         }
 
-        .hero { 
-             padding: 120px 0 80px 0; 
+        .hero {
+             padding: 120px 0 80px 0;
         }
-        .hero h2 { 
+        .hero h2 {
             color: var(--light-text-color);
             font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 25px;
             text-shadow: 0 2px 5px rgba(0,0,0,0.4);
         }
-        .hero h2::after { display: none; } 
+        .hero h2::after { display: none; }
         .hero p {
             font-size: 1.4rem;
             margin-bottom: 45px;
@@ -283,7 +283,7 @@
         }
         .btn {
             display: inline-block; background: var(--accent-color);
-            color: var(--text-color) !important; 
+            color: var(--text-color) !important;
             padding: 14px 30px; text-decoration: none; border-radius: var(--border-radius);
             font-weight: 600; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
             font-size: 1.15rem; border: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -292,9 +292,9 @@
             background: #e0a800; transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
-        
+
         #about .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
-        #about .content-panel ul li::before { color: var(--secondary-color); } 
+        #about .content-panel ul li::before { color: var(--secondary-color); }
 
         #academics .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
         #academics .content-panel strong { color: var(--primary-color); display: block; margin-bottom: 8px; font-size: 1.1em;}
@@ -302,7 +302,7 @@
         #academics .content-panel ul ul li::before { content: "\f105"; color: var(--secondary-color); }
 
         #news .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
-        #news article { 
+        #news article {
             background: var(--light-bg-panel);
             color: var(--text-color);
             padding: 25px; margin-bottom: 25px;
@@ -326,11 +326,11 @@
         #gallery .intro-text { margin-bottom: 40px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
         .gallery-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px; margin-top: 0; 
+            gap: 25px; margin-top: 0;
         }
-        .gallery-grid .gallery-item { 
+        .gallery-grid .gallery-item {
             border-radius: var(--border-radius); overflow: hidden;
-            background: rgba(255,255,255,0.1); 
+            background: rgba(255,255,255,0.1);
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
@@ -346,10 +346,10 @@
         .gallery-grid .gallery-item:hover img { transform: scale(1.05); }
 
         #contact .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
-        .contact-details { 
+        .contact-details {
             background: var(--light-bg-panel);
             color: var(--text-color);
-            padding: 35px; 
+            padding: 35px;
             border-radius: var(--border-radius); box-shadow: var(--card-shadow);
             text-align: left; max-width: 700px; width: 100%;
             margin-left: auto; margin-right: auto; margin-bottom: 30px;
@@ -361,29 +361,29 @@
         .contact-details .social-contact a { font-size: 1.2rem; color: var(--primary-color); }
 
         .captcha-container, .map-embed {
-            background: var(--light-bg-panel); 
+            background: var(--light-bg-panel);
             padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
-            max-width: fit-content; 
+            max-width: fit-content;
             margin: 30px auto;
         }
-        .map-embed { max-width: 100%; padding:0; overflow:hidden; } 
+        .map-embed { max-width: 100%; padding:0; overflow:hidden; }
         .map-embed iframe { display: block; border-radius: var(--border-radius); }
 
 
         footer {
-            background: rgba(44, 62, 80, 0.9); 
-            backdrop-filter: blur(5px); 
+            background: rgba(44, 62, 80, 0.9);
+            backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             color: #bdc3c7;
-            text-align: center; padding: 2.5rem 0; 
-            margin-top: 40px; 
+            text-align: center; padding: 2.5rem 0;
+            margin-top: 40px;
             font-size: 1rem;
-            position: relative; 
-            z-index: 1; 
+            position: relative;
+            z-index: 1;
         }
-        
+
          .footer-nav ul { list-style: none; padding: 0; margin: 0 0 1.5rem 0; display: flex; justify-content: center; flex-wrap: wrap;}
         .footer-nav ul li { margin: 5px 15px; }
         .footer-nav ul li a { color: #ecf0f1; text-decoration: none; transition: color 0.3s ease; font-weight: 500;}
@@ -398,16 +398,25 @@
         .developer-tag a:hover { color: var(--accent-color); text-decoration: underline; }
 
         /* MOBILE SPECIFIC FIX FOR FIXED BACKGROUND */
-        @media (max-width: 768px) { 
-            body {
-                background-attachment: scroll; 
-            }
+        @media (max-width: 768px) {
+            /* body {
+                background-attachment: scroll;
+            } */
+            /* The above line was commented out.
+               If 'background-attachment: scroll;' caused the hero image to not display on mobile,
+               this change will make mobile devices use 'background-attachment: fixed;'
+               (inherited from the general 'body' style). This might restore visibility.
+               However, be aware that 'background-attachment: fixed;' can have performance
+               implications or other minor visual issues on some mobile browsers, which might
+               have been the reason for adding the 'scroll' rule initially.
+               If 'fixed' also causes issues, further investigation would be needed.
+            */
         }
 
     </style>
 </head>
 <body>
-    
+
     <header>
         <div class="container">
             <div class="school-title">
@@ -435,7 +444,7 @@
     </header>
 
     <main>
-        <section id="home" class="hero"> 
+        <section id="home" class="hero">
             <div class="container">
                 <h2>विद्यालयमा स्वागत छ!</h2>
                 <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध। तपाईंको शैक्षिक यात्रा हाम्रो साथमा अझ फलदायी बनाउनुहोस्।</p>
@@ -534,17 +543,17 @@
                 <div class="gallery-grid">
                     <div class="gallery-item"><img src="Docs/images/bg.jpg" alt="विद्यालयको वार्षिकोत्सव"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery1.jpg" alt="कक्षाकोठा गतिविधि"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery2.jpg" alt="पुस्तकालय अध्ययन"></div> 
-                    <div class="gallery-item"><img src="Docs/images/gallery3.jpg" alt="विज्ञान प्रयोगशाला"></div> 
-                    <div class="gallery-item"><img src="Docs/images/gallery4.jpg" alt="खेलकुद दिवस"></div> 
+                    <div class="gallery-item"><img src="Docs/images/gallery2.jpg" alt="पुस्तकालय अध्ययन"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery3.jpg" alt="विज्ञान प्रयोगशाला"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery4.jpg" alt="खेलकुद दिवस"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery5.jpg" alt="विद्यालय भवन परिसर"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery6.jpg" alt="विद्यालय भवन परिसर"></div> 
+                    <div class="gallery-item"><img src="Docs/images/gallery6.jpg" alt="विद्यालय भवन परिसर"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery7.jpg" alt="विद्यालय भवन परिसर"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery8.jpg" alt="विद्यालय भवन परिसर"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery9.jpg" alt="विद्यालय भवन परिसर"></div>
-                    <div class="gallery-item"><img src="Docs/images/gallery10.jpg" alt="विद्यालय भवन परिसर"></div> 
-                    <div class="gallery-item"><img src="Docs/images/gallery11.jpg" alt="विद्यालय भवन परिसर"></div> 
-                    <div class="gallery-item"><img src="Docs/images/gallery12.jpg" alt="विद्यालय भवन परिसर"></div> 
+                    <div class="gallery-item"><img src="Docs/images/gallery10.jpg" alt="विद्यालय भवन परिसर"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery11.jpg" alt="विद्यालय भवन परिसर"></div>
+                    <div class="gallery-item"><img src="Docs/images/gallery12.jpg" alt="विद्यालय भवन परिसर"></div>
                 </div>
             </div>
         </section>
@@ -553,15 +562,15 @@
             <div class="container">
                 <h2>सम्पर्क गर्नुहोस्</h2>
                 <p class="intro-text">हामी तपाईंको प्रश्न, प्रतिक्रिया, र सुझावहरू सुन्न सधैं तयार छौं।</p>
-                
+
                 <div class="contact-details">
                     <p><i class="fas fa-map-marker-alt"></i><strong>ठेगाना:</strong>केराबारी ७ डाँगी नेपाल</p>
                     <p><i class="fas fa-phone-alt"></i><strong>फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p>
                     <p><i class="fas fa-envelope"></i><strong>इमेल:</strong> <a href="mailto:[विद्यालयको इमेल]">sarwajanikschool1@gmail.com</a></p>
                     <p><i class="fas fa-globe"></i><strong>वेबसाइट:</strong> <a href="http://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
-                    <p class="social-contact"><i class="fab fa-facebook"></i><strong>फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A4%BE%E0%A5%87%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
+                    <p class="social-contact"><i class="fab fa-facebook"></i><strong>फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%8B%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
                 </div>
-                
+
                 <div class="captcha-container">
                     <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY_HERE" data-theme="light"></div>
                 </div>
@@ -594,7 +603,7 @@
             </div>
 
             <p>© <span id="current-year"></span> श्री सार्वजनिक माध्यमिक विद्यालय। सर्वाधिकार सुरक्षित।</p>
-            
+
             <div class="developer-tag">
                 Website by <a href="https://ramanbhandari.com.np/" target="_blank">Digital Hub Online Nepal - Raman Bhandari</a>
             </div>
@@ -603,7 +612,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.getElementById('hamburger-button'); 
+            const hamburger = document.getElementById('hamburger-button');
             const navList = document.querySelector('.nav-list');
 
             if (hamburger && navList) {
@@ -624,20 +633,20 @@
                         navList.querySelectorAll('a').forEach(navLink => navLink.classList.remove('active'));
                         link.classList.add('active');
 
-                        if (navList.classList.contains('show')) { 
+                        if (navList.classList.contains('show')) {
                             navList.classList.remove('show');
                              const icon = hamburger.querySelector('i');
                              icon.classList.remove('fa-times');
                              icon.classList.add('fa-bars');
                         }
-                        
+
                         const href = link.getAttribute('href');
                         if (href && href.startsWith('#')) {
                             const targetSection = document.querySelector(href);
                             if (targetSection) {
                                 const headerOffset = document.querySelector('header').offsetHeight;
                                 const elementPosition = targetSection.getBoundingClientRect().top;
-                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; 
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20;
 
                                 window.scrollTo({
                                      top: offsetPosition,
@@ -649,21 +658,21 @@
                 });
 
                 const sections = document.querySelectorAll('main section');
-                const headerHeight = document.querySelector('header').offsetHeight; 
-                const footer = document.querySelector('footer'); 
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const footer = document.querySelector('footer');
 
                 function setActiveLink() {
                     let currentId = '';
                     sections.forEach(section => {
-                        const sectionTop = section.offsetTop - headerHeight - 50; 
+                        const sectionTop = section.offsetTop - headerHeight - 50;
                         const sectionBottom = sectionTop + section.offsetHeight;
                         if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
                             currentId = section.getAttribute('id');
                         }
                     });
-                    
+
                     if (currentId === '' && window.pageYOffset < sections[0].offsetTop - headerHeight - 50) {
-                        currentId = 'home'; 
+                        currentId = 'home';
                     } else if (footer && currentId === '' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - (footer.offsetHeight + 50)) {
                         currentId = sections[sections.length - 1].id;
                     }
@@ -675,9 +684,9 @@
                         }
                     });
                 }
-                
+
                 window.addEventListener('scroll', setActiveLink);
-                window.addEventListener('load', setActiveLink); 
+                window.addEventListener('load', setActiveLink);
             }
 
             const currentYearElement = document.getElementById('current-year');
