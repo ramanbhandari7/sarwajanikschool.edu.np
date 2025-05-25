@@ -191,10 +191,16 @@
              .school-title { margin-right: 1rem; } 
         }
 
-        @media (max-width: 768px) { /* Mobile specific */
-            body { 
-                background-attachment: scroll !important; 
-            }
+        @media (max-width: 768px) {
+    body {
+        background-image: url('Docs/images/hero.jpg') !important; /* Re-declare for emphasis */
+        background-size: cover !important;
+        background-position: center center !important;
+        background-attachment: scroll !important; /* This is key */
+        background-repeat: no-repeat !important;
+    }
+    /* ... other mobile styles ... */
+}
 
             header > .container {
                 flex-direction: column;
