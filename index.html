@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>श्री सार्वजनिक माध्यमिक विद्यालय</title>
- <link rel="icon" href="Docs/images/favicon.png" type="image/png">
+    <link rel="icon" href="Docs/images/favicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,11 +16,11 @@
             --primary-color: #0057A8;
             --secondary-color: #007bff;
             --accent-color: #ffc107;
-            --light-bg-panel: rgba(255, 255, 255, 0.92);
+            --light-bg-panel: rgba(255, 255, 255, 0.92); /* Semi-transparent white for panels */
             --dark-bg-panel: rgba(30, 40, 50, 0.85);
-            --text-color: #343a40;
-            --light-text-color: #f8f9fa;
-            --global-overlay-color: rgba(10, 20, 30, 0.75); /* This is the overlay color */
+            --text-color: #343a40; /* Text color for light panels */
+            --light-text-color: #f8f9fa; /* Text color for dark backgrounds / overlay */
+            --global-overlay-color: rgba(10, 20, 30, 0.75); 
             --heading-font-weight: 700;
             --body-font-weight: 400;
             --base-font-size: 17px;
@@ -44,19 +44,19 @@
             font-family: 'Mukta', sans-serif;
             font-weight: var(--body-font-weight);
             line-height: var(--line-height);
-            color: var(--light-text-color);
+            color: var(--light-text-color); /* Default text color (for text directly on body/overlay) */
             font-size: var(--base-font-size);
 
-            background-image: url('Docs/images/hero.jpg'); /* Ensure this path is correct! */
+            background-image: url('Docs/images/hero.jpg'); /* ENSURE THIS PATH IS CORRECT */
             background-size: cover;
             background-position: center center;
             background-attachment: fixed; /* Default for desktop */
             background-repeat: no-repeat;
-            position: relative; /* For stacking context related to ::before */
+            position: relative; 
             min-height: 100vh;
         }
 
-        body::before { /* Overlay element */
+        body::before { 
             content: '';
             position: fixed;
             top: 0;
@@ -64,10 +64,10 @@
             right: 0;
             bottom: 0;
             background-color: var(--global-overlay-color);
-            z-index: -1; /* Positions overlay on top of body's background, but behind body's content */
+            z-index: -1; 
         }
 
-        .container { /* Default container for sections */
+        .container { 
             width: 90%;
             max-width: 1140px;
             margin: auto;
@@ -75,11 +75,10 @@
             padding: 0 1rem;
         }
 
-        /* --- START: UPDATED HEADER STYLES --- */
         header {
-            background: rgba(0, 87, 168, 0.9);
+            background: rgba(0, 87, 168, 0.9); /* Semi-transparent header */
             color: var(--light-text-color);
-            padding: 0.8rem 0; /* Vertical padding for header bar */
+            padding: 0.8rem 0; 
             box-shadow: var(--header-shadow);
             position: sticky;
             top: 0;
@@ -88,10 +87,10 @@
             -webkit-backdrop-filter: blur(5px);
         }
 
-        header > .container { /* Header-specific container */
+        header > .container { 
             max-width: 100%;
             width: 100%;
-            padding: 0 1.5rem; /* Side padding for full-width header content */
+            padding: 0 1.5rem; 
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -102,7 +101,7 @@
             width: 70px;
             margin-right: 1rem;
             border-radius: 50%;
-            background-color: #fff;
+            background-color: #fff; /* Opaque white background for logo visibility */
             padding: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.15);
             object-fit: contain;
@@ -121,7 +120,7 @@
             display: flex;
             align-items: center;
             margin-right: 1.5rem; 
-             text-align: left; 
+            text-align: left; 
         }
 
         .school-title h1 {
@@ -171,8 +170,8 @@
         nav ul li a:hover,
         nav ul li a:focus,
         nav ul li a.active {
-            color: var(--primary-color);
-            background-color: #fff;
+            color: var(--primary-color); /* Text color on active/hover */
+            background-color: #fff; /* Background color on active/hover */
             transform: translateY(-2px);
         }
 
@@ -181,6 +180,17 @@
             color: var(--light-text-color); font-size: 2.2rem; cursor: pointer;
             padding: 5px; line-height: 1;
         }
+
+        /* Desktop and larger tablets */
+        @media (min-width: 769px) {
+            body {
+                 background-attachment: fixed; /* Parallax effect for desktop */
+            }
+             body::before { /* Ensure overlay is fixed for parallax too */
+                position: fixed;
+            }
+        }
+
 
         @media (max-width: 1024px) { 
              .school-title h1 { font-size: 1.5rem;} 
@@ -191,16 +201,25 @@
              .school-title { margin-right: 1rem; } 
         }
 
-        @media (max-width: 768px) {
-    body {
-        background-image: url('Docs/images/hero.jpg') !important; /* Re-declare for emphasis */
-        background-size: cover !important;
-        background-position: center center !important;
-        background-attachment: scroll !important; /* This is key */
-        background-repeat: no-repeat !important;
-    }
-    /* ... other mobile styles ... */
-}
+        /* Mobile specific styles */
+        @media (max-width: 768px) { 
+            body { 
+                /* Critical for mobile: ensure background scrolls with content */
+                background-image: url('Docs/images/hero.jpg') !important; /* Re-declare path if needed */
+                background-size: cover !important;
+                background-position: center center !important;
+                background-attachment: scroll !important; 
+                background-repeat: no-repeat !important;
+            }
+            body::before { /* Overlay should also scroll with content on mobile */
+                position: absolute; /* Change from fixed to scroll with body */
+                                   /* This might make the overlay cover only the initial viewport.
+                                      If full overlay is needed on scroll, alternative is to not have it,
+                                      or apply dark backgrounds to sections. For now, let's try this. */
+                                   /* A better mobile overlay might be on a wrapper div if full scroll cover is needed */
+                 /* display: none !important; */ /* Option: hide overlay entirely on mobile if it causes issues */
+
+            }
 
             header > .container {
                 flex-direction: column;
@@ -241,7 +260,7 @@
                 flex-direction: column;
                 display: none; 
                 width: 100%;
-                background: rgba(0, 74, 147, 0.95);
+                background: rgba(0, 74, 147, 0.95); /* Nav background on mobile when open */
                 backdrop-filter: blur(5px);
                 -webkit-backdrop-filter: blur(5px);
                 margin-top: 0; 
@@ -253,7 +272,7 @@
             nav ul li a { padding: 12px; width: 90%; margin: auto; }
             nav ul li a:hover, nav ul li a:focus {
                 background-color: var(--accent-color);
-                color: var(--text-color);
+                color: var(--text-color); /* Text color on nav item hover */
             }
 
             .header-flag-corner {
@@ -267,21 +286,19 @@
                 right: 1.5rem; 
             }
         }
-        /* --- END: UPDATED HEADER STYLES --- */
-
 
         section {
             padding: 60px 0;
             text-align: center;
-            background-color: transparent !important;
+            background-color: transparent !important; /* Ensures sections themselves are transparent */
             position: relative;
         }
 
-        section h2 {
+        section h2 { /* Titles for sections */
             font-size: 2.6rem;
             font-weight: var(--heading-font-weight);
             margin-bottom: 40px;
-            color: var(--light-text-color);
+            color: var(--light-text-color); /* White text for section titles against dark body bg */
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
@@ -293,18 +310,19 @@
             background-color: var(--accent-color); border-radius: 2px;
         }
 
+        /* Paragraphs directly inside section > .container (like intro texts) */
         section > .container > p:not(.content-panel p) {
              margin-bottom: 20px;
              font-size: 1.15rem;
              max-width: 750px;
              margin-left: auto; margin-right: auto;
-             color: var(--light-text-color);
+             color: var(--light-text-color); /* White text for intro paragraphs */
              text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .content-panel {
-            background: var(--light-bg-panel);
-            color: var(--text-color);
+            background: var(--light-bg-panel); /* Semi-transparent white */
+            color: var(--text-color); /* Dark text for readability on light panel */
             padding: 30px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
@@ -319,12 +337,12 @@
             font-weight: 600;
             margin-top: 0;
             margin-bottom: 15px;
-            color: var(--primary-color);
+            color: var(--primary-color); /* Blue for panel headings */
         }
         .content-panel p, .content-panel ul {
             font-size: 1.05rem;
             margin-bottom: 15px;
-            color: var(--text-color);
+            color: var(--text-color); /* Dark text for panel content */
         }
         .content-panel ul {
             list-style: none; padding-left: 0;
@@ -350,18 +368,18 @@
             text-decoration: underline;
         }
 
-        .hero {
+        .hero { /* Specifically for the #home section */
              padding: 120px 0 80px 0;
         }
-        .hero h2 {
+        .hero h2 { /* Hero title */
             color: var(--light-text-color);
             font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 25px;
             text-shadow: 0 2px 5px rgba(0,0,0,0.4);
         }
-        .hero h2::after { display: none; }
-        .hero p {
+        .hero h2::after { display: none; } /* No underline for hero title */
+        .hero p { /* Hero paragraph */
             font-size: 1.4rem;
             margin-bottom: 45px;
             opacity: 0.95;
@@ -369,25 +387,24 @@
             text-shadow: 0 1px 3px rgba(0,0,0,0.3);
             max-width: 750px; margin-left: auto; margin-right: auto;
         }
-        .btn {
+        .btn { /* General button style */
             display: inline-block; background: var(--accent-color);
-            color: var(--text-color) !important;
+            color: var(--text-color) !important; /* Dark text on yellow button */
             padding: 14px 30px; text-decoration: none; border-radius: var(--border-radius);
             font-weight: 600; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
             font-size: 1.15rem; border: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .btn:hover, .btn:focus {
-            background: #e0a800; transform: translateY(-3px);
+            background: #e0a800; /* Darker yellow on hover */
+            transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         #about .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
         #about .content-panel ul li::before { color: var(--secondary-color); }
-        /* Style for the "Read More" button */
-        .btn-toggle-history {
-            background-color: var(--secondary-color) !important; /* Ensure this matches other .btn styles or customize */
-            color: white !important; /* Ensure text color is appropriate for the background */
-            /* Add other .btn styles if needed, e.g., padding, font-size, if not inherited correctly */
+        .btn-toggle-history { /* Specific style for the "Read More" button */
+            background-color: var(--secondary-color) !important; /* Blue background */
+            color: white !important; /* White text */
         }
 
 
@@ -425,7 +442,7 @@
         }
         .gallery-grid .gallery-item {
             border-radius: var(--border-radius); overflow: hidden;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.1); /* Slight background for gallery items if image doesn't load */
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
@@ -468,15 +485,15 @@
 
 
         footer {
-            background: rgba(44, 62, 80, 0.9);
+            background: rgba(44, 62, 80, 0.9); /* Semi-transparent footer */
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            color: #bdc3c7;
+            color: #bdc3c7; /* Light grey text for footer */
             text-align: center; padding: 2.5rem 0;
             margin-top: 40px;
             font-size: 1rem;
             position: relative;
-            z-index: 1;
+            z-index: 1; /* Ensure footer is above body::before if body::before is fixed */
         }
 
          .footer-nav ul { list-style: none; padding: 0; margin: 0 0 1.5rem 0; display: flex; justify-content: center; flex-wrap: wrap;}
@@ -497,7 +514,7 @@
 <body>
     <header>
         <div class="container"> 
-            <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="header-logo-corner">
+            <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="header-logo-corner"> <!-- PATH CHECK -->
     
             <div class="header-center-content">
                 <div class="school-title">
@@ -523,7 +540,7 @@
                 <i class="fas fa-bars"></i>
             </button>
 
-            <img src="Docs/images/WavingFlag.gif" alt="Waving Nepali Flag" class="header-flag-corner">
+            <img src="Docs/images/WavingFlag.gif" alt="Waving Nepali Flag" class="header-flag-corner"> <!-- PATH CHECK -->
         </div>
     </header>
 
@@ -543,13 +560,15 @@
                 
                 <div class="content-panel" style="margin-bottom: 30px; text-align: center;">
                     <h3 style="color: var(--primary-color); margin-bottom: 20px;">विद्यालय स्थापनामा विशेष योगदान</h3>
-                    <img src="yogdankarta.jpg" alt="स्व. सीतादेवी ठाडामगरको योगदान" style="max-width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: var(--card-shadow);">
+                    <!-- IMPORTANT: Ensure 'yogdankarta.jpg' is in the SAME folder as this HTML file,
+                         OR update the path e.g., 'Docs/images/yogdankarta.jpg' if it's elsewhere. -->
+                    <img src="yogdankarta.jpg" alt="स्व. सीतादेवी ठाडामगरको योगदान" style="max-width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: var(--card-shadow);"> 
                 </div>
 
                 <div class="content-panel" style="margin-bottom: 30px;">
                     <h3 style="color: var(--primary-color); margin-bottom: 15px;">विद्यालयको ऐतिहासिक पृष्ठभूमि</h3>
                     <div class="history-content">
-                        <p>मोरङको केराबारी आफैंमा चिरपरिचित गा.पा हो । भौगोलिक आधारमा तीन चिरामा विभाजित यस गा.पा.को आ आनै विशेषता छ । त्यसमा पनि केराबारी गा.पा.–७ डाँगीको आफ्नै गरिमामय इतिहास छ ।</p>
+                        <p>मोरङको केराबारी आफैंमा चिरपरिचित गा.पा हो । भौगोलिक आधारमा तीन चिरामा विभाजित यस गा.पा.को आ आनै विशेषता छ । त्यसमा पनि केराबारी गा.पा.–७ डाँगीको आफ्नै गरिमामय इतिहास छ ।</p> 
                         <div class="history-more" style="display: none;">
                             <p>यस ठाउँलाई डाँगी नामाकरण कसरी गरियो भन्दा कुनै ऐतिहासिक शिलालेख नभएतापनि केराबारी गा.पा.का सबैभन्दा ज्येष्ठ नागरिक रहनुभएका र समाजको जिउँदो इतिहास बोक्नु भएका १०५ वर्षीय श्री अडिमर्दन थापाको भनाइ अनुसार वि.सं. १९५० मा यस क्षेत्रमा ठूलो घनाजङ्गल चारकोशे झाडी थियो । तत्कालीन समयमा मेहरमान डाँगी नामका एक व्यक्तिले पहिलो पटक यस ठाउँमा आई जङ्गल ढालफाँड गरी बसोबास गरेका कारण यस ठाउँको नाम मेहरमान डाँगी रहन गएको हो । पछिल्लो समयमा सरकारी कामकाज र बोलीचालीको रुपमा डाँगी शब्द मात्र प्रचारमा रहेको पाइन्छ ।</p>
                             <p>यस ठाउँमा पहिले औलोका कारणले गर्दा कम मात्रामा मानव बस्ती रहेको थियो । जब पछि औलो नियन्त्रण भयो, त्यसपछि यहाँ बिस्तारै धनकुटा जिल्लाका डाँडाबजार, राजारानी, मौनाबुधुक र ओख्रेबाट बढी मात्रामा बसाँइ सरी आउने सङ्ख्या बढ्दै गयो । यस ठाउँमा मगर, क्षेत्री, ब्राह्मण र गिरी थरका मानिसको बाहुल्यता रहेको छ । अन्य जातिहरूमा राई, लिम्बू, तामाङ, परियार, विश्वकर्माको पनि बसोबास रहेको  छ । यहाँ बहुजाति, बहुभाषिक र बहुधार्मिक समुदायको बसोबास रहेको छ ।</p>
@@ -589,6 +608,7 @@
         <section id="academics">
             <div class="container">
                 <h2>शैक्षिक कार्यक्रमहरू</h2>
+                <!-- Other sections follow, ensure image paths in gallery are correct -->
                 <p class="intro-text">हाम्रो विद्यालयमा नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रमहरू राष्ट्रिय पाठ्यक्रम अनुसार नवीनतम शिक्षण विधि तथा प्रविधिको प्रयोग गरी संचालित छन्।</p>
                 <div class="content-panel">
                     <ul>
@@ -653,6 +673,7 @@
                 <h2>ग्यालरी</h2>
                 <p class="intro-text">हाम्रो विद्यालयका अविस्मरणीय पलहरू, शैक्षिक गतिविधिहरू र पूर्वाधारहरूको केही झलक।</p>
                 <div class="gallery-grid">
+                    <!-- ENSURE ALL GALLERY IMAGE PATHS ARE CORRECT (e.g., Docs/images/...) -->
                     <div class="gallery-item"><img src="Docs/images/bg.jpg" alt="विद्यालयको वार्षिकोत्सव"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery1.jpg" alt="कक्षाकोठा गतिविधि"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery2.jpg" alt="पुस्तकालय अध्ययन"></div>
@@ -678,13 +699,13 @@
                 <div class="contact-details">
                     <p><i class="fas fa-map-marker-alt"></i><strong>ठेगाना:</strong>केराबारी ७ डाँगी नेपाल</p>
                     <p><i class="fas fa-phone-alt"></i><strong>फोन:</strong> +९७७-[प्रशासनको फोन नम्बर]</p>
-                    <p><i class="fas fa-envelope"></i><strong>इमेल:</strong> <a href="mailto:[विद्यालयको इमेल]">sarwajanikschool1@gmail.com</a></p>
+                    <p><i class="fas fa-envelope"></i><strong>इमेल:</strong> <a href="mailto:sarwajanikschool1@gmail.com">sarwajanikschool1@gmail.com</a></p>
                     <p><i class="fas fa-globe"></i><strong>वेबसाइट:</strong> <a href="http://sarwajanikschool.edu.np" target="_blank">sarwajanikschool.edu.np</a></p>
                     <p class="social-contact"><i class="fab fa-facebook"></i><strong>फेसबुक:</strong> <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%AB%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%8B%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank">विद्यालयको फेसबुक पेज</a></p>
                 </div>
 
                 <div class="captcha-container">
-                    <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY_HERE" data-theme="light"></div>
+                    <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY_HERE" data-theme="light"></div> <!-- Replace YOUR_SITE_KEY_HERE -->
                 </div>
 
                 <div class="map-embed">
@@ -709,8 +730,8 @@
 
             <div class="social-links">
                 <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%AB%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%8B%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank" aria-label="Facebook Page"><i class="fab fa-facebook-f"></i></a>
-                <a href="YOUR_TWITTER_LINK" aria-label="Twitter Page" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="YOUR_INSTAGRAM_LINK" aria-label="Instagram Page" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="YOUR_TWITTER_LINK" aria-label="Twitter Page" target="_blank"><i class="fab fa-twitter"></i></a> <!-- Replace YOUR_TWITTER_LINK -->
+                <a href="YOUR_INSTAGRAM_LINK" aria-label="Instagram Page" target="_blank"><i class="fab fa-instagram"></i></a> <!-- Replace YOUR_INSTAGRAM_LINK -->
                 <a href="https://www.youtube.com/@sharwajanikmavi" aria-label="YouTube Channel" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
 
@@ -744,9 +765,12 @@
 
                 navList.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (event) => {
+                        // Remove active class from all nav links
                         navList.querySelectorAll('a').forEach(navLink => navLink.classList.remove('active'));
+                        // Add active class to the clicked link
                         link.classList.add('active');
 
+                        // If mobile nav is open, close it
                         if (navList.classList.contains('show')) { 
                             navList.classList.remove('show');
                              const icon = hamburger.querySelector('i');
@@ -762,7 +786,7 @@
                             if (targetSection) {
                                 const headerOffset = document.querySelector('header').offsetHeight;
                                 const elementPosition = targetSection.getBoundingClientRect().top;
-                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; 
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; // 20px offset
 
                                 window.scrollTo({
                                      top: offsetPosition,
@@ -772,54 +796,64 @@
                         }
                     });
                 });
+            } // End of hamburger and navList check
 
-                const sections = document.querySelectorAll('main section[id]'); 
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const footer = document.querySelector('footer');
-                const navLinks = navList.querySelectorAll('a'); 
+            // Active link highlighting on scroll
+            const sections = document.querySelectorAll('main section[id]'); 
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+            const navLinks = navList ? navList.querySelectorAll('a') : []; // Ensure navList exists
 
-                function setActiveLink() {
-                    let currentId = '';
-                    const scrollPosition = window.pageYOffset + headerHeight + 50; 
+            function setActiveLink() {
+                if (!header || navLinks.length === 0) return; // Exit if essential elements are missing
 
-                    sections.forEach(section => {
-                        const sectionTop = section.offsetTop;
-                        const sectionBottom = sectionTop + section.offsetHeight;
-                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                            currentId = section.getAttribute('id');
-                        }
-                    });
-                    
-                    if (currentId === '' && window.pageYOffset < sections[0].offsetTop - headerHeight - 50) {
-                        currentId = 'home'; 
-                    } else if (footer && currentId === '' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - (footer.offsetHeight / 2)) {
-                        for (let i = navLinks.length - 1; i >= 0; i--) {
-                            const href = navLinks[i].getAttribute('href');
-                            if (href.startsWith('#')) {
-                                currentId = href.substring(1);
-                                break;
-                            }
-                        }
+                let currentId = '';
+                const headerHeight = header.offsetHeight;
+                const scrollPosition = window.pageYOffset + headerHeight + 50; // Offset to trigger a bit earlier
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        currentId = section.getAttribute('id');
                     }
-
-                    navLinks.forEach(a => {
-                        a.classList.remove('active');
-                        const href = a.getAttribute('href');
-                        if (href && href.substring(1) === currentId) {
-                            a.classList.add('active');
-                        }
-                    });
+                });
+                
+                // If no section is "current" (e.g., at the very top or scrolled past all sections towards footer)
+                if (currentId === '' && sections.length > 0 && window.pageYOffset < sections[0].offsetTop - headerHeight - 50) {
+                    currentId = sections[0].getAttribute('id'); // Default to first section if near top
+                    if (sections[0].id === "home") currentId = "home"; // Specifically for home
+                } else if (footer && currentId === '' && (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - (footer.offsetHeight / 2)) {
+                    // If scrolled to the footer, make the last nav item active (usually 'contact')
+                    if (navLinks.length > 0) {
+                         const lastNavLinkHref = navLinks[navLinks.length -1].getAttribute('href');
+                         if(lastNavLinkHref && lastNavLinkHref.startsWith('#')) {
+                            currentId = lastNavLinkHref.substring(1);
+                         }
+                    }
                 }
 
-                window.addEventListener('scroll', setActiveLink);
-                window.addEventListener('load', () => {
-                     setActiveLink(); 
-                     if (sections.length > 0 && window.pageYOffset < sections[0].offsetTop - headerHeight - 50) { // Added sections.length check
-                         const homeLink = navList.querySelector('a[href="#home"]');
-                         if (homeLink) homeLink.classList.add('active');
-                     }
+
+                navLinks.forEach(a => {
+                    a.classList.remove('active');
+                    const href = a.getAttribute('href');
+                    if (href && href.substring(1) === currentId) {
+                        a.classList.add('active');
+                    }
                 });
+                 // Ensure "Home" is active if at the very top before any section is reached
+                if (window.pageYOffset <= headerHeight) { // Simple check for top of page
+                    navLinks.forEach(a => a.classList.remove('active'));
+                    const homeLink = navList.querySelector('a[href="#home"]');
+                    if (homeLink) homeLink.classList.add('active');
+                }
             }
+
+            window.addEventListener('scroll', setActiveLink);
+            window.addEventListener('load', () => {
+                 setActiveLink(); // Set active link on load
+            });
+
 
             const currentYearElement = document.getElementById('current-year');
             if (currentYearElement) {
@@ -832,25 +866,24 @@
             if (historyToggleBtn) {
                 const historyContentDiv = historyToggleBtn.previousElementSibling; 
                 
-                if (historyContentDiv) {
+                if (historyContentDiv && historyContentDiv.classList.contains('history-content')) {
                     const historyMoreContent = historyContentDiv.querySelector('.history-more');
-                    const previewParagraph = historyContentDiv.querySelector('p:first-child'); // The first paragraph
+                    const previewParagraph = historyContentDiv.querySelector('p:first-child'); 
 
                     if (historyMoreContent && previewParagraph) {
-                        // Create and append ellipsis span if it doesn't exist and paragraph has content
+                        // Ensure ellipsis span exists or create it
                         let ellipsisSpan = previewParagraph.querySelector('.history-ellipsis');
                         if (!ellipsisSpan && previewParagraph.textContent.trim().length > 0) {
                             ellipsisSpan = document.createElement('span');
                             ellipsisSpan.className = 'history-ellipsis';
-                            ellipsisSpan.textContent = ' ...'; // Add space before ellipsis
+                            ellipsisSpan.textContent = ' ...'; 
                             previewParagraph.appendChild(ellipsisSpan);
                         } else if (ellipsisSpan) {
-                             ellipsisSpan.style.display = 'inline'; // Ensure it's visible initially
+                             ellipsisSpan.style.display = 'inline'; // Ensure it's visible initially if it exists
                         }
 
-
                         historyToggleBtn.addEventListener('click', function() {
-                            const currentEllipsisSpan = previewParagraph.querySelector('.history-ellipsis'); // Re-fetch in case it was added
+                            const currentEllipsisSpan = previewParagraph.querySelector('.history-ellipsis'); // Re-fetch for safety
                             if (historyMoreContent.style.display === 'none' || historyMoreContent.style.display === '') {
                                 historyMoreContent.style.display = 'block';
                                 this.textContent = 'कम पढ्नुहोस्'; // Read Less
@@ -862,13 +895,11 @@
                             }
                         });
                     } else {
-                        console.error("Read More: historyMoreContent or previewParagraph not found within historyContentDiv.");
+                        // console.warn("Read More: Could not find '.history-more' or the preview paragraph.");
                     }
                 } else {
-                    console.error("Read More: historyContentDiv not found (sibling before button).");
+                    // console.warn("Read More: Could not find '.history-content' div before the button.");
                 }
-            } else {
-                // console.log("Read More: historyToggleBtn not found. Skipping 'Read More' setup.");
             }
         });
     </script>
