@@ -20,7 +20,7 @@
             --dark-bg-panel: rgba(30, 40, 50, 0.85);
             --text-color: #343a40; /* Text color for light panels */
             --light-text-color: #f8f9fa; /* Text color for dark backgrounds / overlay */
-            --global-overlay-color: rgba(10, 20, 30, 0.75); 
+            --global-overlay-color: rgba(10, 20, 30, 0.75);
             --heading-font-weight: 700;
             --body-font-weight: 400;
             --base-font-size: 17px;
@@ -52,11 +52,11 @@
             background-position: center center;
             background-attachment: fixed; /* Default for desktop */
             background-repeat: no-repeat;
-            position: relative; 
+            position: relative;
             min-height: 100vh;
         }
 
-        body::before { 
+        body::before {
             content: '';
             position: fixed;
             top: 0;
@@ -64,10 +64,10 @@
             right: 0;
             bottom: 0;
             background-color: var(--global-overlay-color);
-            z-index: -1; 
+            z-index: -1;
         }
 
-        .container { 
+        .container {
             width: 90%;
             max-width: 1140px;
             margin: auto;
@@ -78,7 +78,7 @@
         header {
             background: rgba(0, 87, 168, 0.9); /* Semi-transparent header */
             color: var(--light-text-color);
-            padding: 0.8rem 0; 
+            padding: 0.8rem 0;
             box-shadow: var(--header-shadow);
             position: sticky;
             top: 0;
@@ -87,10 +87,10 @@
             -webkit-backdrop-filter: blur(5px);
         }
 
-        header > .container { 
+        header > .container {
             max-width: 100%;
             width: 100%;
-            padding: 0 1.5rem; 
+            padding: 0 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -113,14 +113,14 @@
             align-items: center;
             flex-grow: 1;
             justify-content: center;
-            min-width: 0; 
+            min-width: 0;
         }
 
         .school-title {
             display: flex;
             align-items: center;
-            margin-right: 1.5rem; 
-            text-align: left; 
+            margin-right: 1.5rem;
+            text-align: left;
         }
 
         .school-title h1 {
@@ -128,7 +128,7 @@
             margin: 0;
             font-weight: var(--heading-font-weight);
             line-height: 1.2;
-            white-space: nowrap; 
+            white-space: nowrap;
         }
         .school-title h1 .highlight {
             color: var(--accent-color);
@@ -138,12 +138,12 @@
             font-size: 0.9rem;
             margin: 0;
             opacity: 0.9;
-            white-space: nowrap; 
+            white-space: nowrap;
         }
 
         .header-flag-corner {
             height: 60px;
-            width: auto; 
+            width: auto;
             margin-left: 1rem;
             flex-shrink: 0;
         }
@@ -152,8 +152,8 @@
             list-style: none;
             padding: 0;
             display: flex;
-            flex-wrap: wrap; 
-            justify-content: center; 
+            flex-wrap: wrap;
+            justify-content: center;
         }
         nav ul li { margin-left: 5px; }
         nav ul li:first-child { margin-left: 0; }
@@ -192,33 +192,27 @@
         }
 
 
-        @media (max-width: 1024px) { 
-             .school-title h1 { font-size: 1.5rem;} 
+        @media (max-width: 1024px) {
+             .school-title h1 { font-size: 1.5rem;}
              .school-title p { font-size: 0.8rem;}
              nav ul li a { font-size: 0.9rem; padding: 8px 10px;}
              .header-logo-corner { height: 60px; width: 60px; }
              .header-flag-corner { height: 50px; }
-             .school-title { margin-right: 1rem; } 
+             .school-title { margin-right: 1rem; }
         }
 
         /* Mobile specific styles */
-        @media (max-width: 768px) { 
-            body { 
+        @media (max-width: 768px) {
+            body {
                 /* Critical for mobile: ensure background scrolls with content */
                 background-image: url('Docs/images/hero.jpg') !important; /* Re-declare path if needed */
                 background-size: cover !important;
                 background-position: center center !important;
-                background-attachment: scroll !important; 
+                background-attachment: scroll !important;
                 background-repeat: no-repeat !important;
             }
             body::before { /* Overlay should also scroll with content on mobile */
-                position: absolute; /* Change from fixed to scroll with body */
-                                   /* This might make the overlay cover only the initial viewport.
-                                      If full overlay is needed on scroll, alternative is to not have it,
-                                      or apply dark backgrounds to sections. For now, let's try this. */
-                                   /* A better mobile overlay might be on a wrapper div if full scroll cover is needed */
-                 /* display: none !important; */ /* Option: hide overlay entirely on mobile if it causes issues */
-
+                position: absolute;
             }
 
             header > .container {
@@ -226,7 +220,7 @@
                 align-items: center;
                 padding-top: 0.5rem;
                 padding-bottom: 0.5rem;
-                position: relative; 
+                position: relative;
             }
 
             .header-logo-corner {
@@ -243,27 +237,27 @@
             }
 
             .school-title {
-                flex-direction: column; 
+                flex-direction: column;
                 text-align: center;
                 margin-right: 0;
                 margin-bottom: 1rem;
             }
-             .school-title h1 { font-size: 1.7rem; white-space: normal; } 
-             .school-title p { font-size: 0.85rem; white-space: normal; } 
+             .school-title h1 { font-size: 1.7rem; white-space: normal; }
+             .school-title p { font-size: 0.85rem; white-space: normal; }
 
 
             nav {
                 width: 100%;
                 text-align: center;
             }
-            nav ul { 
+            nav ul {
                 flex-direction: column;
-                display: none; 
+                display: none;
                 width: 100%;
                 background: rgba(0, 74, 147, 0.95); /* Nav background on mobile when open */
                 backdrop-filter: blur(5px);
                 -webkit-backdrop-filter: blur(5px);
-                margin-top: 0; 
+                margin-top: 0;
                 padding: 10px 0;
                 border-radius: var(--border-radius);
             }
@@ -276,14 +270,14 @@
             }
 
             .header-flag-corner {
-                display: none; 
+                display: none;
             }
 
             .hamburger {
                 display: block;
                 position: absolute;
-                top: 1rem; 
-                right: 1.5rem; 
+                top: 1rem;
+                right: 1.5rem;
             }
         }
 
@@ -509,13 +503,58 @@
         .developer-tag a { color: #95a5a6; text-decoration: none; font-weight: 500; }
         .developer-tag a:hover { color: var(--accent-color); text-decoration: underline; }
 
+        /* --- START: Custom CSS for historical background panel --- */
+        #historical-background-panel {
+            background-image: url('Docs/images/yogdankarta.jpg'); /* ADJUST PATH IF NEEDED */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative; /* For pseudo-element positioning */
+            color: var(--light-text-color); /* Default text color for this panel */
+            /* padding, border-radius, box-shadow, margin-bottom are inherited or already set */
+            z-index: 0; /* To ensure pseudo-element is behind content */
+            text-align: left; /* Re-assert if needed, default is left */
+        }
+
+        #historical-background-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.65); /* Dark overlay for text readability */
+            border-radius: var(--border-radius); /* Match parent's border-radius */
+            z-index: -1; /* Place overlay behind content */
+        }
+
+        /* Ensure content within the panel is above the overlay */
+        #historical-background-panel > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Adjust heading color for better contrast on the new background */
+        #historical-background-panel h3 {
+            color: var(--accent-color); /* Yellow for heading */
+        }
+
+        /* Adjust paragraph color for better contrast */
+        #historical-background-panel p,
+        #historical-background-panel .history-content p,
+        #historical-background-panel .history-more p {
+            color: var(--light-text-color) !important; /* Light text for readability */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Enhanced text shadow for clarity */
+        }
+        /* --- END: Custom CSS for historical background panel --- */
+
     </style>
 </head>
 <body>
     <header>
-        <div class="container"> 
+        <div class="container">
             <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="header-logo-corner"> <!-- PATH CHECK -->
-    
+
             <div class="header-center-content">
                 <div class="school-title">
                     <div>
@@ -535,7 +574,7 @@
                     </ul>
                 </nav>
             </div>
-            
+
             <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
                 <i class="fas fa-bars"></i>
             </button>
@@ -546,7 +585,7 @@
 
     <main>
         <section id="home" class="hero">
-            <div class="container"> 
+            <div class="container">
                 <h2>विद्यालयमा स्वागत छ!</h2>
                 <p>ज्ञान, सीप र प्रविधिको माध्यमबाट उज्ज्वल भविष्यको निर्माणमा प्रतिबद्ध। तपाईंको शैक्षिक यात्रा हाम्रो साथमा अझ फलदायी बनाउनुहोस्।</p>
                 <a href="#about" class="btn">थप जान्नुहोस्</a>
@@ -557,18 +596,18 @@
             <div class="container">
                 <h2>हाम्रो बारेमा</h2>
                 <p class="intro-text">श्री सार्वजनिक माध्यमिक विद्यालय मोरङ जिल्लाको केराबारी वडा नम्बर ७, डाँगीमा अवस्थित एक प्रतिष्ठित शैक्षिक संस्था हो।</p>
-                
-                <div class="content-panel" style="margin-bottom: 30px; text-align: center;">
+
+                <div class="content-panel content-panel-centered" style="margin-bottom: 30px;">
                     <h3 style="color: var(--primary-color); margin-bottom: 20px;">विद्यालय स्थापनामा विशेष योगदान</h3>
-                    <!-- IMPORTANT: Ensure 'yogdankarta.jpg' is in the SAME folder as this HTML file,
-                         OR update the path e.g., 'Docs/images/yogdankarta.jpg' if it's elsewhere. -->
-                    <img src="yogdankarta.jpg" alt="स्व. सीतादेवी ठाडामगरको योगदान" style="max-width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: var(--card-shadow);"> 
+                    <!-- IMAGE PATH UPDATED assuming it's in Docs/images/ like others. Adjust if it's in the root directory. -->
+                    <img src="Docs/images/yogdankarta.jpg" alt="स्व. सीतादेवी ठाडामगरको योगदान" style="max-width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: var(--card-shadow);">
                 </div>
 
-                <div class="content-panel" style="margin-bottom: 30px;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">विद्यालयको ऐतिहासिक पृष्ठभूमि</h3>
+                <!-- Panel for Historical Background - ID added and inline style removed -->
+                <div class="content-panel" id="historical-background-panel">
+                    <h3>विद्यालयको ऐतिहासिक पृष्ठभूमि</h3> <!-- Style will be applied by new CSS rule -->
                     <div class="history-content">
-                        <p>मोरङको केराबारी आफैंमा चिरपरिचित गा.पा हो । भौगोलिक आधारमा तीन चिरामा विभाजित यस गा.पा.को आ आनै विशेषता छ । त्यसमा पनि केराबारी गा.पा.–७ डाँगीको आफ्नै गरिमामय इतिहास छ ।</p> 
+                        <p>मोरङको केराबारी आफैंमा चिरपरिचित गा.पा हो । भौगोलिक आधारमा तीन चिरामा विभाजित यस गा.पा.को आ आनै विशेषता छ । त्यसमा पनि केराबारी गा.पा.–७ डाँगीको आफ्नै गरिमामय इतिहास छ ।</p>
                         <div class="history-more" style="display: none;">
                             <p>यस ठाउँलाई डाँगी नामाकरण कसरी गरियो भन्दा कुनै ऐतिहासिक शिलालेख नभएतापनि केराबारी गा.पा.का सबैभन्दा ज्येष्ठ नागरिक रहनुभएका र समाजको जिउँदो इतिहास बोक्नु भएका १०५ वर्षीय श्री अडिमर्दन थापाको भनाइ अनुसार वि.सं. १९५० मा यस क्षेत्रमा ठूलो घनाजङ्गल चारकोशे झाडी थियो । तत्कालीन समयमा मेहरमान डाँगी नामका एक व्यक्तिले पहिलो पटक यस ठाउँमा आई जङ्गल ढालफाँड गरी बसोबास गरेका कारण यस ठाउँको नाम मेहरमान डाँगी रहन गएको हो । पछिल्लो समयमा सरकारी कामकाज र बोलीचालीको रुपमा डाँगी शब्द मात्र प्रचारमा रहेको पाइन्छ ।</p>
                             <p>यस ठाउँमा पहिले औलोका कारणले गर्दा कम मात्रामा मानव बस्ती रहेको थियो । जब पछि औलो नियन्त्रण भयो, त्यसपछि यहाँ बिस्तारै धनकुटा जिल्लाका डाँडाबजार, राजारानी, मौनाबुधुक र ओख्रेबाट बढी मात्रामा बसाँइ सरी आउने सङ्ख्या बढ्दै गयो । यस ठाउँमा मगर, क्षेत्री, ब्राह्मण र गिरी थरका मानिसको बाहुल्यता रहेको छ । अन्य जातिहरूमा राई, लिम्बू, तामाङ, परियार, विश्वकर्माको पनि बसोबास रहेको  छ । यहाँ बहुजाति, बहुभाषिक र बहुधार्मिक समुदायको बसोबास रहेको छ ।</p>
@@ -608,7 +647,6 @@
         <section id="academics">
             <div class="container">
                 <h2>शैक्षिक कार्यक्रमहरू</h2>
-                <!-- Other sections follow, ensure image paths in gallery are correct -->
                 <p class="intro-text">हाम्रो विद्यालयमा नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रमहरू राष्ट्रिय पाठ्यक्रम अनुसार नवीनतम शिक्षण विधि तथा प्रविधिको प्रयोग गरी संचालित छन्।</p>
                 <div class="content-panel">
                     <ul>
@@ -673,7 +711,6 @@
                 <h2>ग्यालरी</h2>
                 <p class="intro-text">हाम्रो विद्यालयका अविस्मरणीय पलहरू, शैक्षिक गतिविधिहरू र पूर्वाधारहरूको केही झलक।</p>
                 <div class="gallery-grid">
-                    <!-- ENSURE ALL GALLERY IMAGE PATHS ARE CORRECT (e.g., Docs/images/...) -->
                     <div class="gallery-item"><img src="Docs/images/bg.jpg" alt="विद्यालयको वार्षिकोत्सव"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery1.jpg" alt="कक्षाकोठा गतिविधि"></div>
                     <div class="gallery-item"><img src="Docs/images/gallery2.jpg" alt="पुस्तकालय अध्ययन"></div>
@@ -729,7 +766,7 @@
             </nav>
 
             <div class="social-links">
-                <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AF-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%AB%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%8B%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank" aria-label="Facebook Page"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/people/%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80-%E0%A4%B8%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%9C%E0%A4%A8%E0%A4%BF%E0%A4%95-%E0%A4%AE%E0%A4%BE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%AE%E0%A4%BF%E0%A4%95-%E0%A4%B5%E0%A4%BF%E0%A4%A6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A4%AY-%E0%A4%95%E0%A5%87%E0%A4%B0%E0%A4%BE%E0%A4%AB%E0%A4%AB%E0%A4%BE%E0%A4%B0%E0%A5%80-%E0%A5%AD%E0%A4%AE%E0%A5%8B%E0%A4%B0%E0%A4%99/100063738710653/?mibextid=ZbWKwL" target="_blank" aria-label="Facebook Page"><i class="fab fa-facebook-f"></i></a>
                 <a href="YOUR_TWITTER_LINK" aria-label="Twitter Page" target="_blank"><i class="fab fa-twitter"></i></a> <!-- Replace YOUR_TWITTER_LINK -->
                 <a href="YOUR_INSTAGRAM_LINK" aria-label="Instagram Page" target="_blank"><i class="fab fa-instagram"></i></a> <!-- Replace YOUR_INSTAGRAM_LINK -->
                 <a href="https://www.youtube.com/@sharwajanikmavi" aria-label="YouTube Channel" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -746,7 +783,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.getElementById('hamburger-button');
-            const navList = document.querySelector('header nav .nav-list'); 
+            const navList = document.querySelector('header nav .nav-list');
 
             if (hamburger && navList) {
                 hamburger.addEventListener('click', () => {
@@ -755,11 +792,11 @@
                     if (navList.classList.contains('show')) {
                         icon.classList.remove('fa-bars');
                         icon.classList.add('fa-times');
-                        hamburger.style.zIndex = "1001"; 
+                        hamburger.style.zIndex = "1001";
                     } else {
                         icon.classList.remove('fa-times');
                         icon.classList.add('fa-bars');
-                         hamburger.style.zIndex = ""; 
+                         hamburger.style.zIndex = "";
                     }
                 });
 
@@ -771,17 +808,17 @@
                         link.classList.add('active');
 
                         // If mobile nav is open, close it
-                        if (navList.classList.contains('show')) { 
+                        if (navList.classList.contains('show')) {
                             navList.classList.remove('show');
                              const icon = hamburger.querySelector('i');
                              icon.classList.remove('fa-times');
                              icon.classList.add('fa-bars');
-                             hamburger.style.zIndex = ""; 
+                             hamburger.style.zIndex = "";
                         }
 
                         const href = link.getAttribute('href');
-                        if (href && href.startsWith('#') && href.length > 1) { 
-                            event.preventDefault(); 
+                        if (href && href.startsWith('#') && href.length > 1) {
+                            event.preventDefault();
                             const targetSection = document.querySelector(href);
                             if (targetSection) {
                                 const headerOffset = document.querySelector('header').offsetHeight;
@@ -799,7 +836,7 @@
             } // End of hamburger and navList check
 
             // Active link highlighting on scroll
-            const sections = document.querySelectorAll('main section[id]'); 
+            const sections = document.querySelectorAll('main section[id]');
             const header = document.querySelector('header');
             const footer = document.querySelector('footer');
             const navLinks = navList ? navList.querySelectorAll('a') : []; // Ensure navList exists
@@ -818,7 +855,7 @@
                         currentId = section.getAttribute('id');
                     }
                 });
-                
+
                 // If no section is "current" (e.g., at the very top or scrolled past all sections towards footer)
                 if (currentId === '' && sections.length > 0 && window.pageYOffset < sections[0].offsetTop - headerHeight - 50) {
                     currentId = sections[0].getAttribute('id'); // Default to first section if near top
@@ -862,13 +899,13 @@
 
             // "Read More" functionality for history section
             const historyToggleBtn = document.querySelector('.btn-toggle-history');
-            
+
             if (historyToggleBtn) {
-                const historyContentDiv = historyToggleBtn.previousElementSibling; 
-                
+                const historyContentDiv = historyToggleBtn.previousElementSibling;
+
                 if (historyContentDiv && historyContentDiv.classList.contains('history-content')) {
                     const historyMoreContent = historyContentDiv.querySelector('.history-more');
-                    const previewParagraph = historyContentDiv.querySelector('p:first-child'); 
+                    const previewParagraph = historyContentDiv.querySelector('p:first-child');
 
                     if (historyMoreContent && previewParagraph) {
                         // Ensure ellipsis span exists or create it
@@ -876,18 +913,19 @@
                         if (!ellipsisSpan && previewParagraph.textContent.trim().length > 0) {
                             ellipsisSpan = document.createElement('span');
                             ellipsisSpan.className = 'history-ellipsis';
-                            ellipsisSpan.textContent = ' ...'; 
+                            ellipsisSpan.textContent = ' ...';
                             previewParagraph.appendChild(ellipsisSpan);
                         } else if (ellipsisSpan) {
                              ellipsisSpan.style.display = 'inline'; // Ensure it's visible initially if it exists
                         }
+
 
                         historyToggleBtn.addEventListener('click', function() {
                             const currentEllipsisSpan = previewParagraph.querySelector('.history-ellipsis'); // Re-fetch for safety
                             if (historyMoreContent.style.display === 'none' || historyMoreContent.style.display === '') {
                                 historyMoreContent.style.display = 'block';
                                 this.textContent = 'कम पढ्नुहोस्'; // Read Less
-                                if (currentEllipsisSpan) currentEllipsisSpan.style.display = 'none'; 
+                                if (currentEllipsisSpan) currentEllipsisSpan.style.display = 'none';
                             } else {
                                 historyMoreContent.style.display = 'none';
                                 this.textContent = 'थप पढ्नुहोस्'; // Read More
