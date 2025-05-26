@@ -28,301 +28,48 @@
             --border-radius: 8px;
             --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            --yogdan-highlight-bg: #f0f7e3; /* Light yellow-green from screenshot */
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Mukta', sans-serif;
-            font-weight: var(--body-font-weight);
-            line-height: var(--line-height);
-            color: var(--light-text-color);
-            font-size: var(--base-font-size);
-            background-image: url('Docs/images/hero.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            position: relative;
-            min-height: 100vh;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--global-overlay-color);
-            z-index: -1;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1140px;
-            margin: auto;
-            overflow: visible;
-            padding: 0 1rem;
-        }
-
-        header {
-            background: rgba(0, 87, 168, 0.9);
-            color: var(--light-text-color);
-            padding: 0.8rem 0;
-            box-shadow: var(--header-shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-        }
-
-        header > .container {
-            max-width: 100%;
-            width: 100%;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header-logo-corner {
-            height: 70px;
-            width: 70px;
-            margin-right: 1rem;
-            border-radius: 50%;
-            background-color: #fff;
-            padding: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-            object-fit: contain;
-            flex-shrink: 0;
-        }
-
-        .header-center-content {
-            display: flex;
-            align-items: center;
-            flex-grow: 1;
-            justify-content: center;
-            min-width: 0;
-        }
-
-        .school-title {
-            display: flex;
-            align-items: center;
-            margin-right: 1.5rem;
-            text-align: left;
-        }
-
-        .school-title h1 {
-            font-size: 2rem;
-            margin: 0;
-            font-weight: var(--heading-font-weight);
-            line-height: 1.2;
-            white-space: nowrap;
-        }
-        .school-title h1 .highlight {
-            color: var(--accent-color);
-            font-weight: 700;
-        }
-        .school-title p {
-            font-size: 0.9rem;
-            margin: 0;
-            opacity: 0.9;
-            white-space: nowrap;
-        }
-
-        .header-flag-corner {
-            height: 60px;
-            width: auto;
-            margin-left: 1rem;
-            flex-shrink: 0;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center; /* Align items vertically for dropdown */
-        }
+        /* ... (keep all existing CSS from the previous correct answer) ... */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Mukta', sans-serif; font-weight: var(--body-font-weight); line-height: var(--line-height); color: var(--light-text-color); font-size: var(--base-font-size); background-image: url('Docs/images/hero.jpg'); background-size: cover; background-position: center center; background-attachment: fixed; background-repeat: no-repeat; position: relative; min-height: 100vh; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--global-overlay-color); z-index: -1; }
+        .container { width: 90%; max-width: 1140px; margin: auto; overflow: visible; padding: 0 1rem; }
+        header { background: rgba(0, 87, 168, 0.9); color: var(--light-text-color); padding: 0.8rem 0; box-shadow: var(--header-shadow); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
+        header > .container { max-width: 100%; width: 100%; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .header-logo-corner { height: 70px; width: 70px; margin-right: 1rem; border-radius: 50%; background-color: #fff; padding: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.15); object-fit: contain; flex-shrink: 0; }
+        .header-center-content { display: flex; align-items: center; flex-grow: 1; justify-content: center; min-width: 0; }
+        .school-title { display: flex; align-items: center; margin-right: 1.5rem; text-align: left; }
+        .school-title h1 { font-size: 2rem; margin: 0; font-weight: var(--heading-font-weight); line-height: 1.2; white-space: nowrap; }
+        .school-title h1 .highlight { color: var(--accent-color); font-weight: 700; }
+        .school-title p { font-size: 0.9rem; margin: 0; opacity: 0.9; white-space: nowrap; }
+        .header-flag-corner { height: 60px; width: auto; margin-left: 1rem; flex-shrink: 0; }
+        nav ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; }
         nav ul li { margin-left: 5px; }
         nav ul li:first-child { margin-left: 0; }
-        nav ul li a {
-            color: var(--light-text-color);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-            padding: 8px 14px;
-            border-radius: var(--border-radius);
-            display: block;
-        }
-        nav ul li a:hover,
-        nav ul li a:focus,
-        nav ul li a.active {
-            color: var(--primary-color);
-            background-color: #fff;
-            transform: translateY(-2px);
-        }
-
-        .hamburger {
-            display: none; background: transparent; border: none;
-            color: var(--light-text-color); font-size: 2.2rem; cursor: pointer;
-            padding: 5px; line-height: 1;
-        }
-
-        /* Dropdown Styles START */
-        nav ul li.dropdown {
-          position: relative;
-          display: inline-block;
-        }
-
-        nav ul li.dropdown .dropbtn .fa-caret-down,
-        nav ul li.dropdown .dropbtn .fa-caret-up {
-          margin-left: 5px;
-          transition: transform 0.3s ease;
-        }
-        nav ul li.dropdown.open .dropbtn .fa-caret-down {
-            transform: rotate(180deg);
-        }
-
-
-        nav ul li.dropdown .dropdown-content {
-          display: none;
-          position: absolute;
-          background-color: rgba(0, 65, 128, 0.95); /* Slightly adjusted from header for distinction or match header */
-          min-width: 220px;
-          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-          z-index: 1001;
-          border-radius: var(--border-radius);
-          padding: 5px 0;
-          list-style: none;
-          margin-top: 2px; /* Small gap from parent */
-          left: 0; /* Align with parent */
-        }
-
-        nav ul li.dropdown .dropdown-content li {
-            margin-left: 0;
-            width:100%;
-        }
-        nav ul li.dropdown .dropdown-content li a {
-          padding: 10px 15px;
-          text-align: left;
-          font-size: 0.95rem;
-          border-radius: 0; /* No individual radius for items */
-          white-space: nowrap;
-        }
-        nav ul li.dropdown .dropdown-content li a:hover,
-        nav ul li.dropdown .dropdown-content li a:focus,
-        nav ul li.dropdown .dropdown-content li a.active { /* Active state for dropdown children */
-          background-color: var(--accent-color);
-          color: var(--text-color);
-          transform: none;
-        }
-        /* Show dropdown on hover for desktop */
-        @media (min-width: 769px) {
-            nav ul li.dropdown:hover .dropdown-content {
-              display: block;
-            }
-        }
-        /* Dropdown Styles END */
-
-
-        @media (min-width: 769px) {
-            body {
-                 background-attachment: fixed;
-            }
-             body::before {
-                position: fixed;
-            }
-        }
-
-        @media (max-width: 1024px) {
-             .school-title h1 { font-size: 1.5rem;}
-             .school-title p { font-size: 0.8rem;}
-             nav ul li a { font-size: 0.9rem; padding: 8px 10px;}
-             .header-logo-corner { height: 60px; width: 60px; }
-             .header-flag-corner { height: 50px; }
-             .school-title { margin-right: 1rem; }
-             nav ul li.dropdown .dropdown-content { min-width: 200px; } /* Adjust for smaller screens */
-        }
-
-        @media (max-width: 768px) {
-            body {
-                background-image: url('Docs/images/hero.jpg') !important;
-                background-size: cover !important;
-                background-position: center center !important;
-                background-attachment: scroll !important;
-                background-repeat: no-repeat !important;
-            }
-            body::before {
-                position: absolute;
-            }
-
-            header > .container {
-                flex-direction: column;
-                align-items: center;
-                padding-top: 0.5rem;
-                padding-bottom: 0.5rem;
-                position: relative;
-            }
-            .header-logo-corner { margin-right: 0; margin-bottom: 0.75rem; height: 60px; width: 60px; }
-            .header-center-content { flex-direction: column; align-items: center; width: 100%; margin-bottom: 0.5rem; }
-            .school-title { flex-direction: column; text-align: center; margin-right: 0; margin-bottom: 1rem; }
-            .school-title h1 { font-size: 1.7rem; white-space: normal; }
-            .school-title p { font-size: 0.85rem; white-space: normal; }
-            nav { width: 100%; text-align: center; }
-            nav ul {
-                flex-direction: column; display: none; width: 100%;
-                background: rgba(0, 74, 147, 0.95);
-                backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
-                margin-top: 0; padding: 10px 0; border-radius: var(--border-radius);
-            }
-            nav ul.show { display: flex; }
-            nav ul li { margin: 0; width: 100%; /* Full width for li items */ }
-            nav ul li a { padding: 12px; width: 90%; margin: 5px auto; /* Centered links */ }
-
-            /* Mobile Dropdown Styles */
-            nav ul li.dropdown .dropbtn {
-                display: flex; /* Enable flex to position caret */
-                justify-content: space-between; /* Push caret to one side */
-                align-items: center;
-            }
-            nav ul li.dropdown .dropdown-content {
-                position: static; /* Override absolute positioning */
-                display: none; /* Hidden by default, JS toggles */
-                background-color: transparent; /* Inherit or slightly different */
-                box-shadow: none;
-                padding-left: 0; /* No extra indent needed if items are centered */
-                width: 100%;
-            }
-            nav ul li.dropdown.open .dropdown-content { display: block; } /* Show when .open class is added by JS */
-            nav ul li.dropdown .dropdown-content li a {
-                width: 85%; /* Slightly narrower than main nav links */
-                margin: 5px auto;
-                background-color: rgba(0, 50, 100, 0.5); /* Subtly different background */
-                font-size: 0.9rem;
-            }
-
-            .header-flag-corner { display: none; }
-            .hamburger { display: block; position: absolute; top: 1rem; right: 1.5rem; }
-        }
-
+        nav ul li a { color: var(--light-text-color); text-decoration: none; font-weight: 600; font-size: 1rem; transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease; padding: 8px 14px; border-radius: var(--border-radius); display: block; }
+        nav ul li a:hover, nav ul li a:focus, nav ul li a.active { color: var(--primary-color); background-color: #fff; transform: translateY(-2px); }
+        .hamburger { display: none; background: transparent; border: none; color: var(--light-text-color); font-size: 2.2rem; cursor: pointer; padding: 5px; line-height: 1; }
+        nav ul li.dropdown { position: relative; display: inline-block; }
+        nav ul li.dropdown .dropbtn .fa-caret-down, nav ul li.dropdown .dropbtn .fa-caret-up { margin-left: 5px; transition: transform 0.3s ease; }
+        nav ul li.dropdown.open .dropbtn .fa-caret-down { transform: rotate(180deg); }
+        nav ul li.dropdown .dropdown-content { display: none; position: absolute; background-color: rgba(0, 65, 128, 0.95); min-width: 220px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1001; border-radius: var(--border-radius); padding: 5px 0; list-style: none; margin-top: 2px; left: 0; }
+        nav ul li.dropdown .dropdown-content li { margin-left: 0; width:100%; }
+        nav ul li.dropdown .dropdown-content li a { padding: 10px 15px; text-align: left; font-size: 0.95rem; border-radius: 0; white-space: nowrap; }
+        nav ul li.dropdown .dropdown-content li a:hover, nav ul li.dropdown .dropdown-content li a:focus, nav ul li.dropdown .dropdown-content li a.active { background-color: var(--accent-color); color: var(--text-color); transform: none; }
+        @media (min-width: 769px) { nav ul li.dropdown:hover .dropdown-content { display: block; } }
+        @media (min-width: 769px) { body { background-attachment: fixed; } body::before { position: fixed; } }
+        @media (max-width: 1024px) { .school-title h1 { font-size: 1.5rem;} .school-title p { font-size: 0.8rem;} nav ul li a { font-size: 0.9rem; padding: 8px 10px;} .header-logo-corner { height: 60px; width: 60px; } .header-flag-corner { height: 50px; } .school-title { margin-right: 1rem; } nav ul li.dropdown .dropdown-content { min-width: 200px; } }
+        @media (max-width: 768px) { body { background-image: url('Docs/images/hero.jpg') !important; background-size: cover !important; background-position: center center !important; background-attachment: scroll !important; background-repeat: no-repeat !important; } body::before { position: absolute; } header > .container { flex-direction: column; align-items: center; padding-top: 0.5rem; padding-bottom: 0.5rem; position: relative; } .header-logo-corner { margin-right: 0; margin-bottom: 0.75rem; height: 60px; width: 60px; } .header-center-content { flex-direction: column; align-items: center; width: 100%; margin-bottom: 0.5rem; } .school-title { flex-direction: column; text-align: center; margin-right: 0; margin-bottom: 1rem; } .school-title h1 { font-size: 1.7rem; white-space: normal; } .school-title p { font-size: 0.85rem; white-space: normal; } nav { width: 100%; text-align: center; } nav ul { flex-direction: column; display: none; width: 100%; background: rgba(0, 74, 147, 0.95); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); margin-top: 0; padding: 10px 0; border-radius: var(--border-radius); } nav ul.show { display: flex; } nav ul li { margin: 0; width: 100%; } nav ul li a { padding: 12px; width: 90%; margin: 5px auto; } nav ul li.dropdown .dropbtn { display: flex; justify-content: space-between; align-items: center; } nav ul li.dropdown .dropdown-content { position: static; display: none; background-color: transparent; box-shadow: none; padding-left: 0; width: 100%; } nav ul li.dropdown.open .dropdown-content { display: block; } nav ul li.dropdown .dropdown-content li a { width: 85%; margin: 5px auto; background-color: rgba(0, 50, 100, 0.5); font-size: 0.9rem; } .header-flag-corner { display: none; } .hamburger { display: block; position: absolute; top: 1rem; right: 1.5rem; } }
         section { padding: 60px 0; text-align: center; background-color: transparent !important; position: relative; }
         section h2 { font-size: 2.6rem; font-weight: var(--heading-font-weight); margin-bottom: 40px; color: var(--light-text-color); position: relative; display: inline-block; padding-bottom: 10px; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
         section h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background-color: var(--accent-color); border-radius: 2px; }
         section > .container > p:not(.content-panel p) { margin-bottom: 20px; font-size: 1.15rem; max-width: 750px; margin-left: auto; margin-right: auto; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
-        .content-panel { background: var(--light-bg-panel); color: var(--text-color); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--card-shadow); margin-bottom: 30px; text-align: left; }
+        section.has-custom-bg > .container > h2, section.has-custom-bg > .container > p.intro-text { position: relative; z-index: 1; color: var(--light-text-color) !important; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        section.has-custom-bg > .container > h2::after { z-index: 1; }
+        .content-panel { background: var(--light-bg-panel); color: var(--text-color); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--card-shadow); margin-bottom: 30px; text-align: left; position:relative; z-index: 1; }
         .content-panel-centered { text-align: center; }
         .content-panel h3 { font-size: 1.8rem; font-weight: 600; margin-top: 0; margin-bottom: 15px; color: var(--primary-color); }
         .content-panel p, .content-panel ul { font-size: 1.05rem; margin-bottom: 15px; color: var(--text-color); }
@@ -331,41 +78,35 @@
         .content-panel ul li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--primary-color); position: absolute; left: 0; top: 4px; font-size: 0.9em; }
         .content-panel a { color: var(--secondary-color); text-decoration: none; font-weight: 500; }
         .content-panel a:hover { text-decoration: underline; }
-        .hero { padding: 120px 0 80px 0; }
-        .hero h2 { color: var(--light-text-color); font-size: 3.2rem; font-weight: 700; margin-bottom: 25px; text-shadow: 0 2px 5px rgba(0,0,0,0.4); }
-        .hero h2::after { display: none; }
-        .hero p { font-size: 1.4rem; margin-bottom: 45px; opacity: 0.95; color: var(--light-text-color); text-shadow: 0 1px 3px rgba(0,0,0,0.3); max-width: 750px; margin-left: auto; margin-right: auto; }
+        .hero { padding: 120px 0 80px 0; } .hero h2 { color: var(--light-text-color); font-size: 3.2rem; font-weight: 700; margin-bottom: 25px; text-shadow: 0 2px 5px rgba(0,0,0,0.4); }
+        .hero h2::after { display: none; } .hero p { font-size: 1.4rem; margin-bottom: 45px; opacity: 0.95; color: var(--light-text-color); text-shadow: 0 1px 3px rgba(0,0,0,0.3); max-width: 750px; margin-left: auto; margin-right: auto; }
         .btn { display: inline-block; background: var(--accent-color); color: var(--text-color) !important; padding: 14px 30px; text-decoration: none; border-radius: var(--border-radius); font-weight: 600; transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; font-size: 1.15rem; border: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .btn:hover, .btn:focus { background: #e0a800; transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
-        #about .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
+        #about .intro-text { margin-bottom: 30px; font-size: 1.15rem;}
         #about .content-panel ul li::before { color: var(--secondary-color); }
         .btn-toggle-history { background-color: var(--secondary-color) !important; color: white !important; }
-
         #historical-background-panel { background-image: url('Docs/images/yogdankarta.jpg'); background-size: contain; background-position: center center; background-repeat: no-repeat; position: relative; color: var(--light-text-color); z-index: 0; text-align: left; }
         #historical-background-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.75); border-radius: var(--border-radius); z-index: -1; }
         #historical-background-panel > * { position: relative; z-index: 1; }
         #historical-background-panel h3 { color: var(--accent-color); text-shadow: 1px 1px 4px rgba(0,0,0,0.7); }
         #historical-background-panel p, #historical-background-panel .history-content p, #historical-background-panel .history-more p { color: var(--light-text-color) !important; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
-
-        #academics .intro-text, #staffs .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
+        #academics { background-image: url('Docs/images/edu.jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; position: relative; z-index: 0; }
+        #academics::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); z-index: -1; }
+        #staffs .intro-text, #news .intro-text, #admissions .intro-text, #gallery .intro-text, #contact .intro-text { color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem; margin-bottom:30px; }
         #academics .content-panel strong { color: var(--primary-color); display: block; margin-bottom: 8px; font-size: 1.1em;}
         #academics .content-panel ul ul { margin-left: 20px; margin-top: 10px; padding-left: 0; }
         #academics .content-panel ul ul li::before { content: "\f105"; color: var(--secondary-color); }
-        #news .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
         #news article { background: var(--light-bg-panel); color: var(--text-color); padding: 25px; margin-bottom: 25px; border-radius: var(--border-radius); box-shadow: var(--card-shadow); text-align: left; transition: transform 0.2s ease, box-shadow 0.2s ease; }
         #news article:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.12); }
         #news article h3 { font-size: 1.5rem; color: var(--primary-color); margin-top: 0; margin-bottom: 10px; }
         #news article p { font-size: 1rem; margin-bottom: 15px; color: var(--text-color); }
         #news article a { color: var(--secondary-color); text-decoration: none; font-weight: 600; }
         #news article a:hover { text-decoration: underline; }
-        #admissions .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
-        #gallery .intro-text { margin-bottom: 40px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2);font-size: 1.15rem;}
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 0; }
         .gallery-grid .gallery-item { border-radius: var(--border-radius); overflow: hidden; background: rgba(255,255,255,0.1); box-shadow: 0 3px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
         .gallery-grid .gallery-item:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 8px 18px rgba(0,0,0,0.15); }
         .gallery-grid img { display: block; width: 100%; height: 220px; object-fit: cover; transition: transform 0.4s ease; }
         .gallery-grid .gallery-item:hover img { transform: scale(1.05); }
-        #contact .intro-text { margin-bottom: 30px; color: var(--light-text-color); text-shadow: 0 1px 2px rgba(0,0,0,0.2); font-size: 1.15rem;}
         .contact-details { background: var(--light-bg-panel); color: var(--text-color); padding: 35px; border-radius: var(--border-radius); box-shadow: var(--card-shadow); text-align: left; max-width: 700px; width: 100%; margin-left: auto; margin-right: auto; margin-bottom: 30px; }
         .contact-details p { font-size: 1.1rem; margin-bottom: 12px; color: var(--text-color); }
         .contact-details p strong { color: var(--primary-color); }
@@ -388,26 +129,134 @@
         .developer-tag a { color: #95a5a6; text-decoration: none; font-weight: 500; }
         .developer-tag a:hover { color: var(--accent-color); text-decoration: underline; }
 
+
+        /* NEW CSS for "विद्यालय स्थापनामा विशेष योगदान" section based on screenshot */
+        #contribution-panel { /* ID for the outer content-panel specific to contribution */
+            padding: 20px; /* Adjust panel padding if needed */
+        }
+
+        #contribution-panel h3 { /* The main title "विद्यालय स्थापनामा विशेष योगदान" */
+            text-align: center;
+            color: var(--primary-color); /* As it was */
+            margin-bottom: 25px;
+        }
+
+        .contributor-highlight-box {
+            background-color: var(--yogdan-highlight-bg); /* Light yellow-greenish */
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 20px; /* Space between text column and image column */
+            align-items: flex-start; /* Align items to the top */
+        }
+
+        .contributor-text-column {
+            flex: 2; /* Takes more space */
+            min-width: 280px; /* Minimum width before wrapping */
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between text elements */
+        }
+
+        .contributor-image-column {
+            flex: 1; /* Takes less space */
+            min-width: 200px; /* Minimum width for image column */
+            display: flex;
+            justify-content: center; /* Center image if column is wider */
+            align-items: center;
+        }
+
+        .contribution-lead-wrapper {
+            display: flex; /* To position the "arrow" and text */
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .contribution-lead-arrow { /* Simple "arrow" */
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 15px solid #b71c1c; /* Dark red for arrow */
+            margin-right: 10px;
+        }
+
+        .contribution-lead-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #0000CD; /* MediumBlue color, adjust as needed */
+        }
+
+
+        .contributor-name-box {
+            border: 2px solid #d32f2f; /* Red border */
+            border-radius: var(--border-radius);
+            padding: 8px 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #212121; /* Dark gray text */
+            background-color: #fff; /* White background inside the box */
+            align-self: flex-start; /* Don't stretch full width */
+            font-size:1.1rem;
+        }
+
+        .contribution-details {
+            font-size: 1.05rem;
+            color: #6a1b9a; /* Dark purple/maroon for details */
+            line-height: 1.8;
+        }
+        .contribution-details .highlight-red { /* For school name if needed */
+            color: #c62828; /* Red highlight */
+            font-weight: bold;
+        }
+
+        .contributor-statue-image {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #d32f2f; /* Red border */
+            border-radius: 12px; /* More rounded corners */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            object-fit: cover; /* Ensures image covers if dimensions are fixed, but height is auto */
+        }
+         @media (max-width: 768px) {
+            .contributor-highlight-box {
+                flex-direction: column; /* Stack columns on mobile */
+                align-items: center; /* Center items when stacked */
+            }
+            .contributor-text-column, .contributor-image-column {
+                flex: none; /* Reset flex grow/shrink */
+                width: 100%; /* Full width for stacked columns */
+                align-items: center; /* Center text content */
+                text-align: center;
+            }
+            .contribution-lead-wrapper {
+                justify-content: center;
+            }
+             .contributor-name-box {
+                 align-self: center;
+             }
+        }
+
+
     </style>
 </head>
 <body>
     <header>
+        <!-- Header content as before -->
         <div class="container">
             <img src="Docs/images/logo.jpg" alt="श्री सार्वजनिक माध्यमिक विद्यालय लोगो" class="header-logo-corner">
-
             <div class="header-center-content">
                 <div class="school-title">
-                    <div>
-                        <h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1>
-                        <p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p>
-                    </div>
+                    <div><h1><span class="highlight">श्री</span> सार्वजनिक माध्यमिक विद्यालय</h1><p>केराबारी वडा नम्बर ७, डाँगी, मोरङ</p></div>
                 </div>
                 <nav>
                     <ul class="nav-list">
                         <li><a href="#home" class="active">मुख्य पृष्ठ</a></li>
                         <li><a href="#about">हाम्रो बारेमा</a></li>
-                        <li><a href="#staffs">शिक्षक तथा कर्मचारी</a></li> <!-- NEW STAFFS LINK -->
-                        <li class="dropdown"> <!-- DROPDOWN PARENT -->
+                        <li><a href="#staffs">शिक्षक तथा कर्मचारी</a></li>
+                        <li class="dropdown">
                             <a href="javascript:void(0);" class="dropbtn">जानकारी <i class="fas fa-caret-down"></i></a>
                             <ul class="dropdown-content">
                                 <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
@@ -420,11 +269,7 @@
                     </ul>
                 </nav>
             </div>
-
-            <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button">
-                <i class="fas fa-bars"></i>
-            </button>
-
+            <button class="hamburger" aria-label="Toggle navigation" id="hamburger-button"><i class="fas fa-bars"></i></button>
             <img src="Docs/images/WavingFlag.gif" alt="Waving Nepali Flag" class="header-flag-corner">
         </div>
     </header>
@@ -438,19 +283,37 @@
             </div>
         </section>
 
-        <section id="about">
+        <section id="about" class="has-custom-bg">
             <div class="container">
                 <h2>हाम्रो बारेमा</h2>
                 <p class="intro-text">श्री सार्वजनिक माध्यमिक विद्यालय मोरङ जिल्लाको केराबारी वडा नम्बर ७, डाँगीमा अवस्थित एक प्रतिष्ठित शैक्षिक संस्था हो।</p>
-                <div class="content-panel content-panel-centered" style="margin-bottom: 30px;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">विद्यालय स्थापनामा विशेष योगदान</h3>
-                    <img src="Docs/images/yogdankarta.jpg" alt="स्व. सीतादेवी ठाडामगरको योगदान" style="max-width: 100%; height: auto; border-radius: var(--border-radius); box-shadow: var(--card-shadow);">
+
+                <!-- UPDATED "विद्यालय स्थापनामा विशेष योगदान" Section -->
+                <div class="content-panel" id="contribution-panel">
+                    <h3>विद्यालय स्थापनामा विशेष योगदान</h3>
+                    <div class="contributor-highlight-box">
+                        <div class="contributor-text-column">
+                            <div class="contribution-lead-wrapper">
+                                <div class="contribution-lead-arrow"></div>
+                                <p class="contribution-lead-text">स्थानीय क्षेत्रमा शिक्षामा योगदान दिने व्यक्तित्व:</p>
+                            </div>
+                            <div class="contributor-name-box">स्व. सीतादेवी ठाडामगर</div>
+                            <p class="contribution-details">
+                                वि.स. २०२२ सालमा आफ्नो पति स्व. कृष्णबहादुर ठाडा मगरको पुण्य स्मृतिमा २ विगाहा जग्गा र २ कोठाको पाटी भवन दिएर <span class="highlight-red">श्री सार्वजनिक माध्यमिक विद्यालय</span> स्थापना गर्नुभएको ।
+                            </p>
+                        </div>
+                        <div class="contributor-image-column">
+                            <img src="Docs/images/yogdankarta.jpg" alt="स्व. सीतादेवी ठाडामगरको शालिक" class="contributor-statue-image">
+                        </div>
+                    </div>
                 </div>
+
                 <div class="content-panel" id="historical-background-panel">
                     <h3>विद्यालयको ऐतिहासिक पृष्ठभूमि</h3>
                     <div class="history-content">
                         <p>मोरङको केराबारी आफैंमा चिरपरिचित गा.पा हो । भौगोलिक आधारमा तीन चिरामा विभाजित यस गा.पा.को आ आनै विशेषता छ । त्यसमा पनि केराबारी गा.पा.–७ डाँगीको आफ्नै गरिमामय इतिहास छ ।</p>
                         <div class="history-more" style="display: none;">
+                           <!-- ... full history text from previous answers ... -->
                             <p>यस ठाउँलाई डाँगी नामाकरण कसरी गरियो भन्दा कुनै ऐतिहासिक शिलालेख नभएतापनि केराबारी गा.पा.का सबैभन्दा ज्येष्ठ नागरिक रहनुभएका र समाजको जिउँदो इतिहास बोक्नु भएका १०५ वर्षीय श्री अडिमर्दन थापाको भनाइ अनुसार वि.सं. १९५० मा यस क्षेत्रमा ठूलो घनाजङ्गल चारकोशे झाडी थियो । तत्कालीन समयमा मेहरमान डाँगी नामका एक व्यक्तिले पहिलो पटक यस ठाउँमा आई जङ्गल ढालफाँड गरी बसोबास गरेका कारण यस ठाउँको नाम मेहरमान डाँगी रहन गएको हो । पछिल्लो समयमा सरकारी कामकाज र बोलीचालीको रुपमा डाँगी शब्द मात्र प्रचारमा रहेको पाइन्छ ।</p>
                             <p>यस ठाउँमा पहिले औलोका कारणले गर्दा कम मात्रामा मानव बस्ती रहेको थियो । जब पछि औलो नियन्त्रण भयो, त्यसपछि यहाँ बिस्तारै धनकुटा जिल्लाका डाँडाबजार, राजारानी, मौनाबुधुक र ओख्रेबाट बढी मात्रामा बसाँइ सरी आउने सङ्ख्या बढ्दै गयो । यस ठाउँमा मगर, क्षेत्री, ब्राह्मण र गिरी थरका मानिसको बाहुल्यता रहेको छ । अन्य जातिहरूमा राई, लिम्बू, तामाङ, परियार, विश्वकर्माको पनि बसोबास रहेको  छ । यहाँ बहुजाति, बहुभाषिक र बहुधार्मिक समुदायको बसोबास रहेको छ ।</p>
                             <p>यसरी बस्ती विस्तार हुने क्रमसँगै वि.सं. २०१८ सालमा सीतादेवी ठाडामगरले आफ्ना पति स्व. कृष्णबहादुर ठाडामगरको स्मृतिमा बाटो हिँड्ने बटुवाका लागि राती बास बस्न सजिलो होस् भनी हाल विद्यालय भवन रहेको ठाउँमा २ कोठा भएको पाटी पौवा निर्माण गर्नुभएको थियो । त्यो बेलाको समयमा पाटी पौवा निर्माण गर्ने व्यक्तिको ठूलो गुनगान हुने र समाजसेवीको रुपमा गाउँघरमा पहिचान हुन्थ्यो । यो समाजमा सामाजिक प्रतिष्ठा भएका व्यक्तिहरूमध्येबाट समाजको नेतृत्व गर्ने समाजसेवी श्री जगतबहादुर घिमिरेको अगुवाइमा स्व. सीतादेवी ठाडामगरको सल्लाह र सहयोग लिई ३ कट्ठा जग्गामा रहेको २ कोठे पाटीपौवालाई विद्यालयमारुपान्तरण गरी वि.सं. २०२२ साल माघ १३ गतेका दिन शिक्षाको उज्यालो बत्ती बाल्दै पहिलो पटक शिक्षाको बिगुल फुक्ने काम भएको थियो । यस क्षेत्रको विकास, समाजको चेतनाको स्तर माथि उठाउनको लागि यस विद्यालयकोे इतिहासको जग बसेको हो ।</p>
@@ -473,6 +336,7 @@
                     <p><strong>भिजन:</strong> अग्रणी शैक्षिक केन्द्रको रूपमा स्थापित भई समुदायको शैक्षिक उन्नयनमा योगदान पुर्याउनु।</p>
                     <p><strong>मिशन:</strong> प्रत्येक विद्यार्थीमा अन्तर्निहित प्रतिभालाई प्रस्फुटन गराउँदै समग्र विकासमा सहयोग पुर्याउनु।</p>
                     <h3>हाम्रा विशेषताहरू</h3>
+                    <!-- ... Features list ... -->
                     <ul>
                         <li>अत्यन्त अनुभवी र समर्पित शिक्षक-शिक्षिकाहरू</li>
                         <li>विज्ञान, कम्प्युटर लगायतका आधुनिक प्रयोगशाला सुविधाहरू</li>
@@ -485,9 +349,9 @@
             </div>
         </section>
 
-        <!-- ACADEMICS Section -->
-        <section id="academics">
-            <div class="container">
+        <section id="academics" class="has-custom-bg">
+            <!-- Academics section as before -->
+             <div class="container">
                 <h2>शैक्षिक कार्यक्रमहरू</h2>
                 <p class="intro-text">हाम्रो विद्यालयमा नर्सरी देखि कक्षा १२ सम्मका शैक्षिक कार्यक्रमहरू राष्ट्रिय पाठ्यक्रम अनुसार नवीनतम शिक्षण विधि तथा प्रविधिको प्रयोग गरी संचालित छन्।</p>
                 <div class="content-panel">
@@ -509,9 +373,9 @@
             </div>
         </section>
 
-        <!-- ADMISSIONS Section -->
         <section id="admissions">
-            <div class="container">
+             <!-- Admissions content as before -->
+             <div class="container">
                 <h2>भर्ना प्रक्रिया</h2>
                 <p class="intro-text">श्री सार्वजनिक माध्यमिक विद्यालयमा नयाँ शैक्षिक सत्रका लागि भर्ना खुल्ला गरिएको छ।</p>
                 <div class="content-panel">
@@ -530,8 +394,8 @@
             </div>
         </section>
 
-        <!-- NEWS Section -->
         <section id="news">
+            <!-- News content as before -->
             <div class="container">
                 <h2>समाचार र सूचना</h2>
                 <p class="intro-text">विद्यालय सम्बन्धी ताजा खबर, कार्यक्रम, परीक्षा तालिका र अन्य महत्वपूर्ण सूचनाहरू।</p>
@@ -550,33 +414,20 @@
             </div>
         </section>
 
-        <!-- STAFFS Section - NEW -->
         <section id="staffs">
-            <div class="container">
+             <!-- Staffs content as before -->
+             <div class="container">
                 <h2>शिक्षक तथा कर्मचारी</h2>
                 <p class="intro-text">हाम्रो विद्यालयका समर्पित शिक्षक तथा कर्मचारीहरूको विवरण।</p>
                 <div class="content-panel">
                     <p style="text-align: center;">(शिक्षक तथा कर्मचारीहरूको विवरण यहाँ चाँडै उपलब्ध हुनेछ।)</p>
-                    <!-- Example Structure (can be uncommented and populated later):
-                    <div style="display:flex; flex-wrap:wrap; justify-content:space-around;">
-                        <div class="content-panel-centered" style="width:200px; margin:10px;">
-                            <img src="Docs/images/staff_placeholder.png" alt="शिक्षकको नाम" style="width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:10px;">
-                            <h4>[शिक्षकको नाम]</h4>
-                            <p>[पद]</p>
-                        </div>
-                         <div class="content-panel-centered" style="width:200px; margin:10px;">
-                            <img src="Docs/images/staff_placeholder.png" alt="कर्मचारीको नाम" style="width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:10px;">
-                            <h4>[कर्मचारीको नाम]</h4>
-                            <p>[पद]</p>
-                        </div>
-                    </div>
-                     -->
                 </div>
             </div>
         </section>
 
         <section id="gallery">
-            <div class="container">
+            <!-- Gallery content as before -->
+             <div class="container">
                 <h2>ग्यालरी</h2>
                 <p class="intro-text">हाम्रो विद्यालयका अविस्मरणीय पलहरू, शैक्षिक गतिविधिहरू र पूर्वाधारहरूको केही झलक।</p>
                 <div class="gallery-grid">
@@ -598,7 +449,8 @@
         </section>
 
         <section id="contact">
-            <div class="container">
+            <!-- Contact content as before -->
+             <div class="container">
                 <h2>सम्पर्क गर्नुहोस्</h2>
                 <p class="intro-text">हामी तपाईंको प्रश्न, प्रतिक्रिया, र सुझावहरू सुन्न सधैं तयार छौं।</p>
                 <div class="contact-details">
@@ -619,16 +471,11 @@
     </main>
 
     <footer>
+        <!-- Footer content as before -->
         <div class="container">
             <nav class="footer-nav">
                 <ul>
-                    <li><a href="#home">मुख्य पृष्ठ</a></li>
-                    <li><a href="#about">हाम्रो बारेमा</a></li>
-                    <!-- Footer nav can also be updated if needed, but keeping it simple for now -->
-                    <li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li>
-                    <li><a href="#news">समाचार/सूचना</a></li>
-                    <li><a href="#gallery">ग्यालरी</a></li>
-                    <li><a href="#contact">सम्पर्क</a></li>
+                    <li><a href="#home">मुख्य पृष्ठ</a></li><li><a href="#about">हाम्रो बारेमा</a></li><li><a href="#academics">शैक्षिक कार्यक्रमहरू</a></li><li><a href="#news">समाचार/सूचना</a></li><li><a href="#gallery">ग्यालरी</a></li><li><a href="#contact">सम्पर्क</a></li>
                 </ul>
             </nav>
             <div class="social-links">
@@ -645,6 +492,7 @@
     </footer>
 
     <script>
+        // JavaScript from previous correct answer
         document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.getElementById('hamburger-button');
             const navList = document.querySelector('header nav .nav-list');
@@ -662,35 +510,25 @@
                     }
                 });
 
-                // Close mobile nav and dropdowns when a link is clicked
                 navList.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (event) => {
-                        // Update active class for the clicked link
                         navList.querySelectorAll('a').forEach(navLink => navLink.classList.remove('active'));
                         link.classList.add('active');
-                        
-                        // If the clicked link is inside a dropdown, also mark its parent .dropbtn as active
                         if (link.closest('.dropdown-content')) {
                             const parentDropdownBtn = link.closest('.dropdown').querySelector('.dropbtn');
                             if (parentDropdownBtn) parentDropdownBtn.classList.add('active');
                         }
-
-
                         const href = link.getAttribute('href');
-                        // If it's not the dropdown toggle button itself
                         if (href && href !== 'javascript:void(0);' && href.startsWith('#') && href.length > 1) {
-                             // Close main mobile nav if open
                             if (navList.classList.contains('show')) {
                                 navList.classList.remove('show');
                                 const icon = hamburger.querySelector('i');
                                 icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
                                 hamburger.style.zIndex = "";
-                                // Close any open mobile dropdowns
                                 navList.querySelectorAll('li.dropdown.open').forEach(openDropdown => {
                                     openDropdown.classList.remove('open');
                                 });
                             }
-
                             event.preventDefault();
                             const targetSection = document.querySelector(href);
                             if (targetSection) {
@@ -704,15 +542,13 @@
                 });
             }
 
-            // Mobile dropdown toggle functionality
             const dropdownParents = document.querySelectorAll('nav ul li.dropdown');
             dropdownParents.forEach(dropdownParent => {
                 const dropbtn = dropdownParent.querySelector('.dropbtn');
                 if (dropbtn) {
                     dropbtn.addEventListener('click', function(event) {
-                        if (window.innerWidth <= 768) { // Only apply click toggle for mobile
-                            event.preventDefault(); // Prevent default for javascript:void(0)
-                            // Close other open dropdowns for accordion style behavior
+                        if (window.innerWidth <= 768) {
+                            event.preventDefault();
                             dropdownParents.forEach(otherDropdown => {
                                 if (otherDropdown !== dropdownParent) {
                                     otherDropdown.classList.remove('open');
@@ -723,7 +559,6 @@
                     });
                 }
             });
-
 
             const sections = document.querySelectorAll('main section[id]');
             const header = document.querySelector('header');
@@ -754,7 +589,6 @@
                     const href = a.getAttribute('href');
                     if (href && href.substring(1) === currentId) {
                         a.classList.add('active');
-                        // If this link is inside a dropdown, also activate its parent dropdown button
                         const parentDropdown = a.closest('li.dropdown');
                         if (parentDropdown) {
                             const parentDropbtn = parentDropdown.querySelector('.dropbtn');
